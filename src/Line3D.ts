@@ -8,10 +8,11 @@ export class Line3D extends Line3 {
     public declare start: Vec3;
     public declare end: Vec3;
 
-    #target = new Vec3();
+    readonly #target: Vec3;
 
     constructor(start: Vec3, end: Vec3) {
         super(start, end);
+        this.#target = new Vec3();
     }
 
     public static fromPoints(start: Point3, end: Point3): Line3D {

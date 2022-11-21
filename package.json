@@ -1,34 +1,44 @@
 {
-    "name": "@immugio/three-math-extensions",
-    "version": "0.0.1",
-    "description": "",
-    "author": "Jan Mikeska",
-    "license": "ISC",
-    "private": true,
-    "sideEffects": false,
-
-    "source": "src/index.ts",
-    "main": "cjs/index.js",
-    "module": "esm/index.js",
-    "types": "types/index.d.ts",
-
-    "scripts": {
-        "test": "npx jest",
-        "build:esm": "tsc",
-        "build:cjs": "tsc -p tsconfig-cjs.json",
-        "clean": "rimraf types cjs esm",
-        "build": "npm run clean && npm run build:esm && npm run build:cjs"
-    },
-    "devDependencies": {
-        "@types/jest": "^29.2.1",
-        "@types/three": "0.130.1",
-        "@types/offscreencanvas": "2019.7.0",
-        "jest": "^29.2.2",
-        "ts-jest": "^29.0.0",
-        "typescript": "4.7.4",
-        "rimraf": "^3.0.2"
-    },
-    "peerDependencies": {
-        "three": "^0.130.1"
-    }
+  "name": "@immugio/three-math-extensions",
+  "version": "0.0.3",
+  "description": "Set of utilities for 2d and 3d line math built on top of threejs",
+  "author": "Jan Mikeska",
+  "license": "ISC",
+  "sideEffects": false,
+  "source": "src/index.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "npx jest",
+    "build:esm": "tsc",
+    "build:cjs": "tsc -p tsconfig-cjs.json",
+    "clean": "rimraf types cjs esm",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.2.1",
+    "@types/three": "0.130.1",
+    "@types/offscreencanvas": "2019.7.0",
+    "jest": "^29.2.2",
+    "ts-jest": "^29.0.0",
+    "typescript": "4.7.4",
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "three": "^0.130.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Immugio/three-math-extensions.git"
+  },
+  "keywords": [
+    "threejs",
+    "three",
+    "math"
+  ],
+  "bugs": {
+    "url": "https://github.com/Immugio/three-math-extensions/issues"
+  },
+  "homepage": "https://github.com/Immugio/three-math-extensions#readme"
 }
