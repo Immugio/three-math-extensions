@@ -1,12 +1,12 @@
 import { Vector3 } from "three";
 import { Vec2 } from "./Vec2";
-import { Point } from "./Point";
+import { Point3 } from "./Point3";
 
 export class Vec3 extends Vector3 {
 
     #target: Vector3;
 
-    public static fromPoint(point: Point): Vec3 {
+    public static fromPoint(point: Point3): Vec3 {
         return new Vec3(point.x, point.y, point.z);
     }
 

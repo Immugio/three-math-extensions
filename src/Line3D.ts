@@ -1,6 +1,7 @@
 ﻿import { Line3, Vector3 } from "three";
 import { Vec3 } from "./Vec3";
-import { Point } from "./Point";
+import { Point3 } from "./Point3";
+import { Line2D } from "./Line2D";
 
 export class Line3D extends Line3 {
 
@@ -13,7 +14,7 @@ export class Line3D extends Line3 {
         super(start, end);
     }
 
-    public static fromPoints(start: Point, end: Point): Line3D {
+    public static fromPoints(start: Point3, end: Point3): Line3D {
         return new Line3D(new Vec3(start.x, start.y, start.z), new Vec3(end.x, end.y, end.z));
     }
 
@@ -178,7 +179,7 @@ export class Line3D extends Line3 {
     }
 
     /**
-     * Returns true if there is any overlap between this line and the @other line.
+     * Returns true if there is any overlap between this line and the @other line section.
      * @param other
      * @param distanceTolerance
      * @param parallelTolerance
@@ -265,6 +266,7 @@ export class Line3D extends Line3 {
         return this;
     }
 
+    /** Returns the start and end points of the line as an array. */
     public get endpoints(): Vec3[] {
         return [this.start, this.end];
     }
@@ -422,9 +424,9 @@ export class Line3D extends Line3 {
     /**
      * Project the line to 2D space, Y value is dropped
      */
-    // public onPlan(): Line {
-    //     return new Line(this.start.x, this.start.z, this.end.x, this.end.z);
-    // }
+    public onPlan(): Line2D {
+        return new Line2D(this.start.onPlan(), this.end.onPlan());
+    }
 
     /**
      * Equals with tolerance
