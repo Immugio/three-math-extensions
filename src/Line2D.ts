@@ -15,15 +15,26 @@ export class Line2D {
         return new Line2D(new Vec2(p1.x, p1.y), new Vec2(p2.x, p2.y), index);
     }
 
-    public static fromPolygon(polygon: Point2[]): Line2D[] {
-        if (polygon[0].x === polygon[polygon.length - 1].x && polygon[0].y === polygon[polygon.length - 1].y) {
-            polygon = polygon.slice(0, polygon.length - 1);
+    /**
+     * Creates a polygon formed by an array of lines from points provided.
+     * The polygon will only be closed if either
+     * 1) the first and last points are the same or 2) `forceClosedPolygon` is true.
+     */
+    public static fromPolygon(polygon: Point2[], forceClosedPolygon: boolean = false): Line2D[] {
+        if (!polygon || polygon.length < 2) {
+            return [];
         }
 
-        return polygon.map((p, i) => {
-            const next = polygon[(i + 1) % polygon.length];
-            return Line2D.fromPoints(p, next, i);
-        });
+        if (forceClosedPolygon && (polygon[0].x !== polygon.at(-1).x || polygon[0].y !== polygon.at(-1).y)) {
+            polygon = [...polygon, polygon[0]];
+        }
+
+        const lines: Line2D[] = [];
+        for (let i = 0; i < polygon.length - 1; i++) {
+            lines.push(Line2D.fromPoints(polygon[i], polygon[i + 1], i));
+        }
+
+        return lines;
     }
 
     public static fromLength(length: number): Line2D {
@@ -111,6 +122,15 @@ export class Line2D {
 
     public get length(): number {
         return this.start.distanceTo(this.end);
+    }
+
+    /**
+     * Set the length of this line. Center and direction remain unchanged.
+     * @param length
+     */
+    public setLength(length: number): this {
+        this.length = length;
+        return this;
     }
 
     /**

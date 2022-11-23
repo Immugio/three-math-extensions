@@ -10,6 +10,35 @@ describe("Line3d", () => {
         expect(line.end).toEqual(new Vec3(4, 5, 6));
     });
 
+    it("should create a single line polygon from a 2 points polygon", () => {
+        const start = new Vec3(1, 2, 20);
+        const end = new Vec3(3, 4, 20);
+        const lines = Line3D.fromPolygon([start, end]);
+        expect(lines.length).toEqual(1);
+        expect(lines[0]).toEqual(new Line3D(start, end));
+    });
+
+    it("should create a 2 lines polygon from a 3 points polygon", () => {
+        const p1 = new Vec3(1, 2, 20);
+        const p2 = new Vec3(3, 4, 20);
+        const p3 = new Vec3(5, 2, 20);
+        const lines = Line3D.fromPolygon([p1, p2, p3]);
+        expect(lines.length).toEqual(2);
+        expect(lines[0]).toEqual(new Line3D(p1, p2));
+        expect(lines[1]).toEqual(new Line3D(p2, p3));
+    });
+
+    it("should create a closed 3 lines polygon from a 3 points polygon", () => {
+        const p1 = new Vec3(1, 2, 20);
+        const p2 = new Vec3(3, 4, 20);
+        const p3 = new Vec3(5, 2, 20);
+        const lines = Line3D.fromPolygon([p1, p2, p3], true);
+        expect(lines.length).toEqual(3);
+        expect(lines[0]).toEqual(new Line3D(p1, p2));
+        expect(lines[1]).toEqual(new Line3D(p2, p3));
+        expect(lines[2]).toEqual(new Line3D(p3, p1));
+    });
+
     it("should return the expected center", () => {
         const line = defaultLine();
         expect(line.center).toEqual(new Vec3(0, 0, 0));

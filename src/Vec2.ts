@@ -1,8 +1,10 @@
 import { Vector2 } from "three";
+import { Vec3 } from "./Vec3";
+import { Point2 } from "./Point2";
 
 export class Vec2 extends Vector2 {
 
-    public static fromPoint(point: { x: number, y: number }): Vec2 {
+    public static fromPoint(point: Point2): Vec2 {
         return new Vec2(point.x, point.y);
     }
 
@@ -14,5 +16,9 @@ export class Vec2 extends Vector2 {
             this.y = Math.round(this.y);
         }
         return this;
+    }
+
+    public in3DSpace(z: number = 0): Vec3 {
+        return new Vec3(this.x, z, this.y);
     }
 }

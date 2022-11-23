@@ -20,6 +20,28 @@ export class Line3D extends Line3 {
     }
 
     /**
+     * Creates a polygon formed by an array of lines from points provided.
+     * The polygon will only be closed if either
+     * 1) the first and last points are the same or 2) `forceClosedPolygon` is true.
+     */
+    public static fromPolygon(polygon: Point3[], forceClosedPolygon: boolean = false): Line3D[] {
+        if (!polygon || polygon.length < 2) {
+            return [];
+        }
+
+        if (forceClosedPolygon && (polygon[0].x !== polygon.at(-1).x || polygon[0].y !== polygon.at(-1).y || polygon[0].z !== polygon.at(-1).z)) {
+            polygon = [...polygon, polygon[0]];
+        }
+
+        const lines: Line3D[] = [];
+        for (let i = 0; i < polygon.length - 1; i++) {
+            lines.push(Line3D.fromPoints(polygon[i], polygon[i + 1]));
+        }
+
+        return lines;
+    }
+
+    /**
      * Returns lines that are the result of clipping this line by the @other line.
      * Clips must be parallel to this line.
      * Clones the line, does not modify this.
