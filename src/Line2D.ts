@@ -573,6 +573,32 @@ export class Line2D {
     }
 
     /**
+     * If there is an intersection between this and other, this line is extended to the intersection point. Lines are assumed to be infinite.
+     * Modifies this line.
+     * @param other
+     * @param maxDistanceToIntersection
+     */
+    public extendToOrTrimAtIntersection(other: Line2D, maxDistanceToIntersection: number = Number.MAX_VALUE): Line2D {
+        const intersection = this.intersect(other);
+
+        if (intersection) {
+            const distanceToStart = this.start.distanceTo(intersection);
+            const distanceToEnd = this.end.distanceTo(intersection);
+
+            if (distanceToStart <= maxDistanceToIntersection || distanceToEnd <= maxDistanceToIntersection) {
+                if (distanceToStart < distanceToEnd) {
+                    this.start.copy(intersection);
+
+                } else {
+                    this.end.copy(intersection);
+                }
+            }
+        }
+
+        return this;
+    }
+
+    /**
      * Returns the intersection point of two lines. The lines are assumed to be infinite.
      */
     public intersect(other: Line2D): Vec2 {
