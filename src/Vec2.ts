@@ -21,4 +21,12 @@ export class Vec2 extends Vector2 {
     public in3DSpace(z: number = 0): Vec3 {
         return new Vec3(this.x, z, this.y);
     }
+
+    public isNear(v: Vector2, maxDistance: number = undefined): boolean {
+        if (!maxDistance) {
+            return this.equals(v);
+        }
+
+        return this.distanceTo(v) <= maxDistance;
+    }
 }

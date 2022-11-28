@@ -64,6 +64,14 @@ export class Vec3 extends Vector3 {
         return new Vector3(this.x, 0, this.z).distanceTo(new Vector3(point.x, 0, point.z));
     }
 
+    public isNear(v: Vector3, maxDistance: number = undefined): boolean {
+        if (maxDistance === undefined) {
+            return this.equals(v);
+        }
+
+        return this.distanceTo(v) <= maxDistance;
+    }
+
     public clone(): this {
         return super.clone();
     }
