@@ -9,4 +9,10 @@ describe("Vec2", () => {
     ])(`%p isNear() to {"x": 0, "y": 0}, width maxDistance %p should return %p`, (v, maxDistance, expected) => {
         expect(v.isNear(new Vec2(0, 0), maxDistance)).toBe(expected);
     });
+
+    it("should move point towards target by the given amount", () => {
+        const v = new Vec2(0, 0);
+        v.moveTowards(new Vec2(10, 0), 1);
+        expect(v).toEqual(new Vec2(1, 0));
+    });
 });

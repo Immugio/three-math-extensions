@@ -8,6 +8,12 @@ export class Vec2 extends Vector2 {
         return new Vec2(point.x, point.y);
     }
 
+    public moveTowards(target: Vector2, amount: number): Vec2 {
+        const move = target.clone().sub(this).normalize().multiplyScalar(amount);
+        this.add(move);
+        return this;
+    }
+
     public roundIfCloseToInteger(max: number = 0.000000000001): this {
         if (Math.abs(this.x - Math.round(this.x)) < max) {
             this.x = Math.round(this.x);
