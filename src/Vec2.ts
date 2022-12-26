@@ -3,7 +3,7 @@ import { Vec3 } from "./Vec3";
 import { Point2 } from "./Point2";
 
 /**
- * Vec2 represents a 2D vector. It extends `Vector2` from the `three` library.
+ * Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
  */
 export class Vec2 extends Vector2 {
 
@@ -44,12 +44,12 @@ export class Vec2 extends Vector2 {
     }
 
     /**
-     * Projects this Vec2 instance to a Vec3 instance in 3D space.
-     * @param z - The z value of the new Vec3 instance.
+     * Projects this Vec2 instance to a Vec3 instance in 3D space. Vec2.y becomes Vec3.z. and Vec3.y is provided as an argument.
+     * @param y - The y value of the new Vec3 instance.
      * @returns A new Vec3 instance.
      */
-    public in3DSpace(z: number = 0): Vec3 {
-        return new Vec3(this.x, z, this.y);
+    public in3DSpace(y: number = 0): Vec3 {
+        return new Vec3(this.x, y, this.y);
     }
 
     /**
