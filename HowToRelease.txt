@@ -1,4 +1,6 @@
-## How to release:
+Update documentation:
+npx typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts --excludeExternals --excludeProtected --excludePrivate --githubPages false
+
 Before release
 - Ensure clean working directory
 - Ensure that the last release commit has a tag that matches the latest release number in the format "0.0.11". This step should have been completed in the previous release. It's only mentioned here in case it's for any reason missing.
