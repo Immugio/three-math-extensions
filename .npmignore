@@ -26,7 +26,6 @@ dist
 jest.config.js
 tsconfig.json
 tsconfig-cjs.json
-docs/**/*
 
 npm-debug.log*
 yarn-debug.log*
