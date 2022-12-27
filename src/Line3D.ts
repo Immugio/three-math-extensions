@@ -445,6 +445,64 @@ export class Line3D extends Line3 {
     }
 
     /**
+     * Calculates the intersection between this and `other` line. The lines are assumed to be infinite.
+     * In a lot of cases an actual intersection cannot be calculated due to rounding errors.
+     * Therefore, the intersection calculated by this method comes in a form of the shorted possible line segment connecting the two lines.
+     * Sources:
+     * http://paulbourke.net/geometry/pointlineplane/
+     * https://stackoverflow.com/questions/2316490/the-algorithm-to-find-the-point-of-intersection-of-two-3d-line-segment/2316934#2316934
+     * @param other
+     */
+    public intersect(other: Line3D): Line3D {
+        const p1: Vec3 = this.start.clone();
+        const p2: Vec3 = this.end.clone();
+
+        const p3: Vec3 = other.start.clone();
+        const p4: Vec3 = other.end.clone();
+
+        const p13: Vec3 = p1.clone().sub(p3);
+        const p43: Vec3 = p4.clone().sub(p3);
+
+        if (p43.lengthSq() <= Number.EPSILON) {
+            return null;
+        }
+
+        const p21 = p2.clone().sub(p1);
+        if (p21.lengthSq() <= Number.EPSILON) {
+            return null;
+        }
+
+        const d1343: number = p13.x * p43.x + p13.y * p43.y + p13.z * p43.z;
+        const d4321: number = p43.x * p21.x + p43.y * p21.y + p43.z * p21.z;
+        const d1321: number = p13.x * p21.x + p13.y * p21.y + p13.z * p21.z;
+        const d4343: number = p43.x * p43.x + p43.y * p43.y + p43.z * p43.z;
+        const d2121: number = p21.x * p21.x + p21.y * p21.y + p21.z * p21.z;
+
+        const denominator: number = d2121 * d4343 - d4321 * d4321;
+        if (Math.abs(denominator) <= Number.EPSILON) {
+            return null;
+        }
+        const numerator: number = d1343 * d4321 - d1321 * d4343;
+
+        const mua: number = numerator / denominator;
+        const mub: number = (d1343 + d4321 * (mua)) / d4343;
+
+        const resultSegmentPoint1 = new Vec3(
+            (p1.x + mua * p21.x),
+            (p1.y + mua * p21.y),
+            (p1.z + mua * p21.z)
+        );
+
+        const resultSegmentPoint2 = new Vec3(
+            (p3.x + mub * p43.x),
+            (p3.y + mub * p43.y),
+            (p3.z + mub * p43.z)
+        );
+
+        return new Line3D(resultSegmentPoint1, resultSegmentPoint2);
+    }
+
+    /**
      * Project the line to 2D space, Y value is dropped
      */
     public onPlan(): Line2D {

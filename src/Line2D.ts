@@ -644,6 +644,10 @@ export class Line2D {
         return null;
     }
 
+    public equals(other: Line2D): boolean {
+        return !!other && this.start.equals(other.start) && this.end.equals(other.end);
+    }
+
     /**
      * Deep clone of this line
      */
@@ -653,9 +657,5 @@ export class Line2D {
 
     public toString(): string {
         return `Line(${this.start.x}, ${this.start.y}, ${this.end.x}, ${this.end.y})`;
-    }
-
-    public equals(other: Line2D): boolean {
-        return !!other && this.start.equals(other.start) && this.end.equals(other.end);
     }
 }
