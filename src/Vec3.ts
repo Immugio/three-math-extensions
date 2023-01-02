@@ -15,7 +15,7 @@ export class Vec3 extends Vector3 {
      * @returns A new Vec3 instance.
      */
     public static fromPoint(point: Point3): Vec3 {
-        return new Vec3(point.x, point.y, point.z);
+        return new Vec3(point?.x, point?.y, point?.z);
     }
 
     /**

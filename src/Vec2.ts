@@ -13,7 +13,7 @@ export class Vec2 extends Vector2 {
      * @returns A new Vec2 instance.
      */
     public static fromPoint(point: Point2): Vec2 {
-        return new Vec2(point.x, point.y);
+        return new Vec2(point?.x, point?.y);
     }
 
     /**
