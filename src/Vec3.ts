@@ -3,7 +3,7 @@ import { Vec2 } from "./Vec2";
 import { Point3 } from "./Point3";
 
 /**
- * Vec3 represents a 2D vector. It extends `Vector3` from the `threejs` library.
+ * Vec3 represents a 3D vector. It extends `Vector3` from the `threejs` library.
  */
 export class Vec3 extends Vector3 {
 

@@ -67,7 +67,7 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec2.ts:51](https://github.com/Immugio/three-math-extensions/blob/70c8d5e/src/Vec2.ts#L51)
+[src/Vec2.ts:51](https://github.com/Immugio/three-math-extensions/blob/202901b/src/Vec2.ts#L51)
 
 ___
 
@@ -91,7 +91,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec2.ts:59](https://github.com/Immugio/three-math-extensions/blob/70c8d5e/src/Vec2.ts#L59)
+[src/Vec2.ts:59](https://github.com/Immugio/three-math-extensions/blob/202901b/src/Vec2.ts#L59)
 
 ___
 
@@ -116,7 +116,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:25](https://github.com/Immugio/three-math-extensions/blob/70c8d5e/src/Vec2.ts#L25)
+[src/Vec2.ts:25](https://github.com/Immugio/three-math-extensions/blob/202901b/src/Vec2.ts#L25)
 
 ___
 
@@ -140,7 +140,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:36](https://github.com/Immugio/three-math-extensions/blob/70c8d5e/src/Vec2.ts#L36)
+[src/Vec2.ts:36](https://github.com/Immugio/three-math-extensions/blob/202901b/src/Vec2.ts#L36)
 
 ___
 
@@ -164,4 +164,4 @@ A new Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:15](https://github.com/Immugio/three-math-extensions/blob/70c8d5e/src/Vec2.ts#L15)
+[src/Vec2.ts:15](https://github.com/Immugio/three-math-extensions/blob/202901b/src/Vec2.ts#L15)
