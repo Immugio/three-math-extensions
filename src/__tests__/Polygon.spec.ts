@@ -1,20 +1,19 @@
 import { Polygon } from "../Polygon";
-import { Size2 } from "../Size2";
 import { Vec2 } from "../Vec2";
 
 function samplePolygon() {
-    return Polygon.fromPoints([
-        { x: -100, y: 0 },
-        { x: 200, y: 0 },
-        { x: 200, y: 200 },
-        { x: -100, y: 200 },
+    return new Polygon([
+        new Vec2(-100, 0),
+        new Vec2(200, 0),
+        new Vec2(200, 200),
+        new Vec2(-100, 200),
     ]);
 }
 
 describe("Polygon", () => {
     test("returns correct size", () => {
         const polygon = samplePolygon();
-        expect(polygon.size).toEqual(new Size2(300, 200));
+        expect(polygon.size).toEqual(new Vec2(300, 200));
     });
 
     it("returns correct center", () => {

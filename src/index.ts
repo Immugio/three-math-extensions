@@ -4,3 +4,5 @@ export { Line2D } from "./Line2D";
 export { Line3D } from "./Line3D";
 export { Size2 } from "./Size2";
 export { Polygon } from "./Polygon";
+export { BoundingBox } from "./BoundingBox";
+export { Rectangle } from "./Rectangle";

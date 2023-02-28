@@ -1,19 +1,20 @@
 ﻿import { Point2 } from "./Point2";
 import { Vec2 } from "./Vec2";
-import { Size2 } from "./Size2";
+import { Rectangle } from "./Rectangle";
+import { BoundingBox } from "./BoundingBox";
 
 export class Polygon {
 
     constructor(public contour: Vec2[], public holes?: Vec2[][]) {
     }
 
-    public static fromPoints(contour: Point2[], holes?: Point2[][]) {
-        return new Polygon(contour.map(p => Vec2.fromPoint(p)), holes?.map(h => h.map(p => Vec2.fromPoint(p))));
+    public static fromPoints(contour: Point2[], holes?: Point2[][]): Polygon {
+        return new Polygon(contour.map(p => Vec2.fromPoint(p)), holes?.map(h => h.map(p => Vec2.fromPoint(p)))        );
     }
 
-    public get size(): Size2 {
-        const {minX, maxX, minY, maxY} = this.boundingBox();
-        return new Size2(maxX - minX, maxY - minY);
+    public get size(): Vec2 {
+        const { minX, maxX, minY, maxY } = this.boundingBox();
+        return new Vec2(maxX - minX, maxY - minY);
     }
 
     public centerOnOrigin(): Polygon {
@@ -36,7 +37,7 @@ export class Polygon {
     }
 
     public center(): Vec2 {
-        const {minX, maxX, minY, maxY} = this.boundingBox();
+        const { minX, maxX, minY, maxY } = this.boundingBox();
 
         const x = (maxX + minX) / 2;
         const y = (maxY + minY) / 2;
@@ -46,7 +47,7 @@ export class Polygon {
 
     public ensureLastPoint(): Polygon {
         function ensure(points: Vec2[]): void {
-            if (points[0].x !== points.at(-1).x || points[0].y !== points.at(-1).y) {
+            if (!points[0].equals(points.at(-1))) {
                 points.push(points[0].clone());
             }
         }
@@ -60,7 +61,7 @@ export class Polygon {
         return this;
     }
 
-    public boundingBox(): { minX: number, maxX: number, minY: number, maxY: number } {
+    public boundingBox(): BoundingBox {
         let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
 
         for (const p of this.contour) {
@@ -70,7 +71,7 @@ export class Polygon {
             if (maxY < p.y) maxY = p.y;
         }
 
-        return {minX, maxX, minY, maxY};
+        return new BoundingBox(minX, maxX, minY, maxY);
     }
 
     public toBoundingPolygon(): Polygon {
@@ -96,4 +97,47 @@ export class Polygon {
             point.x = point.x < centerX ? centerX + xDistanceToCenter : centerX - xDistanceToCenter;
         }
     }
+
+    public toRectangle(): Rectangle {
+        const bounding = this.boundingBox();
+        return new Rectangle(bounding.minX, bounding.maxX, bounding.minY, bounding.maxY);
+    }
+
+    public clone(): Polygon {
+        return new Polygon(this.contour.map(p => p.clone()), this.holes?.map(h => h.map(p => p.clone())));
+    }
+
+    public equals(other: Polygon): boolean {
+        if (this.contour.length !== other.contour.length) {
+            return false;
+        }
+
+        for (let i = 0; i < this.contour.length; i++) {
+            if (!this.contour[i].equals(other.contour[i])) {
+                return false;
+            }
+        }
+
+        if (this.holes?.length !== other.holes?.length) {
+            return false;
+        }
+
+        for (let i = 0; i < this.holes?.length; i++) {
+            const hole = this.holes[i];
+            const otherHole = other.holes[i];
+
+            if (hole.length !== otherHole.length) {
+                return false;
+            }
+
+            for (let j = 0; j < hole.length; j++) {
+                if (!hole[j].equals(otherHole[j])) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
 }
+
