@@ -1,6 +1,6 @@
 {
   "name": "@immugio/three-math-extensions",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Set of utilities for 2d and 3d line math built on top of three.js",
   "author": "Jan Mikeska <janmikeska@gmail.com>",
   "license": "ISC",
@@ -42,7 +42,7 @@
     "ts-jest": "^29.0.0",
     "typedoc": "^0.23.23",
     "typedoc-plugin-markdown": "^3.14.0",
-    "typescript": "4.7.4"
+    "typescript": "4.9.5"
   },
   "peerDependencies": {
     "three": ">=0.130.1"
