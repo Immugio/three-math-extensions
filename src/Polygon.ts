@@ -12,6 +12,15 @@ export class Polygon {
         return new Polygon(contour.map(p => Vec2.fromPoint(p)), holes?.map(h => h.map(p => Vec2.fromPoint(p)))        );
     }
 
+    public static fromSize(width: number, height: number): Polygon {
+        return new Polygon([
+            new Vec2(0, 0),
+            new Vec2(width, 0),
+            new Vec2(width, height),
+            new Vec2(0, height),
+        ]);
+    }
+
     public get size(): Vec2 {
         const { minX, maxX, minY, maxY } = this.boundingBox();
         return new Vec2(maxX - minX, maxY - minY);

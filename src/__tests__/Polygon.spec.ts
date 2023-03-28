@@ -11,7 +11,7 @@ function samplePolygon() {
 }
 
 describe("Polygon", () => {
-    test("returns correct size", () => {
+    it("returns correct size", () => {
         const polygon = samplePolygon();
         expect(polygon.size).toEqual(new Vec2(300, 200));
     });
@@ -21,7 +21,7 @@ describe("Polygon", () => {
         expect(polygon.center()).toEqual({ x: 50, y: 100 });
     });
 
-    test("centers itself", () => {
+    it("centers itself", () => {
         const polygon = samplePolygon().centerOnOrigin();
         const { minX, maxX, minY, maxY } = polygon.boundingBox();
         expect(maxX).toBe(-minX);
@@ -35,8 +35,23 @@ describe("Polygon", () => {
         expect(boundingPoly.contour).toEqual(samplePolygon().contour);
     });
 
-    test("ensures that first and last point match", () => {
+    it("ensures that first and last point match", () => {
         const polygon = samplePolygon().ensureLastPoint();
         expect(polygon.contour.at(-1)).toEqual(polygon.contour[0]);
+    });
+
+    it("returns a polygon from size", () => {
+        const width = 100;
+        const height = 200;
+        const polygon = Polygon.fromSize(width, height);
+        expect(polygon.contour).toEqual([
+            new Vec2(0, 0),
+            new Vec2(width, 0),
+            new Vec2(width, height),
+            new Vec2(0, height),
+        ]);
+
+        const boundingSize = polygon.toBoundingPolygon().size;
+        expect(boundingSize).toEqual(new Vec2(width, height));
     });
 });
