@@ -1,6 +1,7 @@
 import { Vector2 } from "three";
 import { Vec3 } from "./Vec3";
 import { Point2 } from "./Point2";
+import { normalizeAngleRadians } from "./normalizeAngleRadians";
 
 /**
  * Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
@@ -62,5 +63,13 @@ export class Vec2 extends Vector2 {
         }
 
         return this.distanceTo(v) <= maxDistance;
+    }
+
+    /**
+     * Returns the angle between this vector and positive x-axis, the return value is between 0 and 2PI
+     */
+    public signedAngle(): number {
+        const signed_angle = Math.atan2(this.y, this.x) - Math.atan2(0, 1);
+        return normalizeAngleRadians(signed_angle);
     }
 }

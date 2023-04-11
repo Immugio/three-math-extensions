@@ -6,3 +6,5 @@ export { Size2 } from "./Size2";
 export { Polygon } from "./Polygon";
 export { BoundingBox } from "./BoundingBox";
 export { Rectangle } from "./Rectangle";
+export { normalizeAngleDegrees } from "./normalizeAngleDegrees";
+export { normalizeAngleRadians } from "./normalizeAngleRadians";
