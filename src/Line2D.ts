@@ -65,7 +65,7 @@ export class Line2D {
      * Modifies this line.
      * @param value
      */
-    public setCenter(value: Point2): Line2D {
+    public setCenter(value: Point2): this {
         this.center = value;
         return this;
     }
@@ -74,7 +74,7 @@ export class Line2D {
     * Extends or reduces the line by the given length while keeping the center of the line constant.
     * Modifies this line.
     */
-    public resize(amount: number): Line2D {
+    public resize(amount: number): this {
         this.moveStartPoint(amount / 2);
         this.moveEndPoint(amount / 2);
         return this;
@@ -84,7 +84,7 @@ export class Line2D {
     * Moves start point on the line by the given amount. Plus values move the point further away from the center.
     * Modifies this line.
     */
-    public moveStartPoint(amount: number): Line2D {
+    public moveStartPoint(amount: number): this {
         const p1 = this.movePointOnThisLine(this.start, amount);
         this.start.copy(p1);
 
@@ -95,7 +95,7 @@ export class Line2D {
      * Moves end point on the line by the given amount. Plus values move the point further away from the center.
      * Modifies this line.
      */
-    public moveEndPoint(amount: number): Line2D {
+    public moveEndPoint(amount: number): this {
         const p2 = this.movePointOnThisLine(this.end, amount);
         this.end.copy(p2);
 
@@ -152,7 +152,7 @@ export class Line2D {
      * Inverts the direction of the line.
      * Modifies this line.
      */
-    public flip(): Line2D {
+    public flip(): this {
         const temp = this.start.clone();
         this.start.copy(this.end);
         this.end.copy(temp);
@@ -166,7 +166,7 @@ export class Line2D {
      * @param radians Positive values rotate counter-clockwise.
      * @param center
      */
-    public rotate(radians: number, center: Vec2 = this.center): Line2D {
+    public rotate(radians: number, center: Vec2 = this.center): this {
         this.start.rotateAround(center, radians);
         this.end.rotateAround(center, radians);
 
@@ -177,7 +177,7 @@ export class Line2D {
      * Move the line by the given vector.
      * Modifies this line.
      */
-    public translate(value: Point2): Line2D {
+    public translate(value: Point2): this {
         this.start.x += value.x;
         this.start.y += value.y;
         this.end.x += value.x;
@@ -190,7 +190,7 @@ export class Line2D {
      * Move the line to its left by the given amount.
      * Modifies this line.
      */
-    public translateLeft(amount: number): Line2D {
+    public translateLeft(amount: number): this {
         const translation = this.direction.rotateAround(new Vec2(), -Math.PI / 2).multiplyScalar(amount);
         return this.translate(translation);
     }
@@ -199,7 +199,7 @@ export class Line2D {
      * Move the line to its right by the given amount.
      * Modifies this line.
      */
-    public translateRight(amount: number): Line2D {
+    public translateRight(amount: number): this {
         const translation = this.direction.rotateAround(new Vec2(), Math.PI / 2).multiplyScalar(amount);
         return this.translate(translation);
     }
@@ -578,7 +578,7 @@ export class Line2D {
      * @param other
      * @param maxDistanceToIntersection
      */
-    public extendToOrTrimAtIntersection(other: Line2D, maxDistanceToIntersection: number = Number.MAX_VALUE): Line2D {
+    public extendToOrTrimAtIntersection(other: Line2D, maxDistanceToIntersection: number = Number.MAX_VALUE): this {
         const intersection = this.intersect(other);
 
         if (intersection) {

@@ -365,7 +365,7 @@ export class Line3D extends Line3 {
     /*
     * Moves start on the line by the given amount. Plus values move the point further away from the center.
     */
-    public moveStartPoint(amount: number): Line3D {
+    public moveStartPoint(amount: number): this {
         const start = this.movePointOnThisLine(this.start, amount);
         this.start.x = start.x;
         this.start.y = start.y;
@@ -377,7 +377,7 @@ export class Line3D extends Line3 {
     /*
     * Moves end on the line by the given amount in the current direction. Plus values move the point further away from the center.
     */
-    public moveEndPoint(amount: number): Line3D {
+    public moveEndPoint(amount: number): this {
         const end = this.movePointOnThisLine(this.end, amount);
         this.end.x = end.x;
         this.end.y = end.y;
