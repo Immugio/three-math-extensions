@@ -37,7 +37,7 @@
 
 #### Defined in
 
-[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/MathConstants.ts#L1)
+[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/151f214/src/MathConstants.ts#L1)
 
 ## Functions
 
@@ -59,7 +59,7 @@ Normalizes an angle in degrees to the range [0, 360].
 
 #### Defined in
 
-[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/normalizeAngleDegrees.ts#L5)
+[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/151f214/src/normalizeAngleDegrees.ts#L5)
 
 ___
 
@@ -81,4 +81,4 @@ Normalize an angle in radians to the range of 0 to 2π.
 
 #### Defined in
 
-[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/normalizeAngleRadians.ts#L7)
+[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/151f214/src/normalizeAngleRadians.ts#L7)

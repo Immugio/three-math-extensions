@@ -68,7 +68,7 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec2.ts:52](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L52)
+[src/Vec2.ts:52](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L52)
 
 ___
 
@@ -92,7 +92,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L60)
+[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L60)
 
 ___
 
@@ -117,7 +117,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:26](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L26)
+[src/Vec2.ts:26](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L26)
 
 ___
 
@@ -141,7 +141,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:37](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L37)
+[src/Vec2.ts:37](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L37)
 
 ___
 
@@ -157,7 +157,7 @@ Returns the angle between this vector and positive x-axis, the return value is b
 
 #### Defined in
 
-[src/Vec2.ts:71](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L71)
+[src/Vec2.ts:71](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L71)
 
 ___
 
@@ -181,4 +181,4 @@ A new Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L16)
+[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L16)

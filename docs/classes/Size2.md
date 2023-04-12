@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Size2.ts#L2)
 
 ## Properties
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Size2.ts#L2)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Size2.ts#L2)
