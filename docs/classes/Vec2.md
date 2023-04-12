@@ -22,6 +22,7 @@ Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
 - [isNear](Vec2.md#isnear)
 - [moveTowards](Vec2.md#movetowards)
 - [roundIfCloseToInteger](Vec2.md#roundifclosetointeger)
+- [signedAngle](Vec2.md#signedangle)
 - [fromPoint](Vec2.md#frompoint)
 
 ## Constructors
@@ -67,7 +68,7 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec2.ts:51](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec2.ts#L51)
+[src/Vec2.ts:52](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L52)
 
 ___
 
@@ -91,7 +92,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec2.ts:59](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec2.ts#L59)
+[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L60)
 
 ___
 
@@ -116,7 +117,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:25](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec2.ts#L25)
+[src/Vec2.ts:26](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L26)
 
 ___
 
@@ -140,7 +141,23 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:36](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec2.ts#L36)
+[src/Vec2.ts:37](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L37)
+
+___
+
+### signedAngle
+
+▸ **signedAngle**(): `number`
+
+Returns the angle between this vector and positive x-axis, the return value is between 0 and 2PI
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/Vec2.ts:71](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L71)
 
 ___
 
@@ -154,7 +171,7 @@ Creates a new Vec2 instance from an {x, y} object.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `point` | `Point2` | The {x, y} instance. |
+| `point` | [`Point2`](../interfaces/Point2.md) | The {x, y} instance. |
 
 #### Returns
 
@@ -164,4 +181,4 @@ A new Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:15](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec2.ts#L15)
+[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec2.ts#L16)

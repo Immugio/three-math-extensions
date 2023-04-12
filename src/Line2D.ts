@@ -1,6 +1,10 @@
 ﻿import { Point2 } from "./Point2";
 import { Vector2 } from "three";
 import { Vec2 } from "./Vec2";
+import { MathUtils } from "three";
+
+const _startP = /*@__PURE__*/ new Vec2();
+const _startEnd = /*@__PURE__*/ new Vec2();
 
 export class Line2D {
 
@@ -381,39 +385,34 @@ export class Line2D {
     }
 
     /**
-     * Returns the closest point parameter on the **infinite** line to the given point.
+     * Returns the closest point on the line to the given point.
      * @param point
+     * @param clampToLine boolean (optional)
+     * @param target Vec2 (optional)
      */
-    public closestPointToPointParameterOnInfiniteLine(point: Vector2): number {
-        const startP = new Vec2().subVectors(point, this.start);
-        const startEnd = new Vec2().subVectors(this.end, this.start);
-
-        const startEnd2 = startEnd.dot(startEnd);
-        const startEnd_startP = startEnd.dot(startP);
-
-        return startEnd_startP / startEnd2;
+    public closestPointToPoint(point: Vector2, clampToLine?: boolean, target?: Vec2): Vec2 {
+        const t = this.closestPointToPointParameter(point, clampToLine);
+        return this.delta(target || new Vec2()).multiplyScalar(t).add(this.start);
     }
 
-    /**
-     * Returns the closest point on the **infinite** line to the given point.
-     * @param point
-     */
-    public closestPointOnInfiniteLine(point: Vector2): Vec2 {
-        const t = this.closestPointToPointParameterOnInfiniteLine(point);
-        return new Vec2().subVectors(this.end, this.start).multiplyScalar(t).add(this.start);
+    public delta(target: Vec2): Vec2 {
+        return target.subVectors(this.end, this.start);
     }
 
-    /**
-     * Returns the closest point on the line **section** to the given point.
-     * @param point
-     */
-    public closestPointOnLine(point: Vector2): Vec2 {
-        const closestPoint = this.closestPointOnInfiniteLine(point);
-        if (this.isPointOnLineSection(closestPoint)) {
-            return closestPoint;
+    public closestPointToPointParameter(point, clampToLine): number {
+        _startP.subVectors(point, this.start);
+        _startEnd.subVectors(this.end, this.start);
+
+        const startEnd2 = _startEnd.dot(_startEnd);
+        const startEnd_startP = _startEnd.dot(_startP);
+
+        let t = startEnd_startP / startEnd2;
+
+        if (clampToLine) {
+            t = MathUtils.clamp(t, 0, 1);
         }
 
-        return closestPoint.distanceTo(this.start) < closestPoint.distanceTo(this.end) ? this.start : this.end;
+        return t;
     }
 
     /**
@@ -541,12 +540,12 @@ export class Line2D {
         }
 
         if (!this.isPointOnLineSection(lineToTrim.start)) {
-            const closest = this.closestPointOnLine(lineToTrim.start);
+            const closest = this.closestPointToPoint(lineToTrim.start, true);
             lineToTrim.start.copy(closest);
         }
 
         if (!this.isPointOnLineSection(lineToTrim.end)) {
-            const closest = this.closestPointOnLine(lineToTrim.end);
+            const closest = this.closestPointToPoint(lineToTrim.end, true);
             lineToTrim.end.copy(closest);
         }
     }

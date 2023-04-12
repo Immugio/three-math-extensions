@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L4)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L4)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L4)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L4)
 
 ___
 
@@ -80,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L4)
 
 ## Accessors
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:11](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L11)
+[src/BoundingBox.ts:11](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L11)
 
 ## Methods
 
@@ -114,4 +114,4 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:7](https://github.com/Immugio/three-math-extensions/blob/c004965/src/BoundingBox.ts#L7)
+[src/BoundingBox.ts:7](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/BoundingBox.ts#L7)

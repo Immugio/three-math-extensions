@@ -1,0 +1,1 @@
+export const TwoPI = 2 * Math.PI;

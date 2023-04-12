@@ -29,6 +29,7 @@
 - [toBoundingPolygon](Polygon.md#toboundingpolygon)
 - [toRectangle](Polygon.md#torectangle)
 - [fromPoints](Polygon.md#frompoints)
+- [fromSize](Polygon.md#fromsize)
 
 ## Constructors
 
@@ -45,7 +46,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L8)
 
 ## Properties
 
@@ -55,7 +56,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L8)
 
 ___
 
@@ -65,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L8)
 
 ## Accessors
 
@@ -79,7 +80,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:15](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L15)
+[src/Polygon.ts:24](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L24)
 
 ## Methods
 
@@ -93,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:64](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L64)
+[src/Polygon.ts:73](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L73)
 
 ___
 
@@ -107,7 +108,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:39](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L39)
+[src/Polygon.ts:48](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L48)
 
 ___
 
@@ -121,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:20](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L20)
+[src/Polygon.ts:29](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L29)
 
 ___
 
@@ -135,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:106](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L106)
+[src/Polygon.ts:115](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L115)
 
 ___
 
@@ -149,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:48](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L48)
+[src/Polygon.ts:57](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L57)
 
 ___
 
@@ -169,7 +170,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:110](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L110)
+[src/Polygon.ts:119](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L119)
 
 ___
 
@@ -183,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:87](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L87)
+[src/Polygon.ts:96](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L96)
 
 ___
 
@@ -197,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:77](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L77)
+[src/Polygon.ts:86](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L86)
 
 ___
 
@@ -211,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:101](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L101)
+[src/Polygon.ts:110](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L110)
 
 ___
 
@@ -223,8 +224,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `contour` | `Point2`[] |
-| `holes?` | `Point2`[][] |
+| `contour` | [`Point2`](../interfaces/Point2.md)[] |
+| `holes?` | [`Point2`](../interfaces/Point2.md)[][] |
 
 #### Returns
 
@@ -232,4 +233,25 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:11](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Polygon.ts#L11)
+[src/Polygon.ts:11](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L11)
+
+___
+
+### fromSize
+
+▸ `Static` **fromSize**(`width`, `height`): [`Polygon`](Polygon.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `width` | `number` |
+| `height` | `number` |
+
+#### Returns
+
+[`Polygon`](Polygon.md)
+
+#### Defined in
+
+[src/Polygon.ts:15](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Polygon.ts#L15)

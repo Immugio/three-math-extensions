@@ -8,3 +8,6 @@ export { BoundingBox } from "./BoundingBox";
 export { Rectangle } from "./Rectangle";
 export { normalizeAngleDegrees } from "./normalizeAngleDegrees";
 export { normalizeAngleRadians } from "./normalizeAngleRadians";
+export { TwoPI } from "./MathConstants";
+export { Point2 } from "./Point2";
+export { Point3 } from "./Point3";

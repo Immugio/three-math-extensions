@@ -72,7 +72,7 @@ Adds x amount to this Vec3 instance and return this
 
 #### Defined in
 
-[src/Vec3.ts:65](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L65)
+[src/Vec3.ts:65](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L65)
 
 ___
 
@@ -94,7 +94,7 @@ Adds y amount to this Vec3 instance and return this
 
 #### Defined in
 
-[src/Vec3.ts:56](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L56)
+[src/Vec3.ts:56](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L56)
 
 ___
 
@@ -112,7 +112,7 @@ Vector3.clone
 
 #### Defined in
 
-[src/Vec3.ts:114](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L114)
+[src/Vec3.ts:114](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L114)
 
 ___
 
@@ -134,7 +134,7 @@ Returns a clone of the point closest to this from the given points.
 
 #### Defined in
 
-[src/Vec3.ts:74](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L74)
+[src/Vec3.ts:74](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L74)
 
 ___
 
@@ -156,7 +156,7 @@ Get distance to another vector while ignoring the y-axis.
 
 #### Defined in
 
-[src/Vec3.ts:98](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L98)
+[src/Vec3.ts:98](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L98)
 
 ___
 
@@ -180,7 +180,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec3.ts:106](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L106)
+[src/Vec3.ts:106](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L106)
 
 ___
 
@@ -204,7 +204,7 @@ This Vec3 instance.
 
 #### Defined in
 
-[src/Vec3.ts:43](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L43)
+[src/Vec3.ts:43](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L43)
 
 ___
 
@@ -229,7 +229,7 @@ This Vec3 instance.
 
 #### Defined in
 
-[src/Vec3.ts:27](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L27)
+[src/Vec3.ts:27](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L27)
 
 ___
 
@@ -245,7 +245,7 @@ Projects this Vec3 instance onto 2d plan. Vec3.z becomes Vec2.y and Vec3.y is ig
 
 #### Defined in
 
-[src/Vec3.ts:90](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L90)
+[src/Vec3.ts:90](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L90)
 
 ___
 
@@ -261,7 +261,7 @@ Returns a clone of this Vec3 instance with y and z swapped.
 
 #### Defined in
 
-[src/Vec3.ts:83](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L83)
+[src/Vec3.ts:83](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L83)
 
 ___
 
@@ -275,7 +275,7 @@ Creates a new Vec3 instance from an {x, y, z} object.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `point` | `Point3` | The {x, y, z} instance. |
+| `point` | [`Point3`](../interfaces/Point3.md) | The {x, y, z} instance. |
 
 #### Returns
 
@@ -285,4 +285,4 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec3.ts:17](https://github.com/Immugio/three-math-extensions/blob/c004965/src/Vec3.ts#L17)
+[src/Vec3.ts:17](https://github.com/Immugio/three-math-extensions/blob/be99bcc/src/Vec3.ts#L17)

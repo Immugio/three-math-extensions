@@ -227,7 +227,7 @@ describe("Line2D", () => {
     test("closestPointOnInfiniteLine returns the closes point to the infinite line", () => {
         const line = Line2D.fromCoordinates(0, 0, 10, 0);
         const point = new Vector2(11, 1);
-        const closest = line.closestPointOnInfiniteLine(point);
+        const closest = line.closestPointToPoint(point);
         expect(closest.x).toEqual(11);
         expect(closest.y).toEqual(0);
     });
@@ -255,7 +255,7 @@ describe("Line2D", () => {
         [new Vector2(20, 30), new Vector2(15, 15)],
     ])("Line.closestPointOnLine should return a point laying directly on the line", (source: Vector2, expected: Vector2) => {
         const line = Line2D.fromCoordinates(0, 0, 15, 15);
-        const closest = line.closestPointOnLine(source);
+        const closest = line.closestPointToPoint(source, true);
         expect(closest).toEqual(expected);
     });
 
