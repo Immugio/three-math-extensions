@@ -623,19 +623,24 @@ export class Line2D {
     }
 
     /**
-     * Check that the infinite lines intersect and that they are in the specified angle to each other
+     * Check that the line section intersect and that they are in the specified angle to each other
      * @param other Line
      * @param expectedAngleInRads number
+     * @param angleTolerance number
+     * @param distanceTolerance number
      */
-    public hasIntersectionWithAngle(other: Line2D, expectedAngleInRads: number): Vec2 {
+    public hasIntersectionWithAngle(other: Line2D, expectedAngleInRads: number, angleTolerance = Number.EPSILON, distanceTolerance = Number.EPSILON): Vec2 {
         const angle = this.direction.angle();
         const otherAngle = other.direction.angle();
         const actualAngle = Math.abs(angle - otherAngle);
 
-        if (Math.abs(actualAngle - expectedAngleInRads) < Number.EPSILON) {
+        if (Math.abs(actualAngle - expectedAngleInRads) <= angleTolerance) {
             const intersection = this.intersect(other);
-            if (intersection && this.isPointOnLineSection(intersection) && other.isPointOnLineSection(intersection)) {
-
+            if (
+                intersection &&
+                this.closestPointToPoint(intersection, true).distanceTo(intersection) <= distanceTolerance &&
+                other.closestPointToPoint(intersection, true).distanceTo(intersection) <= distanceTolerance
+            ) {
                 return intersection;
             }
         }
