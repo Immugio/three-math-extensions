@@ -2,6 +2,7 @@
 import { Vector2 } from "three";
 import { Vec2 } from "./Vec2";
 import { MathUtils } from "three";
+import { TwoPI } from "./MathConstants";
 
 const _startP = /*@__PURE__*/ new Vec2();
 const _startEnd = /*@__PURE__*/ new Vec2();
@@ -630,8 +631,8 @@ export class Line2D {
      * @param distanceTolerance number
      */
     public hasIntersectionWithAngle(other: Line2D, expectedAngleInRads: number, angleTolerance = Number.EPSILON, distanceTolerance = Number.EPSILON): Vec2 {
-        const angle = this.direction.angle();
-        const otherAngle = other.direction.angle();
+        const angle = this.direction.angle() % TwoPI;
+        const otherAngle = other.direction.angle() % TwoPI;
         const actualAngle = Math.abs(angle - otherAngle);
 
         if (Math.abs(actualAngle - expectedAngleInRads) <= angleTolerance) {
