@@ -18,6 +18,14 @@ export class Vec2 extends Vector2 {
     }
 
     /**
+     * Creates a new Vec2[] array from arguments of {x, y} objects.
+      * @param points - The ...{x, y} instances.
+     */
+    public static fromPoints(...points: Point2[]): Vec2[] {
+        return points?.map(p => Vec2.fromPoint(p)) ?? [];
+    }
+
+    /**
      * Moves this Vec2 instance towards the target Vec2 by the given amount.
      * @param target - The target Vec2.
      * @param amount - The distance to move.
