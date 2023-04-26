@@ -3,11 +3,7 @@ npx typedoc --plugin typedoc-plugin-markdown --out docs src/index.ts --excludeEx
 
 Before release
 - Ensure clean working directory
-- Ensure that the last release commit has a tag that matches the latest release number in the format "0.0.11". This step should have been completed in the previous release. It's only mentioned here in case it's for any reason missing.
 - Run "prerelease" script to verify that the code builds and the tests pass
 
 Release:
-- Bump up version in package.json e.g. "0.0.11" -> "0.0.12"
-- Run "version" script, it should add the new commits since the last release into `CHANGELOG.md`
-- Commit and push the changes in `package.json` and `CHANGELOG.md`, ideally, call the commit as the new release e.g. "`0.0.12`". This is not necessary but makes it easier to find
-- **Tag the commit**  the new version number. In this example "`0.0.12`" and push. This is required for CI to build and publish to npm.
+- In terminal, run npm version 0.2.7
