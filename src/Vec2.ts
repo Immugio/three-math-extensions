@@ -80,4 +80,22 @@ export class Vec2 extends Vector2 {
         const signed_angle = Math.atan2(this.y, this.x) - Math.atan2(0, 1);
         return normalizeAngleRadians(signed_angle);
     }
+
+    /**
+     * check if the angle between the two vectors is close enough to 0 or 180 degrees (same or opposite direction) within the given tolerance
+     * @param other Vector2
+     * @param toleranceRadians number angle tolerance in radians
+     */
+    public parallelTo(other: Vector2, toleranceRadians: number = 0): boolean {
+        const v1 = this.clone().normalize(); // Normalize both vectors to remove magnitude influence
+        const v2 = other.clone().normalize();
+
+        const dotProduct = v1.dot(v2); // Calculate the dot product to find the cosine of the angle between the vectors
+
+        // Calculate the angle in radians
+        const angle = Math.acos(dotProduct);
+
+        // Check if the angle is within the tolerance of 0 or 180 degrees (Math.PI)
+        return Math.abs(angle) <= toleranceRadians || Math.abs(angle - Math.PI) <= toleranceRadians;
+    }
 }
