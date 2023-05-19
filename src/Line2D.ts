@@ -3,6 +3,7 @@ import { Vector2 } from "three";
 import { Vec2 } from "./Vec2";
 import { MathUtils } from "three";
 import { TwoPI } from "./MathConstants";
+import { Line3D } from "./Line3D";
 
 const _startP = /*@__PURE__*/ new Vec2();
 const _startEnd = /*@__PURE__*/ new Vec2();
@@ -647,6 +648,15 @@ export class Line2D {
         }
 
         return null;
+    }
+
+    /**
+     * Project the line to 2D space. For start and end points Vec2.y becomes Vec3.z. and Vec3.y is provided as an argument.
+     * @param y - The y value of the new Vec3 instance.
+     * @returns A new Line3D instance.
+     */
+    public in3DSpace(y: number = 0): Line3D {
+        return new Line3D(this.start.in3DSpace(y), this.end.in3DSpace(y));
     }
 
     public equals(other: Line2D): boolean {

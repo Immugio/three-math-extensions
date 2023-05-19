@@ -2,6 +2,7 @@ import { Line2D } from "../Line2D";
 import { Vector2 } from "three";
 import { Vec2 } from "../Vec2";
 import { Point2 } from "../Point2";
+import { Vec3 } from "../Vec3";
 
 describe("Line2D", () => {
     it("should be created", () => {
@@ -360,5 +361,12 @@ describe("Line2D", () => {
 
         expect(chunks[chunks.length - 1].length).toEqual(8);
         expect(chunks[chunks.length - 1].end.equals(line.end)).toBe(true);
+    });
+
+    it("Line2D.in3DSpace should project the Line2D to 3D space given the y coordinate", () => {
+        const line = Line2D.fromCoordinates(1, 2, 3, 4);
+        const result = line.in3DSpace(10);
+        expect(result.start).toEqual(new Vec3(1, 10, 2));
+        expect(result.end).toEqual(new Vec3(3, 10, 4));
     });
 });
