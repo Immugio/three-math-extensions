@@ -600,9 +600,11 @@ export class Line2D {
     }
 
     /**
-     * Returns the intersection point of two lines. The lines are assumed to be infinite.
+     * Returns the intersection point of two lines.
+     * @param other
+     * @param lineSegmentOnly If true, only return the intersection if it is within the line segments. Otherwise, return the intersection if the lines intersect anywhere.
      */
-    public intersect(other: Line2D): Vec2 {
+    public intersect(other: Line2D, lineSegmentOnly?: boolean): Vec2 {
         // Check if none of the lines are of length 0
         if ((this.start.x === this.end.x && this.start.y === this.end.y) || (other.start.x === other.end.x && other.start.y === other.end.y)) {
             return null;
@@ -616,6 +618,14 @@ export class Line2D {
         }
 
         const ua = ((other.end.x - other.start.x) * (this.start.y - other.start.y) - (other.end.y - other.start.y) * (this.start.x - other.start.x)) / denominator;
+
+        // Check if the intersection point is within the bounds of the line segments if required
+        if (lineSegmentOnly) {
+            const ub = ((this.end.x - this.start.x) * (this.start.y - other.start.y) - (this.end.y - this.start.y) * (this.start.x - other.start.x)) / denominator;
+            if (ua < 0 || ua > 1 || ub < 0 || ub > 1) {
+                return null;
+            }
+        }
 
         // Return an object with the x and y coordinates of the intersection
         const x = this.start.x + ua * (this.end.x - this.start.x);
