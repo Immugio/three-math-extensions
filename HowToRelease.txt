@@ -6,4 +6,4 @@ Before release
 - Run "prerelease" script to verify that the code builds and the tests pass
 
 Release:
-- In terminal, run npm version 0.2.7
+- In terminal, run "npm version 0.2.7"
