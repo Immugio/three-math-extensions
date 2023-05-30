@@ -11,3 +11,4 @@ export { normalizeAngleRadians } from "./normalizeAngleRadians";
 export { TwoPI } from "./MathConstants";
 export { Point2 } from "./Point2";
 export { Point3 } from "./Point3";
+export { isPointInPolygon } from "./isPointInPolygon";

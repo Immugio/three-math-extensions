@@ -26,6 +26,7 @@
 
 ### Functions
 
+- [isPointInPolygon](modules.md#ispointinpolygon)
 - [normalizeAngleDegrees](modules.md#normalizeangledegrees)
 - [normalizeAngleRadians](modules.md#normalizeangleradians)
 
@@ -37,9 +38,30 @@
 
 #### Defined in
 
-[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/151f214/src/MathConstants.ts#L1)
+[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/MathConstants.ts#L1)
 
 ## Functions
+
+### isPointInPolygon
+
+▸ **isPointInPolygon**(`p`, `point`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `p` | [`Point2`](interfaces/Point2.md)[] |
+| `point` | [`Point2`](interfaces/Point2.md) |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/isPointInPolygon.ts:3](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/isPointInPolygon.ts#L3)
+
+___
 
 ### normalizeAngleDegrees
 
@@ -59,7 +81,7 @@ Normalizes an angle in degrees to the range [0, 360].
 
 #### Defined in
 
-[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/151f214/src/normalizeAngleDegrees.ts#L5)
+[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/normalizeAngleDegrees.ts#L5)
 
 ___
 
@@ -81,4 +103,4 @@ Normalize an angle in radians to the range of 0 to 2π.
 
 #### Defined in
 
-[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/151f214/src/normalizeAngleRadians.ts#L7)
+[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/normalizeAngleRadians.ts#L7)

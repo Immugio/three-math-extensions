@@ -21,9 +21,11 @@ Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
 - [in3DSpace](Vec2.md#in3dspace)
 - [isNear](Vec2.md#isnear)
 - [moveTowards](Vec2.md#movetowards)
+- [parallelTo](Vec2.md#parallelto)
 - [roundIfCloseToInteger](Vec2.md#roundifclosetointeger)
 - [signedAngle](Vec2.md#signedangle)
 - [fromPoint](Vec2.md#frompoint)
+- [fromPoints](Vec2.md#frompoints)
 
 ## Constructors
 
@@ -68,7 +70,7 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec2.ts:52](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L52)
+[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L60)
 
 ___
 
@@ -92,7 +94,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L60)
+[src/Vec2.ts:68](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L68)
 
 ___
 
@@ -117,7 +119,30 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:26](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L26)
+[src/Vec2.ts:34](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L34)
+
+___
+
+### parallelTo
+
+▸ **parallelTo**(`other`, `toleranceRadians?`): `boolean`
+
+check if the angle between the two vectors is close enough to 0 or 180 degrees (same or opposite direction) within the given tolerance
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `other` | `Vector2` | `undefined` | Vector2 |
+| `toleranceRadians` | `number` | `0` | number angle tolerance in radians |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/Vec2.ts:89](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L89)
 
 ___
 
@@ -141,7 +166,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:37](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L37)
+[src/Vec2.ts:45](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L45)
 
 ___
 
@@ -157,7 +182,7 @@ Returns the angle between this vector and positive x-axis, the return value is b
 
 #### Defined in
 
-[src/Vec2.ts:71](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L71)
+[src/Vec2.ts:79](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L79)
 
 ___
 
@@ -181,4 +206,27 @@ A new Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/151f214/src/Vec2.ts#L16)
+[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L16)
+
+___
+
+### fromPoints
+
+▸ `Static` **fromPoints**(`...points`): [`Vec2`](Vec2.md)[]
+
+Creates a new Vec2[] array from arguments of {x, y} objects.
+ *
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `...points` | [`Point2`](../interfaces/Point2.md)[] | The ...{x, y} instances. |
+
+#### Returns
+
+[`Vec2`](Vec2.md)[]
+
+#### Defined in
+
+[src/Vec2.ts:24](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L24)
