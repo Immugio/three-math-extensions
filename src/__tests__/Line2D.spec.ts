@@ -250,11 +250,11 @@ describe("Line2D", () => {
     });
 
     test.each([
-        [new Vector2(15, 0), new Vector2(7.5, 7.5)],
-        [new Vector2(2, 2), new Vector2(2, 2)],
-        [new Vector2(-1, -5), new Vector2(0, 0)],
-        [new Vector2(20, 30), new Vector2(15, 15)],
-    ])("Line.closestPointOnLine should return a point laying directly on the line", (source: Vector2, expected: Vector2) => {
+        [new Vec2(15, 0), new Vec2(7.5, 7.5)],
+        [new Vec2(2, 2), new Vec2(2, 2)],
+        [new Vec2(-1, -5), new Vec2(0, 0)],
+        [new Vec2(20, 30), new Vec2(15, 15)],
+    ])("Line.closestPointOnLine should return a point laying directly on the line", (source: Vec2, expected: Vec2) => {
         const line = Line2D.fromCoordinates(0, 0, 15, 15);
         const closest = line.closestPointToPoint(source, true);
         expect(closest).toEqual(expected);
