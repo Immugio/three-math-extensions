@@ -369,6 +369,18 @@ export class Line2D {
     }
 
     /**
+     * Returns a new line that is the projection of this line onto @other. Uses `closestPointToPoint` to find the projection.
+     * @param other
+     * @param clampToLine
+     */
+    public projectOn(other: Line2D, clampToLine: boolean): Line2D {
+        const p1 = other.closestPointToPoint(this.start, clampToLine, new Vec2());
+        const p2 = other.closestPointToPoint(this.end, clampToLine, new Vec2());
+
+        return p1.distanceTo(this.start) < p2.distanceTo(this.start) ? new Line2D(p1, p2) : new Line2D(p2, p1);
+    }
+
+    /**
      * Divides the Line3D into a number of segments of the given length.
      * Clone the line, does not modify.
      * @param maxSegmentLength number

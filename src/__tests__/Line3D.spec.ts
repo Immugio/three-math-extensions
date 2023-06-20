@@ -3,7 +3,7 @@ import { Vec3 } from "../Vec3";
 
 const defaultLine = () => new Line3D(new Vec3(-10, 0, 0), new Vec3(10, 0, 0));
 
-describe("Line3d", () => {
+describe("Line3D", () => {
     it("should create a line with expected values", () => {
         const line = new Line3D(new Vec3(1, 2, 3), new Vec3(4, 5, 6));
         expect(line.start).toEqual(new Vec3(1, 2, 3));
