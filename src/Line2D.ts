@@ -4,6 +4,7 @@ import { Vec2 } from "./Vec2";
 import { MathUtils } from "three";
 import { TwoPI } from "./MathConstants";
 import { Line3D } from "./Line3D";
+import {directions2d} from "./directions2d";
 
 const _startP = /*@__PURE__*/ new Vec2();
 const _startEnd = /*@__PURE__*/ new Vec2();
@@ -670,6 +671,15 @@ export class Line2D {
         }
 
         return null;
+    }
+
+    public get isCloserToHorizontal(): boolean {
+        const direction = this.direction;
+        return direction.angleTo(directions2d.Right) < Math.PI / 4 || direction.angleTo(directions2d.Left) < Math.PI / 4;
+    }
+
+    public  get isCloserToVertical(): boolean {
+        return  !this.isCloserToHorizontal;
     }
 
     /**
