@@ -1,7 +1,7 @@
-import { Vector2 } from "three";
-import { Vec3 } from "./Vec3";
-import { Point2 } from "./Point2";
-import { normalizeAngleRadians } from "./normalizeAngleRadians";
+import {Vector2} from "three";
+import {Vec3} from "./Vec3";
+import {Point2} from "./Point2";
+import {normalizeAngleRadians} from "./normalizeAngleRadians";
 
 /**
  * Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
@@ -79,6 +79,19 @@ export class Vec2 extends Vector2 {
     public signedAngle(): number {
         const signed_angle = Math.atan2(this.y, this.x) - Math.atan2(0, 1);
         return normalizeAngleRadians(signed_angle);
+    }
+
+    /**
+     * Returns the angle between this vector and the given vector, the return value is between 0 and PI
+     * Both vectors are expected to be normalized
+     * @param other Vector2 normalized vector
+     */
+    public angleTo(other: Vector2): number {
+        // Calculate the dot product of the vectors
+        const dot = this.dot(other);
+
+        // Calculate the angle in radians between the two vectors
+        return Math.acos(Math.min(Math.max(dot, -1.0), 1.0));
     }
 
     /**
