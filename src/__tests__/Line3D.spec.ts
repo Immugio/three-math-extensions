@@ -24,8 +24,8 @@ describe("Line3D", () => {
         const p3 = new Vec3(5, 2, 20);
         const lines = Line3D.fromPolygon([p1, p2, p3]);
         expect(lines.length).toEqual(2);
-        expect(lines[0]).toEqual(new Line3D(p1, p2));
-        expect(lines[1]).toEqual(new Line3D(p2, p3));
+        expect(lines[0]).toEqual(new Line3D(p1, p2, 0));
+        expect(lines[1]).toEqual(new Line3D(p2, p3, 1));
     });
 
     it("should create a closed 3 lines polygon from a 3 points polygon", () => {
@@ -34,9 +34,9 @@ describe("Line3D", () => {
         const p3 = new Vec3(5, 2, 20);
         const lines = Line3D.fromPolygon([p1, p2, p3], true);
         expect(lines.length).toEqual(3);
-        expect(lines[0]).toEqual(new Line3D(p1, p2));
-        expect(lines[1]).toEqual(new Line3D(p2, p3));
-        expect(lines[2]).toEqual(new Line3D(p3, p1));
+        expect(lines[0]).toEqual(new Line3D(p1, p2, 0));
+        expect(lines[1]).toEqual(new Line3D(p2, p3, 1));
+        expect(lines[2]).toEqual(new Line3D(p3, p1, 2));
     });
 
     it("should return the expected center", () => {

@@ -10,13 +10,13 @@ export class Line3D extends Line3 {
 
     readonly #target: Vec3;
 
-    constructor(start: Vec3, end: Vec3) {
+    constructor(start: Vec3, end: Vec3, public index: number = 0) {
         super(start, end);
         this.#target = new Vec3();
     }
 
-    public static fromPoints(start: Point3, end: Point3): Line3D {
-        return new Line3D(new Vec3(start.x, start.y, start.z), new Vec3(end.x, end.y, end.z));
+    public static fromPoints(start: Point3, end: Point3, index: number = 0): Line3D {
+        return new Line3D(new Vec3(start.x, start.y, start.z), new Vec3(end.x, end.y, end.z), index);
     }
 
     /**
@@ -35,7 +35,7 @@ export class Line3D extends Line3 {
 
         const lines: Line3D[] = [];
         for (let i = 0; i < polygon.length - 1; i++) {
-            lines.push(Line3D.fromPoints(polygon[i], polygon[i + 1]));
+            lines.push(Line3D.fromPoints(polygon[i], polygon[i + 1], i));
         }
 
         return lines;
@@ -520,7 +520,7 @@ export class Line3D extends Line3 {
      * Deep clone of this line
      */
     public clone(): this {
-        return new Line3D(this.start.clone(), this.end.clone()) as this;
+        return new Line3D(this.start.clone(), this.end.clone(), this.index) as this;
     }
 
     public toString(): string {
