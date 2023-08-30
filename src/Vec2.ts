@@ -82,19 +82,6 @@ export class Vec2 extends Vector2 {
     }
 
     /**
-     * Returns the angle between this vector and the given vector, the return value is between 0 and PI
-     * Both vectors are expected to be normalized
-     * @param other Vector2 normalized vector
-     */
-    public angleTo(other: Vector2): number {
-        // Calculate the dot product of the vectors
-        const dot = this.dot(other);
-
-        // Calculate the angle in radians between the two vectors
-        return Math.acos(Math.min(Math.max(dot, -1.0), 1.0));
-    }
-
-    /**
      * check if the angle between the two vectors is close enough to 0 or 180 degrees (same or opposite direction) within the given tolerance
      * @param other Vector2
      * @param toleranceRadians number angle tolerance in radians
