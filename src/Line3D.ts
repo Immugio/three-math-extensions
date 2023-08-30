@@ -503,6 +503,48 @@ export class Line3D extends Line3 {
     }
 
     /**
+     * Accepts an array of Line3D and groups them into arrays of connected lines
+     * @param lines Lines to be grouped
+     * @param tolerance Tolerance for considering lines as connected
+     */
+    public static groupConnectedLines(lines: Line3D[], tolerance: number = 0): Line3D[][] {
+        const visited: Set<Line3D> = new Set();
+
+        // Use graph-based approach. Each line can be considered as an edge in the graph, and the endpoints of the lines can be considered as vertices.
+        // Then use Depth-First Search (DFS) to find connected components in the graph.
+        const dfs = (line: Line3D, group: Line3D[]) => {
+            if (visited.has(line)) return;
+            visited.add(line);
+            group.push(line);
+
+            lines.forEach((neighbor) => {
+                if (!visited.has(neighbor)) {
+                    if (
+                        (line.start).isNear(neighbor.start, tolerance) ||
+                        (line.start).isNear(neighbor.end, tolerance) ||
+                        (line.end).isNear(neighbor.start, tolerance) ||
+                        (line.end).isNear(neighbor.end, tolerance)
+                    ) {
+                        dfs(neighbor, group);
+                    }
+                }
+            });
+        };
+
+        const connectedLines: Line3D[][] = [];
+
+        lines.forEach((line) => {
+            if (!visited.has(line)) {
+                const group: Line3D[] = [];
+                dfs(line, group);
+                connectedLines.push(group);
+            }
+        });
+
+        return connectedLines;
+    }
+
+    /**
      * Project the line to 2D space, Y value is dropped
      */
     public onPlan(): Line2D {

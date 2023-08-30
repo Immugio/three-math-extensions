@@ -678,8 +678,8 @@ export class Line2D {
         return direction.angleTo(directions2d.Right) < Math.PI / 4 || direction.angleTo(directions2d.Left) < Math.PI / 4;
     }
 
-    public  get isCloserToVertical(): boolean {
-        return  !this.isCloserToHorizontal;
+    public get isCloserToVertical(): boolean {
+        return !this.isCloserToHorizontal;
     }
 
     /**
