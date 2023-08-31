@@ -506,8 +506,9 @@ export class Line3D extends Line3 {
      * Accepts an array of Line3D and groups them into arrays of connected lines
      * @param lines Lines to be grouped
      * @param tolerance Tolerance for considering lines as connected
+     * @param breakpoints
      */
-    public static groupConnectedLines(lines: Line3D[], tolerance: number = 0): Line3D[][] {
+    public static groupConnectedLines(lines: Line3D[], tolerance: number = 0, breakpoints: Vec3[] = []): Line3D[][] {
         const visited: Set<Line3D> = new Set();
 
         // Use graph-based approach. Each line can be considered as an edge in the graph, and the endpoints of the lines can be considered as vertices.
@@ -520,7 +521,7 @@ export class Line3D extends Line3 {
             lines.forEach((neighbor) => {
                 if (!visited.has(neighbor)) {
                     if (
-                        line.connectsTo(neighbor, tolerance)
+                        line.connectsTo(neighbor, tolerance, breakpoints)
                     ) {
                         dfs(neighbor, group);
                     }
@@ -542,15 +543,18 @@ export class Line3D extends Line3 {
     }
 
     /**
-     * Returns true if any endpoint of this line if within the tolerance distance of any endpoint of the @other line.
+     * Returns true if any endpoint of this line is within the tolerance of any @other line's endpoints.
      * @param other
      * @param tolerance
+     * @param breakpoints
      */
-    public connectsTo(other: Line3D, tolerance: number = 0): boolean {
-        return this.start.isNear(other.start, tolerance) ||
-            this.start.isNear(other.end, tolerance) ||
-            this.end.isNear(other.start, tolerance) ||
-            this.end.isNear(other.end, tolerance);
+    public connectsTo(other: Line3D, tolerance: number = 0, breakpoints: Vec3[] = []): boolean {
+        return (
+            (this.start.isNear(other.start, tolerance) && breakpoints.every(b => !b.isNear(this.start, tolerance))) ||
+            (this.start.isNear(other.end, tolerance) && breakpoints.every(b => !b.isNear(this.start, tolerance))) ||
+            (this.end.isNear(other.start, tolerance) && breakpoints.every(b => !b.isNear(this.end, tolerance))) ||
+            (this.end.isNear(other.end, tolerance) && breakpoints.every(b => !b.isNear(this.end, tolerance)))
+        );
     }
 
     /**

@@ -34,6 +34,32 @@ describe("groupConnectedLines", () => {
         expect(result).toEqual([[line1, line2, line3, line4], [line5, line6, line7, line8]]);
     });
 
+    it("should not consider lines connected if the endpoints are on breakpoints", () => {
+        const breakpoints = [
+            new Vec3(2, 2, 2),
+            new Vec3(8, 8, 8)
+        ];
+
+        const line1 = new Line3D(new Vec3(0, 0, 0), new Vec3(1, 1, 1), 1);
+        const line2 = new Line3D(new Vec3(1, 1, 1), new Vec3(2, 2, 2), 2);
+
+        const line3 = new Line3D(new Vec3(2, 2, 2), new Vec3(3, 3, 3), 3);
+        const line4 = new Line3D(new Vec3(3, 3, 3), new Vec3(4, 4, 4), 4);
+
+        const line5 = new Line3D(new Vec3(5, 5, 5), new Vec3(6, 6, 6), 5);
+        const line6 = new Line3D(new Vec3(6, 6, 6), new Vec3(7, 7, 7), 6);
+        const line7 = new Line3D(new Vec3(7, 7, 7), new Vec3(8, 8, 8), 7);
+
+        const line8 = new Line3D(new Vec3(8, 8, 8), new Vec3(9, 9, 9), 8);
+
+        const lines = [line1, line5, line4, line6, line3, line7, line2, line8];
+
+        const result = Line3D.groupConnectedLines(lines, 0, breakpoints);
+        sortResult(result);
+
+        expect(result).toEqual([[line1, line2], [line3, line4], [line5, line6, line7], [line8]]);
+    });
+
     it("should correctly group line forming a closed shape into one array", () => {
         const line1 = new Line3D(new Vec3(0, 0, 0), new Vec3(1, 1, 1), 0);
         const line2 = new Line3D(new Vec3(1, 1, 1), new Vec3(2, 2, 2), 1);
