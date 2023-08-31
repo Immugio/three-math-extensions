@@ -520,10 +520,7 @@ export class Line3D extends Line3 {
             lines.forEach((neighbor) => {
                 if (!visited.has(neighbor)) {
                     if (
-                        (line.start).isNear(neighbor.start, tolerance) ||
-                        (line.start).isNear(neighbor.end, tolerance) ||
-                        (line.end).isNear(neighbor.start, tolerance) ||
-                        (line.end).isNear(neighbor.end, tolerance)
+                        line.connectsTo(neighbor, tolerance)
                     ) {
                         dfs(neighbor, group);
                     }
@@ -542,6 +539,18 @@ export class Line3D extends Line3 {
         });
 
         return connectedLines;
+    }
+
+    /**
+     * Returns true if any endpoint of this line if within the tolerance distance of any endpoint of the @other line.
+     * @param other
+     * @param tolerance
+     */
+    public connectsTo(other: Line3D, tolerance: number = 0): boolean {
+        return this.start.isNear(other.start, tolerance) ||
+            this.start.isNear(other.end, tolerance) ||
+            this.end.isNear(other.start, tolerance) ||
+            this.end.isNear(other.end, tolerance);
     }
 
     /**
