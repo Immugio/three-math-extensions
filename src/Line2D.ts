@@ -683,6 +683,61 @@ export class Line2D {
     }
 
     /**
+     * Accepts an array of Line2D and groups them into arrays of connected lines
+     * @param lines Lines to be grouped
+     * @param tolerance Tolerance for considering lines as connected
+     * @param breakpoints
+     */
+    public static groupConnectedLines(lines: Line2D[], tolerance: number = 0, breakpoints: Vec2[] = []): Line2D[][] {
+        const visited: Set<Line2D> = new Set();
+
+        // Use graph-based approach. Each line can be considered as an edge in the graph, and the endpoints of the lines can be considered as vertices.
+        // Then use Depth-First Search (DFS) to find connected components in the graph.
+        const dfs = (line: Line2D, group: Line2D[]) => {
+            if (visited.has(line)) return;
+            visited.add(line);
+            group.push(line);
+
+            lines.forEach((neighbor) => {
+                if (!visited.has(neighbor)) {
+                    if (
+                        line.connectsTo(neighbor, tolerance, breakpoints)
+                    ) {
+                        dfs(neighbor, group);
+                    }
+                }
+            });
+        };
+
+        const connectedLines: Line2D[][] = [];
+
+        lines.forEach((line) => {
+            if (!visited.has(line)) {
+                const group: Line2D[] = [];
+                dfs(line, group);
+                connectedLines.push(group);
+            }
+        });
+
+        return connectedLines;
+    }
+
+    /**
+     * Returns true if any endpoint of this line is within the tolerance of any @other line's endpoints.
+     * @param other
+     * @param tolerance
+     * @param breakpoints
+     */
+    public connectsTo(other: Line2D, tolerance: number = 0, breakpoints: typeof other.start[] = []): boolean {
+        return (
+            (this.start.isNear(other.start, tolerance) && breakpoints.every(b => !b.isNear(this.start, tolerance))) ||
+            (this.start.isNear(other.end, tolerance) && breakpoints.every(b => !b.isNear(this.start, tolerance))) ||
+            (this.end.isNear(other.start, tolerance) && breakpoints.every(b => !b.isNear(this.end, tolerance))) ||
+            (this.end.isNear(other.end, tolerance) && breakpoints.every(b => !b.isNear(this.end, tolerance)))
+        );
+    }
+
+    /**
      * Project the line to 2D space. For start and end points Vec2.y becomes Vec3.z. and Vec3.y is provided as an argument.
      * @param y - The y value of the new Vec3 instance.
      * @returns A new Line3D instance.

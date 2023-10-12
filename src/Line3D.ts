@@ -446,8 +446,8 @@ export class Line3D extends Line3 {
 
     /**
      * Calculates the intersection between this and `other` line. The lines are assumed to be infinite.
-     * In a lot of cases an actual intersection cannot be calculated due to rounding errors.
-     * Therefore, the intersection calculated by this method comes in a form of the shorted possible line segment connecting the two lines.
+     * In a lot of cases, an actual intersection cannot be calculated due to rounding errors.
+     * Therefore, the intersection calculated by this method comes in the form of the shorted possible line segment connecting the two lines.
      * Sources:
      * http://paulbourke.net/geometry/pointlineplane/
      * https://stackoverflow.com/questions/2316490/the-algorithm-to-find-the-point-of-intersection-of-two-3d-line-segment/2316934#2316934
