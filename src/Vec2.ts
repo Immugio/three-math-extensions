@@ -31,9 +31,27 @@ export class Vec2 extends Vector2 {
      * @param amount - The distance to move.
      * @returns This Vec2 instance.
      */
-    public moveTowards(target: Vector2, amount: number): Vec2 {
+    public moveTowards(target: Vector2, amount: number): this {
         const move = target.clone().sub(this).normalize().multiplyScalar(amount);
         this.add(move);
+        return this;
+    }
+
+    /**
+     * Adds y amount to this Vec3 instance and return this
+     * @param y
+     */
+    public addY(y: number): this {
+        this.y += y;
+        return this;
+    }
+
+    /**
+     * Adds x amount to this Vec3 instance and return this
+     * @param x
+     */
+    public addX(x: number): this {
+        this.x += x;
         return this;
     }
 

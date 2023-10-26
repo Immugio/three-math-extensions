@@ -24,7 +24,7 @@ export class Vec3 extends Vector3 {
      * @param amount - The distance to move.
      * @returns This Vec3 instance.
      */
-    public moveTowards(target: Vector3, amount: number): Vec3 {
+    public moveTowards(target: Vector3, amount: number): this {
         if (this.#target === undefined) {
             this.#target = new Vector3();
         }
@@ -40,7 +40,7 @@ export class Vec3 extends Vector3 {
      * @param target - The target Vec3.
      * @returns This Vec3 instance.
      */
-    public moveHalfWayTowards(target: Vector3): Vec3 {
+    public moveHalfWayTowards(target: Vector3): this {
         if (this.#target === undefined) {
             this.#target = new Vector3();
         }
@@ -53,7 +53,7 @@ export class Vec3 extends Vector3 {
      * Adds y amount to this Vec3 instance and return this
      * @param y
      */
-    public addY(y: number): Vec3 {
+    public addY(y: number): this {
         this.y += y;
         return this;
     }
@@ -62,8 +62,17 @@ export class Vec3 extends Vector3 {
      * Adds x amount to this Vec3 instance and return this
      * @param x
      */
-    public addX(x: number): Vec3 {
+    public addX(x: number): this {
         this.x += x;
+        return this;
+    }
+
+    /**
+     * Adds z amount to this Vec3 instance and return this
+     * @param z
+     */
+    public addZ(z: number): this {
+        this.z += z;
         return this;
     }
 
