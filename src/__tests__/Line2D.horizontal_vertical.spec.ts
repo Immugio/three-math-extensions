@@ -1,6 +1,6 @@
 import {Line2D} from "../Line2D";
 
-describe('isCloserToHorizontal', () => {
+describe("isCloserToHorizontal", () => {
     test.each([
         [
             Line2D.fromCoordinates(0, 0, 0, -100),
