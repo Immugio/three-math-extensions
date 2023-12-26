@@ -33,21 +33,21 @@
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
-    "@types/offscreencanvas": "2019.7.1",
-    "@types/three": "0.152.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@types/jest": "^29.5.11",
+    "@types/offscreencanvas": "2019.7.3",
+    "@types/three": "0.160.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
     "auto-changelog": "^2.4.0",
     "jest": "^29.7.0",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.1",
-    "typedoc": "^0.25.2",
-    "typedoc-plugin-markdown": "^3.16.0",
-    "typescript": "5.2.2",
-    "eslint": "^8.51.0"
+    "typedoc": "^0.25.4",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "5.3.3",
+    "eslint": "^8.56.0"
   },
   "peerDependencies": {
-    "three": "0.152.2"
+    "three": "0.160.0"
   },
   "repository": {
     "type": "git",
