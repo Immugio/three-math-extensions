@@ -339,18 +339,18 @@ export class Line3D extends Line3 {
     /**
      * Check if @other is parallel to this line.
      * @param other
-     * @param tolerance
+     * @param angleTolerance
      */
-    public isParallelTo(other: Line3D, tolerance: number = Number.EPSILON): boolean {
+    public isParallelTo(other: Line3D, angleTolerance: number = Number.EPSILON): boolean {
         const direction = this.direction;
         const otherDirection = other.direction;
 
-        const areTheSameDirection = direction.manhattanDistanceTo(otherDirection) <= tolerance;
+        const areTheSameDirection = direction.angleTo(otherDirection) <= angleTolerance;
         if (areTheSameDirection) {
             return true;
         }
 
-        return direction.negate().manhattanDistanceTo(otherDirection) < tolerance;
+        return direction.negate().angleTo(otherDirection) < angleTolerance;
     }
 
     /*

@@ -4,7 +4,7 @@ import { Vec2 } from "./Vec2";
 import { MathUtils } from "three";
 import { TwoPI } from "./MathConstants";
 import { Line3D } from "./Line3D";
-import {directions2d} from "./directions2d";
+import { directions2d } from "./directions2d";
 
 const _startP = /*@__PURE__*/ new Vec2();
 const _startEnd = /*@__PURE__*/ new Vec2();
@@ -85,6 +85,19 @@ export class Line2D {
         this.moveStartPoint(amount / 2);
         this.moveEndPoint(amount / 2);
         return this;
+    }
+
+    public isParallelTo(other: Line2D, angleTolerance: number = Number.EPSILON): boolean {
+        const direction = this.direction;
+        const otherDirection = other.direction;
+
+        const angle = direction.angleTo(otherDirection);
+        if (angle <= angleTolerance) {
+            return true;
+        }
+
+        const opposite = direction.angleTo(otherDirection.negate());
+        return opposite <= angleTolerance;
     }
 
     /*
