@@ -19,6 +19,14 @@ export class Vec3 extends Vector3 {
     }
 
     /**
+     * Creates a new Vec3[] array from arguments of {x, y, z} objects.
+     * @param points - The ...{x, y, z} instances.
+     */
+    public static fromPoints(...points: Point3[]): Vec3[] {
+        return points?.map(p => Vec3.fromPoint(p)) ?? [];
+    }
+
+    /**
      * Moves this Vec3 instance towards the target Vec3 by the given amount.
      * @param target - The target Vec3.
      * @param amount - The distance to move.
