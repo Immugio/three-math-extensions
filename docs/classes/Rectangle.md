@@ -37,7 +37,7 @@
 
 ### constructor
 
-• **new Rectangle**(`leftX`, `rightX`, `topY`, `bottomY`)
+• **new Rectangle**(`leftX`, `rightX`, `topY`, `bottomY`): [`Rectangle`](Rectangle.md)
 
 #### Parameters
 
@@ -48,9 +48,13 @@
 | `topY` | `number` |
 | `bottomY` | `number` |
 
+#### Returns
+
+[`Rectangle`](Rectangle.md)
+
 #### Defined in
 
-[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L7)
+[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L7)
 
 ## Properties
 
@@ -60,7 +64,7 @@
 
 #### Defined in
 
-[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L7)
+[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L7)
 
 ___
 
@@ -70,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L7)
+[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L7)
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L7)
+[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L7)
 
 ___
 
@@ -90,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L7)
+[src/Rectangle.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L7)
 
 ## Accessors
 
@@ -104,7 +108,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:20](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L20)
+[src/Rectangle.ts:20](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L20)
 
 ___
 
@@ -118,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:41](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L41)
+[src/Rectangle.ts:41](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L41)
 
 ___
 
@@ -132,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:27](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L27)
+[src/Rectangle.ts:27](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L27)
 
 ___
 
@@ -146,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:13](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L13)
+[src/Rectangle.ts:13](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L13)
 
 ## Methods
 
@@ -160,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:54](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L54)
+[src/Rectangle.ts:54](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L54)
 
 ___
 
@@ -174,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:9](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L9)
+[src/Rectangle.ts:9](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L9)
 
 ___
 
@@ -194,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:90](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L90)
+[src/Rectangle.ts:90](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L90)
 
 ___
 
@@ -214,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:80](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L80)
+[src/Rectangle.ts:80](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L80)
 
 ___
 
@@ -234,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:34](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L34)
+[src/Rectangle.ts:34](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L34)
 
 ___
 
@@ -250,7 +254,7 @@ The polygon is always constructed as "clockwise", assuming X axis to the right a
 
 #### Defined in
 
-[src/Rectangle.ts:71](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L71)
+[src/Rectangle.ts:71](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L71)
 
 ___
 
@@ -264,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:64](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L64)
+[src/Rectangle.ts:64](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L64)
 
 ___
 
@@ -284,4 +288,4 @@ ___
 
 #### Defined in
 
-[src/Rectangle.ts:45](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Rectangle.ts#L45)
+[src/Rectangle.ts:45](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Rectangle.ts#L45)

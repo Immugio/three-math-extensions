@@ -22,15 +22,29 @@
 
 ### Variables
 
+- [HalfPI](modules.md#halfpi)
 - [TwoPI](modules.md#twopi)
+- [directions](modules.md#directions)
+- [directions2d](modules.md#directions2d)
 
 ### Functions
 
+- [isContinuousClosedShape](modules.md#iscontinuousclosedshape)
 - [isPointInPolygon](modules.md#ispointinpolygon)
 - [normalizeAngleDegrees](modules.md#normalizeangledegrees)
 - [normalizeAngleRadians](modules.md#normalizeangleradians)
 
 ## Variables
+
+### HalfPI
+
+• `Const` **HalfPI**: `number`
+
+#### Defined in
+
+[src/MathConstants.ts:2](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/MathConstants.ts#L2)
+
+___
 
 ### TwoPI
 
@@ -38,9 +52,76 @@
 
 #### Defined in
 
-[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/MathConstants.ts#L1)
+[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/MathConstants.ts#L1)
+
+___
+
+### directions
+
+• `Const` **directions**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `Down` | [`Vec3`](classes/Vec3.md) |
+| `East` | [`Vec3`](classes/Vec3.md) |
+| `North` | [`Vec3`](classes/Vec3.md) |
+| `South` | [`Vec3`](classes/Vec3.md) |
+| `Up` | [`Vec3`](classes/Vec3.md) |
+| `West` | [`Vec3`](classes/Vec3.md) |
+
+#### Defined in
+
+[src/directions.ts:3](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/directions.ts#L3)
+
+___
+
+### directions2d
+
+• `Const` **directions2d**: `Object`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `Down` | [`Vec2`](classes/Vec2.md) |
+| `Left` | [`Vec2`](classes/Vec2.md) |
+| `Right` | [`Vec2`](classes/Vec2.md) |
+| `Up` | [`Vec2`](classes/Vec2.md) |
+
+#### Defined in
+
+[src/directions2d.ts:3](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/directions2d.ts#L3)
 
 ## Functions
+
+### isContinuousClosedShape
+
+▸ **isContinuousClosedShape**\<`T`\>(`lines`, `tolerance?`): `boolean`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`Line3D`](classes/Line3D.md) \| [`Line2D`](classes/Line2D.md) |
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `lines` | `T`[] | `undefined` |
+| `tolerance` | `number` | `0` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/isContinuousClosedShape.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/isContinuousClosedShape.ts#L4)
+
+___
 
 ### isPointInPolygon
 
@@ -59,7 +140,7 @@
 
 #### Defined in
 
-[src/isPointInPolygon.ts:3](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/isPointInPolygon.ts#L3)
+[src/isPointInPolygon.ts:3](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/isPointInPolygon.ts#L3)
 
 ___
 
@@ -81,7 +162,7 @@ Normalizes an angle in degrees to the range [0, 360].
 
 #### Defined in
 
-[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/normalizeAngleDegrees.ts#L5)
+[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/normalizeAngleDegrees.ts#L5)
 
 ___
 
@@ -103,4 +184,4 @@ Normalize an angle in radians to the range of 0 to 2π.
 
 #### Defined in
 
-[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/normalizeAngleRadians.ts#L7)
+[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/normalizeAngleRadians.ts#L7)

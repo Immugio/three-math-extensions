@@ -27,7 +27,7 @@
 
 ### constructor
 
-• **new BoundingBox**(`minX`, `maxX`, `minY`, `maxY`)
+• **new BoundingBox**(`minX`, `maxX`, `minY`, `maxY`): [`BoundingBox`](BoundingBox.md)
 
 #### Parameters
 
@@ -38,9 +38,13 @@
 | `minY` | `number` |
 | `maxY` | `number` |
 
+#### Returns
+
+[`BoundingBox`](BoundingBox.md)
+
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L4)
 
 ## Properties
 
@@ -50,7 +54,7 @@
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L4)
 
 ___
 
@@ -60,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L4)
 
 ___
 
@@ -70,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L4)
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L4)
+[src/BoundingBox.ts:4](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L4)
 
 ## Accessors
 
@@ -94,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:11](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L11)
+[src/BoundingBox.ts:11](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L11)
 
 ## Methods
 
@@ -114,4 +118,4 @@ ___
 
 #### Defined in
 
-[src/BoundingBox.ts:7](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/BoundingBox.ts#L7)
+[src/BoundingBox.ts:7](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/BoundingBox.ts#L7)

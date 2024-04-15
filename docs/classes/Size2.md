@@ -17,7 +17,7 @@
 
 ### constructor
 
-• **new Size2**(`width`, `height`)
+• **new Size2**(`width`, `height`): [`Size2`](Size2.md)
 
 #### Parameters
 
@@ -26,9 +26,13 @@
 | `width` | `number` |
 | `height` | `number` |
 
+#### Returns
+
+[`Size2`](Size2.md)
+
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Size2.ts#L2)
 
 ## Properties
 
@@ -38,7 +42,7 @@
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Size2.ts#L2)
 
 ___
 
@@ -48,4 +52,4 @@ ___
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Size2.ts#L2)

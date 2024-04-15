@@ -18,6 +18,8 @@ Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
 
 ### Methods
 
+- [addX](Vec2.md#addx)
+- [addY](Vec2.md#addy)
 - [in3DSpace](Vec2.md#in3dspace)
 - [isNear](Vec2.md#isnear)
 - [moveTowards](Vec2.md#movetowards)
@@ -31,7 +33,7 @@ Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
 
 ### constructor
 
-• **new Vec2**(`x?`, `y?`)
+• **new Vec2**(`x?`, `y?`): [`Vec2`](Vec2.md)
 
 #### Parameters
 
@@ -39,6 +41,10 @@ Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.
 | :------ | :------ |
 | `x?` | `number` |
 | `y?` | `number` |
+
+#### Returns
+
+[`Vec2`](Vec2.md)
 
 #### Inherited from
 
@@ -49,6 +55,50 @@ Vector2.constructor
 node_modules/@types/three/src/math/Vector2.d.ts:140
 
 ## Methods
+
+### addX
+
+▸ **addX**(`x`): [`Vec2`](Vec2.md)
+
+Adds x amount to this Vec3 instance and return this
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+
+#### Returns
+
+[`Vec2`](Vec2.md)
+
+#### Defined in
+
+[src/Vec2.ts:53](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L53)
+
+___
+
+### addY
+
+▸ **addY**(`y`): [`Vec2`](Vec2.md)
+
+Adds y amount to this Vec3 instance and return this
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `y` | `number` |
+
+#### Returns
+
+[`Vec2`](Vec2.md)
+
+#### Defined in
+
+[src/Vec2.ts:44](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L44)
+
+___
 
 ### in3DSpace
 
@@ -70,7 +120,7 @@ A new Vec3 instance.
 
 #### Defined in
 
-[src/Vec2.ts:60](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L60)
+[src/Vec2.ts:78](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L78)
 
 ___
 
@@ -94,7 +144,7 @@ maxDistance is the maximum distance between the two vectors within which they ar
 
 #### Defined in
 
-[src/Vec2.ts:68](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L68)
+[src/Vec2.ts:86](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L86)
 
 ___
 
@@ -119,7 +169,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:34](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L34)
+[src/Vec2.ts:34](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L34)
 
 ___
 
@@ -142,7 +192,7 @@ check if the angle between the two vectors is close enough to 0 or 180 degrees (
 
 #### Defined in
 
-[src/Vec2.ts:89](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L89)
+[src/Vec2.ts:107](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L107)
 
 ___
 
@@ -166,7 +216,7 @@ This Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:45](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L45)
+[src/Vec2.ts:63](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L63)
 
 ___
 
@@ -182,13 +232,13 @@ Returns the angle between this vector and positive x-axis, the return value is b
 
 #### Defined in
 
-[src/Vec2.ts:79](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L79)
+[src/Vec2.ts:97](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L97)
 
 ___
 
 ### fromPoint
 
-▸ `Static` **fromPoint**(`point`): [`Vec2`](Vec2.md)
+▸ **fromPoint**(`point`): [`Vec2`](Vec2.md)
 
 Creates a new Vec2 instance from an {x, y} object.
 
@@ -206,13 +256,13 @@ A new Vec2 instance.
 
 #### Defined in
 
-[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L16)
+[src/Vec2.ts:16](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L16)
 
 ___
 
 ### fromPoints
 
-▸ `Static` **fromPoints**(`...points`): [`Vec2`](Vec2.md)[]
+▸ **fromPoints**(`...points`): [`Vec2`](Vec2.md)[]
 
 Creates a new Vec2[] array from arguments of {x, y} objects.
  *
@@ -229,4 +279,4 @@ Creates a new Vec2[] array from arguments of {x, y} objects.
 
 #### Defined in
 
-[src/Vec2.ts:24](https://github.com/Immugio/three-math-extensions/blob/66cba15/src/Vec2.ts#L24)
+[src/Vec2.ts:24](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Vec2.ts#L24)
