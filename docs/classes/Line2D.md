@@ -1,4 +1,4 @@
-[@immugio/three-math-extensions](../README.md) / [Exports](../modules.md) / Line2D
+[@immugio/three-math-extensions](../../README.md) / [Exports](../modules.md) / Line2D
 
 # Class: Line2D
 
@@ -93,7 +93,7 @@
 
 #### Defined in
 
-[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L16)
+[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L16)
 
 ## Properties
 
@@ -103,7 +103,7 @@
 
 #### Defined in
 
-[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L16)
+[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L16)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L16)
+[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L16)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L16)
+[src/Line2D.ts:16](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L16)
 
 ## Accessors
 
@@ -137,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:53](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L53)
+[src/Line2D.ts:53](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L53)
 
 • `set` **center**(`value`): `void`
 
@@ -156,7 +156,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:62](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L62)
+[src/Line2D.ts:62](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L62)
 
 ___
 
@@ -172,7 +172,7 @@ Returns the direction of this line.
 
 #### Defined in
 
-[src/Line2D.ts:189](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L189)
+[src/Line2D.ts:189](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L189)
 
 ___
 
@@ -189,7 +189,7 @@ Endpoints are not cloned.
 
 #### Defined in
 
-[src/Line2D.ts:162](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L162)
+[src/Line2D.ts:162](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L162)
 
 ___
 
@@ -203,7 +203,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:746](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L746)
+[src/Line2D.ts:746](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L746)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:751](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L751)
+[src/Line2D.ts:751](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L751)
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:145](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L145)
+[src/Line2D.ts:145](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L145)
 
 • `set` **length**(`l`): `void`
 
@@ -250,7 +250,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:140](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L140)
+[src/Line2D.ts:140](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L140)
 
 ## Methods
 
@@ -273,7 +273,7 @@ Clone the line, does not modify.
 
 #### Defined in
 
-[src/Line2D.ts:459](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L459)
+[src/Line2D.ts:459](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L459)
 
 ___
 
@@ -289,7 +289,7 @@ Deep clone of this line
 
 #### Defined in
 
-[src/Line2D.ts:830](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L830)
+[src/Line2D.ts:830](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L830)
 
 ___
 
@@ -313,7 +313,7 @@ Returns the closest point on the line to the given point.
 
 #### Defined in
 
-[src/Line2D.ts:478](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L478)
+[src/Line2D.ts:478](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L478)
 
 ___
 
@@ -334,7 +334,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:487](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L487)
+[src/Line2D.ts:487](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L487)
 
 ___
 
@@ -362,7 +362,7 @@ line's endpoints.
 
 #### Defined in
 
-[src/Line2D.ts:801](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L801)
+[src/Line2D.ts:801](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L801)
 
 ___
 
@@ -385,7 +385,7 @@ Check that this line segment contains provided point.
 
 #### Defined in
 
-[src/Line2D.ts:171](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L171)
+[src/Line2D.ts:171](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L171)
 
 ___
 
@@ -411,7 +411,7 @@ Both distance and angle tolerance can be provided.
 
 #### Defined in
 
-[src/Line2D.ts:434](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L434)
+[src/Line2D.ts:434](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L434)
 
 ___
 
@@ -431,7 +431,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:483](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L483)
+[src/Line2D.ts:483](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L483)
 
 ___
 
@@ -454,7 +454,7 @@ Distance from this line to the provided point.
 
 #### Defined in
 
-[src/Line2D.ts:181](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L181)
+[src/Line2D.ts:181](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L181)
 
 ___
 
@@ -476,7 +476,7 @@ Returns the distance between the **infinite** line and the point.
 
 #### Defined in
 
-[src/Line2D.ts:507](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L507)
+[src/Line2D.ts:507](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L507)
 
 ___
 
@@ -497,7 +497,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:819](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L819)
+[src/Line2D.ts:819](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L819)
 
 ___
 
@@ -521,7 +521,7 @@ Does not create a copy. Provided line is modified.
 
 #### Defined in
 
-[src/Line2D.ts:644](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L644)
+[src/Line2D.ts:644](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L644)
 
 ___
 
@@ -545,7 +545,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:665](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L665)
+[src/Line2D.ts:665](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L665)
 
 ___
 
@@ -562,7 +562,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:197](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L197)
+[src/Line2D.ts:197](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L197)
 
 ___
 
@@ -584,7 +584,7 @@ Logical AND of this and the other line section.
 
 #### Defined in
 
-[src/Line2D.ts:347](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L347)
+[src/Line2D.ts:347](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L347)
 
 ___
 
@@ -609,7 +609,7 @@ Check that the line section intersect and that they are in the specified angle t
 
 #### Defined in
 
-[src/Line2D.ts:727](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L727)
+[src/Line2D.ts:727](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L727)
 
 ___
 
@@ -633,7 +633,7 @@ A new Line3D instance.
 
 #### Defined in
 
-[src/Line2D.ts:815](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L815)
+[src/Line2D.ts:815](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L815)
 
 ___
 
@@ -656,7 +656,7 @@ Returns the intersection point of two lines.
 
 #### Defined in
 
-[src/Line2D.ts:690](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L690)
+[src/Line2D.ts:690](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L690)
 
 ___
 
@@ -678,7 +678,7 @@ Returns true if other line is collinear and overlaps or at least touching this l
 
 #### Defined in
 
-[src/Line2D.ts:297](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L297)
+[src/Line2D.ts:297](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L297)
 
 ___
 
@@ -699,7 +699,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:92](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L92)
+[src/Line2D.ts:92](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L92)
 
 ___
 
@@ -721,7 +721,7 @@ Returns true when the point is beside the line **segment**
 
 #### Defined in
 
-[src/Line2D.ts:277](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L277)
+[src/Line2D.ts:277](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L277)
 
 ___
 
@@ -744,7 +744,7 @@ Returns true when the point is beside the line **segment** and within the maxDis
 
 #### Defined in
 
-[src/Line2D.ts:268](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L268)
+[src/Line2D.ts:268](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L268)
 
 ___
 
@@ -766,7 +766,7 @@ Returns true when the point is on the **infinite** line.
 
 #### Defined in
 
-[src/Line2D.ts:289](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L289)
+[src/Line2D.ts:289](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L289)
 
 ___
 
@@ -790,7 +790,7 @@ https://stackoverflow.com/questions/6865832/detecting-if-a-point-is-of-a-line-se
 
 #### Defined in
 
-[src/Line2D.ts:255](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L255)
+[src/Line2D.ts:255](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L255)
 
 ___
 
@@ -813,7 +813,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:120](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L120)
+[src/Line2D.ts:120](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L120)
 
 ___
 
@@ -833,7 +833,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:109](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L109)
+[src/Line2D.ts:109](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L109)
 
 ___
 
@@ -861,7 +861,7 @@ line section.
 
 #### Defined in
 
-[src/Line2D.ts:309](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L309)
+[src/Line2D.ts:309](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L309)
 
 ___
 
@@ -884,7 +884,7 @@ Returns a new line that is the projection of this line onto @other. Uses `closes
 
 #### Defined in
 
-[src/Line2D.ts:447](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L447)
+[src/Line2D.ts:447](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L447)
 
 ___
 
@@ -904,7 +904,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:86](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L86)
+[src/Line2D.ts:86](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L86)
 
 ___
 
@@ -928,7 +928,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:211](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L211)
+[src/Line2D.ts:211](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L211)
 
 ___
 
@@ -951,7 +951,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:77](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L77)
+[src/Line2D.ts:77](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L77)
 
 ___
 
@@ -973,7 +973,7 @@ Set the length of this line. Center and direction remain unchanged.
 
 #### Defined in
 
-[src/Line2D.ts:153](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L153)
+[src/Line2D.ts:153](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L153)
 
 ___
 
@@ -996,7 +996,7 @@ Returns the original line section split into two parts, if the line **sections**
 
 #### Defined in
 
-[src/Line2D.ts:560](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L560)
+[src/Line2D.ts:560](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L560)
 
 ___
 
@@ -1020,7 +1020,7 @@ Otherwise, null if the lines are parallel and do not intersect
 
 #### Defined in
 
-[src/Line2D.ts:579](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L579)
+[src/Line2D.ts:579](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L579)
 
 ___
 
@@ -1034,7 +1034,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:834](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L834)
+[src/Line2D.ts:834](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L834)
 
 ___
 
@@ -1057,7 +1057,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:222](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L222)
+[src/Line2D.ts:222](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L222)
 
 ___
 
@@ -1080,7 +1080,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:235](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L235)
+[src/Line2D.ts:235](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L235)
 
 ___
 
@@ -1103,7 +1103,7 @@ Modifies this line.
 
 #### Defined in
 
-[src/Line2D.ts:244](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L244)
+[src/Line2D.ts:244](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L244)
 
 ___
 
@@ -1126,7 +1126,7 @@ Does not create a copy. Provided line is modified.
 
 #### Defined in
 
-[src/Line2D.ts:622](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L622)
+[src/Line2D.ts:622](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L622)
 
 ___
 
@@ -1155,7 +1155,7 @@ Clones the line, does not modify this.
 
 #### Defined in
 
-[src/Line2D.ts:521](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L521)
+[src/Line2D.ts:521](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L521)
 
 ___
 
@@ -1179,7 +1179,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:19](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L19)
+[src/Line2D.ts:19](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L19)
 
 ___
 
@@ -1199,7 +1199,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:49](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L49)
+[src/Line2D.ts:49](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L49)
 
 ___
 
@@ -1221,7 +1221,7 @@ ___
 
 #### Defined in
 
-[src/Line2D.ts:23](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L23)
+[src/Line2D.ts:23](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L23)
 
 ___
 
@@ -1246,7 +1246,7 @@ The polygon will only be closed if either
 
 #### Defined in
 
-[src/Line2D.ts:32](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L32)
+[src/Line2D.ts:32](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L32)
 
 ___
 
@@ -1270,7 +1270,7 @@ Accepts an array of Line2D and groups them into arrays of connected lines
 
 #### Defined in
 
-[src/Line2D.ts:761](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L761)
+[src/Line2D.ts:761](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L761)
 
 ___
 
@@ -1304,7 +1304,7 @@ Clones the line, does not modify.
 
 #### Defined in
 
-[src/Line2D.ts:381](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L381)
+[src/Line2D.ts:381](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L381)
 
 ___
 
@@ -1328,4 +1328,4 @@ Clone the lines, does not modify.
 
 #### Defined in
 
-[src/Line2D.ts:398](https://github.com/Immugio/three-math-extensions/blob/7b6daf7/src/Line2D.ts#L398)
+[src/Line2D.ts:398](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Line2D.ts#L398)
