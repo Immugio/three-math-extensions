@@ -305,7 +305,7 @@ export class Line3D extends Line3 {
     }
 
     /**
-     * Distance from this line to provided point.
+     * Distance from this line to the provided point.
      * @param p
      * @param clampToLine
      */

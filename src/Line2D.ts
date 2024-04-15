@@ -11,6 +11,8 @@ const _startEnd = /*@__PURE__*/ new Vec2();
 
 export class Line2D {
 
+    readonly #target: Vec2 = new Vec2();
+
     constructor(public start: Vec2, public end: Vec2, public index: number = 0) {
     }
 
@@ -162,6 +164,26 @@ export class Line2D {
     }
 
     /**
+     * Check that this line segment contains provided point.
+     * @param p
+     * @param tolerance
+     */
+    public containsPoint(p: Vector2, tolerance: number = 0): boolean {
+        const closestPointToPoint = this.closestPointToPoint(p, true, this.#target);
+        return closestPointToPoint.distanceTo(p) <= tolerance;
+    }
+
+    /**
+     * Distance from this line to the provided point.
+     * @param param
+     * @param clampToLine
+     */
+    public distanceToPoint(p: Vector2, clampToLine: boolean = true): number {
+        const closestPointToPoint = this.closestPointToPoint(p, clampToLine, this.#target);
+        return closestPointToPoint.distanceTo(p);
+    }
+
+    /**
      * Returns the direction of this line.
      */
     public get direction(): Vec2 {
@@ -284,16 +306,38 @@ export class Line2D {
     /**
      * Returns true if there is any overlap between this line and the @other line section.
      */
-    public overlaps(other: Line2D): boolean {
-        if (!this.isCollinearWithTouchOrOverlap(other)) {
-            return false;
-        }
-
-        if (this.start.equals(other.start) && this.end.equals(other.end)) {
+    public overlaps(other: Line2D, distanceTolerance: number = 0, parallelTolerance: number = 0): boolean {
+        // Special case
+        if (this.equals(other, distanceTolerance)) {
             return true;
         }
 
-        return !this.start.equals(other.end) && !this.end.equals(other.start);
+        // Always have to be parallel
+        if (this.isParallelTo(other, parallelTolerance)) {
+            // To pass as overlapping, at least one point has to be within the other line, but they mush not be equal - "touching" is not considered overlapping
+
+            const otherStartEqualsToAnyOfThisPoint = other.start.distanceTo(this.start) <= distanceTolerance || other.start.distanceTo(this.end) <= distanceTolerance;
+            if (this.containsPoint(other.start, distanceTolerance) && !otherStartEqualsToAnyOfThisPoint) {
+                return true;
+            }
+
+            const otherEndEqualsToAnyOfThisPoint = other.end.distanceTo(this.start) <= distanceTolerance || other.end.distanceTo(this.end) <= distanceTolerance;
+            if (this.containsPoint(other.end, distanceTolerance) && !otherEndEqualsToAnyOfThisPoint) {
+                return true;
+            }
+
+            const thisStartEqualsToAnyOfOtherPoint = this.start.distanceTo(other.start) <= distanceTolerance || this.start.distanceTo(other.end) <= distanceTolerance;
+            if (other.containsPoint(this.start, distanceTolerance) && !thisStartEqualsToAnyOfOtherPoint) {
+                return true;
+            }
+
+            const thisEndEqualsToAnyOfOtherPoint = this.end.distanceTo(other.start) <= distanceTolerance || this.end.distanceTo(other.end) <= distanceTolerance;
+            if (other.containsPoint(this.end, distanceTolerance) && !thisEndEqualsToAnyOfOtherPoint) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -380,6 +424,19 @@ export class Line2D {
         }
 
         return result;
+    }
+
+    /**
+     * Checks if the current line covers another line.
+     * A line is considered to cover another line if they are parallel and both the start and end points of the other line are contained within the current line.
+     * Both distance and angle tolerance can be provided.
+     */
+    public covers(other: Line2D, tolerance: number = 0, parallelTolerance: number = 0): boolean {
+        if (!this.isParallelTo(other, parallelTolerance)) {
+            return false;
+        }
+
+        return this.containsPoint(other.start, tolerance) && this.containsPoint(other.end, tolerance);
     }
 
     /**
@@ -759,8 +816,12 @@ export class Line2D {
         return new Line3D(this.start.in3DSpace(y), this.end.in3DSpace(y));
     }
 
-    public equals(other: Line2D): boolean {
-        return !!other && this.start.equals(other.start) && this.end.equals(other.end);
+    public equals(other: Line2D, tolerance: number = 0): boolean {
+        if (!tolerance) {
+            return !!other && this.start.equals(other.start) && this.end.equals(other.end);
+        }
+
+        return !!other && this.start.distanceTo(other.start) <= tolerance && this.end.distanceTo(other.end) <= tolerance;
     }
 
     /**
