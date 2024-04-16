@@ -1,4 +1,4 @@
-[@immugio/three-math-extensions](../README.md) / [Exports](../modules.md) / Size2
+[@immugio/three-math-extensions](../../README.md) / [Exports](../modules.md) / Size2
 
 # Class: Size2
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Size2.ts#L2)
 
 ## Properties
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Size2.ts#L2)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Size2.ts#L2)
+[src/Size2.ts:2](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Size2.ts#L2)

@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L8)
 
 ## Properties
 
@@ -60,7 +60,7 @@
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L8)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L8)
+[src/Polygon.ts:8](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L8)
 
 ## Accessors
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:24](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L24)
+[src/Polygon.ts:24](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L24)
 
 ## Methods
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:73](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L73)
+[src/Polygon.ts:73](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L73)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:48](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L48)
+[src/Polygon.ts:48](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L48)
 
 ___
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:29](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L29)
+[src/Polygon.ts:29](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L29)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:115](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L115)
+[src/Polygon.ts:115](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L115)
 
 ___
 
@@ -154,7 +154,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:57](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L57)
+[src/Polygon.ts:57](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L57)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:119](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L119)
+[src/Polygon.ts:119](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L119)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:96](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L96)
+[src/Polygon.ts:96](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L96)
 
 ___
 
@@ -202,7 +202,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:86](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L86)
+[src/Polygon.ts:86](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L86)
 
 ___
 
@@ -216,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:110](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L110)
+[src/Polygon.ts:110](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L110)
 
 ___
 
@@ -237,7 +237,7 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:11](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L11)
+[src/Polygon.ts:11](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L11)
 
 ___
 
@@ -258,4 +258,4 @@ ___
 
 #### Defined in
 
-[src/Polygon.ts:15](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Polygon.ts#L15)
+[src/Polygon.ts:15](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Polygon.ts#L15)

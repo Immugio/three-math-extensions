@@ -1,7 +1,6 @@
 ﻿import { Point2 } from "./Point2";
-import { Vector2 } from "three";
+import { MathUtils, Vector2 } from "three";
 import { Vec2 } from "./Vec2";
-import { MathUtils } from "three";
 import { TwoPI } from "./MathConstants";
 import { Line3D } from "./Line3D";
 import { directions2d } from "./directions2d";
@@ -184,6 +183,27 @@ export class Line2D {
     }
 
     /**
+     * Returns a copy of @other line, the direction of @other is reversed if needed.
+     * Returns null if lines are not parallel.
+     * @param other
+     * @param parallelTolerance
+     */
+    public getParallelLineInTheSameDirection(other: Line2D, parallelTolerance: number = 0): Line2D {
+        const direction = this.direction;
+
+        if (direction.angleTo(other.direction) <= parallelTolerance) {
+            return other.clone();
+        }
+
+        const otherLineOppositeDirection = other.clone().flip();
+        if (otherLineOppositeDirection.direction.angleTo(direction) <= parallelTolerance) {
+            return otherLineOppositeDirection;
+        }
+
+        return null;
+    }
+
+    /**
      * Returns the direction of this line.
      */
     public get direction(): Vec2 {
@@ -195,9 +215,9 @@ export class Line2D {
      * Modifies this line.
      */
     public flip(): this {
-        const temp = this.start.clone();
+        this.#target.copy(this.start);
         this.start.copy(this.end);
-        this.end.copy(temp);
+        this.end.copy(this.#target);
 
         return this;
     }

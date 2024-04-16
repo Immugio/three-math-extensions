@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/Point2.ts:2](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Point2.ts#L2)
+[src/Point2.ts:2](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Point2.ts#L2)
 
 ___
 
@@ -27,4 +27,4 @@ ___
 
 #### Defined in
 
-[src/Point2.ts:3](https://github.com/Immugio/three-math-extensions/blob/905d178/src/Point2.ts#L3)
+[src/Point2.ts:3](https://github.com/Immugio/three-math-extensions/blob/336678b/src/Point2.ts#L3)

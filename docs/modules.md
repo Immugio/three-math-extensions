@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/MathConstants.ts:2](https://github.com/Immugio/three-math-extensions/blob/905d178/src/MathConstants.ts#L2)
+[src/MathConstants.ts:2](https://github.com/Immugio/three-math-extensions/blob/336678b/src/MathConstants.ts#L2)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/905d178/src/MathConstants.ts#L1)
+[src/MathConstants.ts:1](https://github.com/Immugio/three-math-extensions/blob/336678b/src/MathConstants.ts#L1)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/directions.ts:3](https://github.com/Immugio/three-math-extensions/blob/905d178/src/directions.ts#L3)
+[src/directions.ts:3](https://github.com/Immugio/three-math-extensions/blob/336678b/src/directions.ts#L3)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/directions2d.ts:3](https://github.com/Immugio/three-math-extensions/blob/905d178/src/directions2d.ts#L3)
+[src/directions2d.ts:3](https://github.com/Immugio/three-math-extensions/blob/336678b/src/directions2d.ts#L3)
 
 ## Functions
 
@@ -119,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/isContinuousClosedShape.ts:4](https://github.com/Immugio/three-math-extensions/blob/905d178/src/isContinuousClosedShape.ts#L4)
+[src/isContinuousClosedShape.ts:4](https://github.com/Immugio/three-math-extensions/blob/336678b/src/isContinuousClosedShape.ts#L4)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/isPointInPolygon.ts:3](https://github.com/Immugio/three-math-extensions/blob/905d178/src/isPointInPolygon.ts#L3)
+[src/isPointInPolygon.ts:3](https://github.com/Immugio/three-math-extensions/blob/336678b/src/isPointInPolygon.ts#L3)
 
 ___
 
@@ -162,7 +162,7 @@ Normalizes an angle in degrees to the range [0, 360].
 
 #### Defined in
 
-[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/905d178/src/normalizeAngleDegrees.ts#L5)
+[src/normalizeAngleDegrees.ts:5](https://github.com/Immugio/three-math-extensions/blob/336678b/src/normalizeAngleDegrees.ts#L5)
 
 ___
 
@@ -184,4 +184,4 @@ Normalize an angle in radians to the range of 0 to 2π.
 
 #### Defined in
 
-[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/905d178/src/normalizeAngleRadians.ts#L7)
+[src/normalizeAngleRadians.ts:7](https://github.com/Immugio/three-math-extensions/blob/336678b/src/normalizeAngleRadians.ts#L7)
