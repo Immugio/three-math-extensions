@@ -2,6 +2,8 @@
 import { Vec2 } from "./Vec2";
 import { Rectangle } from "./Rectangle";
 import { BoundingBox } from "./BoundingBox";
+import { polygonPerimeter } from "./polygonPerimeter";
+import { isPointInPolygon } from "./isPointInPolygon";
 
 export class Polygon {
 
@@ -98,6 +100,14 @@ export class Polygon {
         this.flipSingle(centerX, this.contour);
         this.holes?.forEach(hole => this.flipSingle(centerX, hole));
         return this;
+    }
+
+    public perimeter(): number {
+        return polygonPerimeter(this.contour);
+    }
+
+    public containsPoint(point: Vec2): boolean {
+        return isPointInPolygon(this.contour, point) && (this.holes || []).every(hole => !isPointInPolygon(hole, point));
     }
 
     private flipSingle(centerX: number, poly: Vec2[]) {

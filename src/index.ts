@@ -15,3 +15,4 @@ export { isPointInPolygon } from "./isPointInPolygon";
 export { directions } from "./directions";
 export { directions2d } from "./directions2d";
 export { isContinuousClosedShape } from "./isContinuousClosedShape";
+export { polygonPerimeter } from "./polygonPerimeter";
