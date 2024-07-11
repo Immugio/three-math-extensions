@@ -504,7 +504,7 @@ export class Line2D {
         return target.subVectors(this.end, this.start);
     }
 
-    public closestPointToPointParameter(point, clampToLine): number {
+    public closestPointToPointParameter(point: Vector2, clampToLine: boolean): number {
         _startP.subVectors(point, this.start);
         _startEnd.subVectors(this.end, this.start);
 
@@ -538,7 +538,7 @@ export class Line2D {
      * @param source
      * @param clips
      */
-    public static clipLines(source: Line2D, clips: Line2D[]): Line2D[] {
+    public static clipLines(source: Line2D, clips: Line2D[], distanceTolerance: number = 0, parallelTolerance: number = 0): Line2D[] {
         if (!clips || clips.length === 0) return [source];
 
         clips = clips.map(c => {
@@ -560,7 +560,7 @@ export class Line2D {
 
             for (const cover of clips) {
 
-                if (tested.overlaps(cover)) {
+                if (tested.overlaps(cover, distanceTolerance, parallelTolerance)) {
                     isFree = false;
                     const subtracted = this.subtractSingle(tested, cover);
                     sources.push(...subtracted);
