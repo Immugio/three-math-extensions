@@ -28,7 +28,7 @@ export class Polygon {
         return new Vec2(maxX - minX, maxY - minY);
     }
 
-    public centerOnOrigin(): Polygon {
+    public centerOnOrigin(): this {
         const center = this.center();
 
         function centerPoints(points: Vec2[]): void {
@@ -56,7 +56,7 @@ export class Polygon {
         return new Vec2(x, y);
     }
 
-    public ensureLastPoint(): Polygon {
+    public ensureLastPoint(): this {
         function ensure(points: Vec2[]): void {
             if (!points[0].equals(points.at(-1))) {
                 points.push(points[0].clone());
@@ -95,7 +95,7 @@ export class Polygon {
         ]);
     }
 
-    public flip(): Polygon {
+    public flip(): this {
         const centerX = this.center().x;
         this.flipSingle(centerX, this.contour);
         this.holes?.forEach(hole => this.flipSingle(centerX, hole));
@@ -110,11 +110,17 @@ export class Polygon {
         return isPointInPolygon(this.contour, point) && (this.holes || []).every(hole => !isPointInPolygon(hole, point));
     }
 
-    private flipSingle(centerX: number, poly: Vec2[]) {
+    private flipSingle(centerX: number, poly: Vec2[]): void {
         for (const point of poly) {
             const xDistanceToCenter = Math.abs(centerX - point.x);
             point.x = point.x < centerX ? centerX + xDistanceToCenter : centerX - xDistanceToCenter;
         }
+    }
+
+    public translate(translate: Vec2): this {
+        this.contour.forEach(p => p.add(translate));
+        this.holes?.forEach(hole => hole.forEach(p => p.add(translate)));
+        return this;
     }
 
     public toRectangle(): Rectangle {
