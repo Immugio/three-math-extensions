@@ -123,6 +123,12 @@ export class Polygon {
         return this;
     }
 
+    public rotate(angle: number, center = this.center()): this {
+        this.contour.forEach(p => p.rotateAround(center, angle));
+        this.holes?.forEach(hole => hole.forEach(p => p.rotateAround(center, angle)));
+        return this;
+    }
+
     public toRectangle(): Rectangle {
         const bounding = this.boundingBox();
         return new Rectangle(bounding.minX, bounding.maxX, bounding.minY, bounding.maxY);
