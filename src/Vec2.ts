@@ -67,6 +67,12 @@ export class Vec2 extends Vector2 {
         if (Math.abs(this.y - Math.round(this.y)) < max) {
             this.y = Math.round(this.y);
         }
+        if (Object.is(this.x, -0)) {
+            this.x = 0;
+        }
+        if (Object.is(this.y, -0)) {
+            this.y = 0;
+        }
         return this;
     }
 

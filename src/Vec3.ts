@@ -94,6 +94,28 @@ export class Vec3 extends Vector3 {
         return Vec3.fromPoint(closest.point);
     }
 
+    public roundIfCloseToInteger(max: number = 0.000000000001): this {
+        if (Math.abs(this.x - Math.round(this.x)) < max) {
+            this.x = Math.round(this.x);
+        }
+        if (Math.abs(this.y - Math.round(this.y)) < max) {
+            this.y = Math.round(this.y);
+        }
+        if (Math.abs(this.z - Math.round(this.z)) < max) {
+            this.z = Math.round(this.z);
+        }
+        if (Object.is(this.x, -0)) {
+            this.x = 0;
+        }
+        if (Object.is(this.y, -0)) {
+            this.y = 0;
+        }
+        if (Object.is(this.z, -0)) {
+            this.z = 0;
+        }
+        return this;
+    }
+
     /**
      * Returns a clone of this Vec3 instance with y and z swapped.
      */

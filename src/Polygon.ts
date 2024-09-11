@@ -138,6 +138,12 @@ export class Polygon {
         return new Polygon(this.contour.map(p => p.clone()), this.holes?.map(h => h.map(p => p.clone())));
     }
 
+    public roundIfCloseToInteger(max: number = 0.000000000001): this {
+        this.contour.forEach(p => p.roundIfCloseToInteger(max));
+        this.holes?.forEach(h => h.forEach(p => p.roundIfCloseToInteger(max)));
+        return this;
+    }
+
     public equals(other: Polygon): boolean {
         if (this.contour.length !== other.contour.length) {
             return false;
