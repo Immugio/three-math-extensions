@@ -1,6 +1,6 @@
 {
   "name": "@immugio/three-math-extensions",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "description": "Set of utilities for 2d and 3d line math built on top of three.js",
   "author": "Jan Mikeska <janmikeska@gmail.com>",
   "license": "ISC",
