@@ -4,6 +4,9 @@ import { Rectangle } from "./Rectangle";
 import { BoundingBox } from "./BoundingBox";
 import { polygonPerimeter } from "./polygonPerimeter";
 import { isPointInPolygon } from "./isPointInPolygon";
+import { Line2D } from "./Line2D";
+import { offsetPolyline } from "./offsetPolyline";
+import { extendOrTrimPolylinesAtIntersections } from "./extendOrTrimPolylinesAtIntersections";
 
 export class Polygon {
 
@@ -137,6 +140,18 @@ export class Polygon {
             this.translate(new Vec2(-xMin, -yMin));
         }
 
+        return this;
+    }
+
+    public offsetContour(offset: number): this {
+        offsetPolyline(Line2D.fromVectors(this.contour), offset);
+        return this;
+    }
+
+    public translateContourLine(index: number, offset: number): this {
+        const lines = Line2D.fromVectors(this.contour);
+        lines[index].translateLeft(offset);
+        extendOrTrimPolylinesAtIntersections(lines);
         return this;
     }
 

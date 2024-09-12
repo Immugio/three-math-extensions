@@ -26,20 +26,31 @@ export class Line2D {
     /**
      * Creates a polygon formed by an array of lines from points provided.
      * The polygon will only be closed if either
-     * 1) the first and last points are the same or 2) `forceClosedPolygon` is true.
+     * 1) the first and last points are the same or 2) `@forceClosedPolygon` is true.
+     * Similar to Line2.fromVectors but creates new instances of Vec2.
      */
     public static fromPolygon(polygon: Point2[], forceClosedPolygon: boolean = false): Line2D[] {
+        return Line2D.fromVectors(polygon?.map(p => Vec2.fromPoint(p)), forceClosedPolygon);
+    }
+
+    /**
+     * Creates a polygon formed by an array of lines from points provided.
+     * The polygon will only be closed if either
+     * 1) the first and last points are the same or 2) `@forceClosedPolygon` is true.
+     * Similar to Line2.fromPolygon but keeps the original instances of Vec2.
+     */
+    public static fromVectors(polygon: Vec2[], forceClosedPolygon: boolean = false): Line2D[] {
         if (!polygon || polygon.length < 2) {
             return [];
         }
 
-        if (forceClosedPolygon && (polygon[0].x !== polygon.at(-1).x || polygon[0].y !== polygon.at(-1).y)) {
+        if (forceClosedPolygon && !polygon[0].equals(polygon.at(-1))) {
             polygon = [...polygon, polygon[0]];
         }
 
         const lines: Line2D[] = [];
         for (let i = 0; i < polygon.length - 1; i++) {
-            lines.push(Line2D.fromPoints(polygon[i], polygon[i + 1], i));
+            lines.push(new Line2D(polygon[i], polygon[i + 1], i));
         }
 
         return lines;
