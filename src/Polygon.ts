@@ -123,6 +123,23 @@ export class Polygon {
         return this;
     }
 
+    /**
+     * Translates the polygon so that the lowest x and y values are 0.
+     */
+    public shiftToZero(): this {
+        let xMin = Infinity, yMin = Infinity; // Find the diff between the lowest x & y & 0
+        for (const point of this.contour) {
+            xMin = Math.min(xMin, point.x);
+            yMin = Math.min(yMin, point.y);
+        }
+
+        if (xMin !== 0 || yMin !== 0) { // Make the poly to start at 0
+            this.translate(new Vec2(-xMin, -yMin));
+        }
+
+        return this;
+    }
+
     public rotate(angle: number, center = this.center()): this {
         this.contour.forEach(p => p.rotateAround(center, angle));
         this.holes?.forEach(hole => hole.forEach(p => p.rotateAround(center, angle)));

@@ -54,4 +54,28 @@ describe("Polygon", () => {
         const boundingSize = polygon.toBoundingPolygon().size;
         expect(boundingSize).toEqual(new Vec2(width, height));
     });
+
+    it("should translate a polygon with positive coordinates to start at (0,0)", () => {
+        // Arrange
+        const contour = [new Vec2(3, 5), new Vec2(13, 5), new Vec2(13, 10), new Vec2(3, 10)];
+        const polygon = new Polygon(contour);
+
+        // Act
+        polygon.shiftToZero();
+
+        // Assert
+        expect(polygon.contour).toEqual([new Vec2(0, 0), new Vec2(10, 0), new Vec2(10, 5), new Vec2(0, 5)]);
+    });
+
+    it("should translate a polygon with negative coordinates to start at (0,0)", () => {
+        // Arrange
+        const contour = [new Vec2(-1, -1), new Vec2(-2, -2), new Vec2(-3, -3)];
+        const polygon = new Polygon(contour);
+
+        // Act
+        polygon.shiftToZero();
+
+        // Assert
+        expect(polygon.contour).toEqual([new Vec2(2, 2), new Vec2(1, 1), new Vec2(0, 0)]);
+    });
 });
