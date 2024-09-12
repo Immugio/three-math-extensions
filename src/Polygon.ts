@@ -5,8 +5,6 @@ import { BoundingBox } from "./BoundingBox";
 import { polygonPerimeter } from "./polygonPerimeter";
 import { isPointInPolygon } from "./isPointInPolygon";
 import { Line2D } from "./Line2D";
-import { offsetPolyline } from "./offsetPolyline";
-import { extendOrTrimPolylinesAtIntersections } from "./extendOrTrimPolylinesAtIntersections";
 
 export class Polygon {
 
@@ -144,14 +142,47 @@ export class Polygon {
     }
 
     public offsetContour(offset: number): this {
-        offsetPolyline(Line2D.fromVectors(this.contour), offset);
+        if (!this.contour[0].equals(this.contour.at(-1))) {
+            console.error("The contour should be closed");
+            return this;
+        }
+
+        for (let i = 0; i < this.contour.length - 1; i++) {
+            this.translateContourLine(i, offset);
+        }
         return this;
     }
 
     public translateContourLine(index: number, offset: number): this {
-        const lines = Line2D.fromVectors(this.contour);
-        lines[index].translateLeft(offset);
-        extendOrTrimPolylinesAtIntersections(lines);
+        if (index < 0 || index > this.contour.length - 2) {
+            console.error(`Index out of bounds: ${index}`);
+            return this;
+        }
+
+        if (!this.contour[0].equals(this.contour.at(-1))) {
+            console.error("The contour should be closed");
+            return this;
+        }
+
+        const line = Line2D.fromPoints(this.contour[index], this.contour[index + 1]);
+        const prev = Line2D.fromPoints(this.contour[(index - 1 + this.contour.length) % this.contour.length], this.contour[index]);
+        const next = Line2D.fromPoints(this.contour[index + 1], this.contour[(index + 2) % this.contour.length]);
+
+        line.translateLeft(offset);
+        line.extendToOrTrimAtIntersection(prev);
+        line.extendToOrTrimAtIntersection(next);
+
+        this.contour[index].copy(line.start);
+        this.contour[index + 1].copy(line.end);
+
+        if (index === 0) {
+            this.contour.at(-1).copy(line.start);
+        }
+
+        if (index === this.contour.length - 2) {
+            this.contour[0].copy(line.end);
+        }
+
         return this;
     }
 
