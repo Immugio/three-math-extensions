@@ -94,6 +94,19 @@ export class Vec3 extends Vector3 {
         return Vec3.fromPoint(closest.point);
     }
 
+    public applyAxisAngleAroundCenter(axis: Vector3, angle: number, center: Vector3): this {
+        // Translate the vector to the origin
+        this.sub(center);
+
+        // Apply the axis-angle rotation
+        this.applyAxisAngle(axis, angle);
+
+        // Translate the vector back to the original position
+        this.add(center);
+
+        return this;
+    }
+
     public roundIfCloseToInteger(max: number = 0.000000000001): this {
         if (Math.abs(this.x - Math.round(this.x)) < max) {
             this.x = Math.round(this.x);
