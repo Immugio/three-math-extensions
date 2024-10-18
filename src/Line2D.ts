@@ -776,7 +776,7 @@ export class Line2D {
      * Accepts an array of Line2D and groups them into arrays of connected lines
      * @param lines Lines to be grouped
      * @param tolerance Tolerance for considering lines as connected
-     * @param breakpoints
+     * @param breakpoints Endpoints on breakpoints are not considered as connected
      */
     public static groupConnectedLines(lines: Line2D[], tolerance: number = 0, breakpoints: Vec2[] = []): Line2D[][] {
         const visited: Set<Line2D> = new Set();
@@ -790,9 +790,7 @@ export class Line2D {
 
             lines.forEach((neighbor) => {
                 if (!visited.has(neighbor)) {
-                    if (
-                        line.connectsTo(neighbor, tolerance, breakpoints)
-                    ) {
+                    if (line.connectsTo(neighbor, tolerance, breakpoints)) {
                         dfs(neighbor, group);
                     }
                 }
@@ -807,6 +805,19 @@ export class Line2D {
                 dfs(line, group);
                 connectedLines.push(group);
             }
+        });
+
+        // Sort each group based on connection order
+        connectedLines.forEach(group => {
+            group.sort((a, b) => {
+                if (a.start.isNear(b.start, tolerance) || a.end.isNear(b.start, tolerance)) {
+                    return -1;
+                }
+                if (a.start.isNear(b.end, tolerance) || a.end.isNear(b.end, tolerance)) {
+                    return 1;
+                }
+                return 0;
+            });
         });
 
         return connectedLines;

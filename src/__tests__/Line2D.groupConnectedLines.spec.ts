@@ -10,7 +10,6 @@ describe("groupConnectedLines", () => {
         const lines = [line1, line2, line3];
 
         const result = Line2D.groupConnectedLines(lines);
-        sortResult(result);
 
         expect(result).toEqual([[line1, line2], [line3]]);
     });
@@ -26,12 +25,28 @@ describe("groupConnectedLines", () => {
         const line7 = new Line2D(new Vec2(7, 7), new Vec2(8, 8), 7);
         const line8 = new Line2D(new Vec2(8, 8), new Vec2(9, 9), 8);
 
-        const lines = [line1, line5, line4, line6, line3, line7, line2, line8];
+        const lines = [line1, line8, line5, line4, line6, line3, line7, line2];
 
         const result = Line2D.groupConnectedLines(lines);
-        sortResult(result);
 
         expect(result).toEqual([[line1, line2, line3, line4], [line5, line6, line7, line8]]);
+    });
+
+    it("should correctly join connecting lines in and sort them so that the open ends are first and last and the array forms a consecutively connected polyline", () => {
+        const line1 = new Line2D(new Vec2(0, 0), new Vec2(1, 1), 1);
+        const line2 = new Line2D(new Vec2(1, 1), new Vec2(2, 2), 2);
+        const line3 = new Line2D(new Vec2(2, 2), new Vec2(3, 3), 3);
+        const line4 = new Line2D(new Vec2(3, 3), new Vec2(4, 4), 4);
+        const line5 = new Line2D(new Vec2(4, 4), new Vec2(5, 5), 5);
+        const line6 = new Line2D(new Vec2(5, 5), new Vec2(6, 6), 6);
+        const line7 = new Line2D(new Vec2(6, 6), new Vec2(7, 7), 7);
+        const line8 = new Line2D(new Vec2(7, 7), new Vec2(8, 8), 8);
+
+        const lines = [line6, line1, line8, line5, line4, line7, line3, line2];
+
+        const result = Line2D.groupConnectedLines(lines);
+
+        expect(result).toEqual([[line1, line2, line3, line4, line5, line6, line7, line8]]);
     });
 
     it("should not consider lines connected if the endpoints are on breakpoints", () => {
@@ -52,10 +67,9 @@ describe("groupConnectedLines", () => {
 
         const line8 = new Line2D(new Vec2(8, 8), new Vec2(9, 9), 8);
 
-        const lines = [line1, line5, line4, line6, line3, line7, line2, line8];
+        const lines = [line1, line3, line6, line4, line5, line7, line2, line8];
 
         const result = Line2D.groupConnectedLines(lines, 0, breakpoints);
-        sortResult(result);
 
         expect(result).toEqual([[line1, line2], [line3, line4], [line5, line6, line7], [line8]]);
     });
@@ -78,7 +92,6 @@ describe("groupConnectedLines", () => {
         const lines = [line1, line2, line3];
 
         const result = Line2D.groupConnectedLines(lines);
-        sortResult(result);
 
         expect(result).toEqual([[line1], [line2], [line3]]);
     });
@@ -102,10 +115,3 @@ describe("groupConnectedLines", () => {
     });
 
 });
-
-type LineGroups = Line2D[][];
-
-function sortResult(result: LineGroups) {
-    result.forEach(group => group.sort((a, b) => a.index - b.index));
-    result.sort((a, b) => a[0].index - b[0].index);
-}
