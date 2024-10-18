@@ -3,7 +3,7 @@ import { offsetPolyline } from "../offsetPolyline";
 
 describe("offsetPolyline", () => {
 
-    it("should offset a polyline by a positive value", () => {
+    it("should offset a closed polyline by a positive value", () => {
         // Arrange
         const lines = [
             Line2D.fromCoordinates(0, 0, 100, 0),
@@ -38,7 +38,7 @@ describe("offsetPolyline", () => {
         expect(result[3].end.y).toBeCloseTo(-1);
     });
 
-    it("should offset a polyline by a negative value", () => {
+    it("should offset a closed polyline by a negative value", () => {
         // Arrange
         const lines = [
             Line2D.fromCoordinates(0, 0, 100, 0),
@@ -100,5 +100,40 @@ describe("offsetPolyline", () => {
         expect(result[2].start.y).toBeCloseTo(178.82);
         expect(result[2].end.x).toBeCloseTo(5);
         expect(result[2].end.y).toBeCloseTo(5);
+    });
+
+    it("should offset an open polyline by a positive value", () => {
+        // Arrange
+        const lines = [
+            Line2D.fromCoordinates(0, 0, 100, 0),
+            Line2D.fromCoordinates(100, 0, 100, 200),
+            Line2D.fromCoordinates(100, 200, 0, 200),
+            Line2D.fromCoordinates(0, 200, 0, 50)
+        ];
+        const offset = 20;
+
+        // Act
+        const result = offsetPolyline(lines, offset);
+
+        // Assert
+        expect(result[0].start.x).toBeCloseTo(-0);
+        expect(result[0].start.y).toBeCloseTo(-20);
+        expect(result[0].end.x).toBeCloseTo(120);
+        expect(result[0].end.y).toBeCloseTo(-20);
+
+        expect(result[1].start.x).toBeCloseTo(120);
+        expect(result[1].start.y).toBeCloseTo(-20);
+        expect(result[1].end.x).toBeCloseTo(120);
+        expect(result[1].end.y).toBeCloseTo(220);
+
+        expect(result[2].start.x).toBeCloseTo(120);
+        expect(result[2].start.y).toBeCloseTo(220);
+        expect(result[2].end.x).toBeCloseTo(-20);
+        expect(result[2].end.y).toBeCloseTo(220);
+
+        expect(result[3].start.x).toBeCloseTo(-20);
+        expect(result[3].start.y).toBeCloseTo(220);
+        expect(result[3].end.x).toBeCloseTo(-20);
+        expect(result[3].end.y).toBeCloseTo(50);
     });
 });
