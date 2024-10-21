@@ -32,7 +32,7 @@ describe("groupConnectedLines", () => {
         expect(result).toEqual([[line1, line2, line3, line4], [line5, line6, line7, line8]]);
     });
 
-    it("should correctly join connecting lines in and sort them so that the open ends are first and last and the array forms a consecutively connected polyline", () => {
+    it("should correctly join connecting lines in and sort them so that the open ends are first and last and the array forms a consecutively connected polyline - sample 1", () => {
         const line1 = new Line2D(new Vec2(0, 0), new Vec2(1, 1), 1);
         const line2 = new Line2D(new Vec2(1, 1), new Vec2(2, 2), 2);
         const line3 = new Line2D(new Vec2(2, 2), new Vec2(3, 3), 3);
@@ -47,6 +47,21 @@ describe("groupConnectedLines", () => {
         const result = Line2D.groupConnectedLines(lines);
 
         expect(result).toEqual([[line1, line2, line3, line4, line5, line6, line7, line8]]);
+    });
+
+    it("should correctly join connecting lines in and sort them so that the open ends are first and last and the array forms a consecutively connected polyline - sample 2", () => {
+        const line1 = new Line2D(new Vec2(1963, 1152), new Vec2(1963, 1170), 1);
+        const line2 = new Line2D(new Vec2(1963, 1170), new Vec2(2790, 1170), 2);
+        const line3 = new Line2D(new Vec2(2790, 1170), new Vec2(2790, 150), 3);
+        const line4 = new Line2D(new Vec2(2790, 150), new Vec2(4038, 150), 4);
+        const line5 = new Line2D(new Vec2(4038, 150), new Vec2(4038, 1646), 5);
+        const line6 = new Line2D(new Vec2(4038, 1646), new Vec2(4136, 1646), 6);
+
+        const lines = [line3, line4, line5, line6, line1, line2];
+
+        const result = Line2D.groupConnectedLines(lines);
+
+        expect(result).toEqual([[line1, line2, line3, line4, line5, line6]]);
     });
 
     it("should not consider lines connected if the endpoints are on breakpoints", () => {

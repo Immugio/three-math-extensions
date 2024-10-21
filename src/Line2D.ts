@@ -4,6 +4,7 @@ import { Vec2 } from "./Vec2";
 import { TwoPI } from "./MathConstants";
 import { Line3D } from "./Line3D";
 import { directions2d } from "./directions2d";
+import { sortLinesByConnections } from "./sortLinesByConnections";
 
 const _startP = /*@__PURE__*/ new Vec2();
 const _startEnd = /*@__PURE__*/ new Vec2();
@@ -803,21 +804,8 @@ export class Line2D {
             if (!visited.has(line)) {
                 const group: Line2D[] = [];
                 dfs(line, group);
-                connectedLines.push(group);
+                connectedLines.push(sortLinesByConnections(group, 1));
             }
-        });
-
-        // Sort each group based on connection order
-        connectedLines.forEach(group => {
-            group.sort((a, b) => {
-                if (a.start.isNear(b.start, tolerance) || a.end.isNear(b.start, tolerance)) {
-                    return -1;
-                }
-                if (a.start.isNear(b.end, tolerance) || a.end.isNear(b.end, tolerance)) {
-                    return 1;
-                }
-                return 0;
-            });
         });
 
         return connectedLines;
