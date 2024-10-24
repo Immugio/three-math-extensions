@@ -76,6 +76,22 @@ export class Polygon {
         return this;
     }
 
+    public ensureOpen(): this {
+        function ensure(points: Vec2[]): void {
+            if (points.length > 2 && points[0].equals(points.at(-1))) {
+                points.pop();
+            }
+        }
+
+        ensure(this.contour);
+
+        for (const hole of this.holes || []) {
+            ensure(hole);
+        }
+
+        return this;
+    }
+
     public boundingBox(): BoundingBox {
         let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
 
