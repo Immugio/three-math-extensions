@@ -3,7 +3,6 @@ import { Vec2 } from "./Vec2";
 import { Rectangle } from "./Rectangle";
 import { BoundingBox } from "./BoundingBox";
 import { polygonPerimeter } from "./polygonPerimeter";
-import { isPointInPolygon } from "./isPointInPolygon";
 import { Line2D } from "./Line2D";
 import { isPolygonClockwise } from "./isPolygonClockwise";
 import { ensurePolygonClockwise } from "./ensurePolygonClockwise";
@@ -140,8 +139,9 @@ export class Polygon {
         return this;
     }
 
-    public containsPoint(point: Vec2): boolean {
-        return containsPoint(this.contour, point) && (this.holes || []).every(hole => !isPointInPolygon(hole, point));
+    public containsPoint(...points: Vec2[]): boolean {
+        return points.every(point => containsPoint(this.contour, point)) &&
+            (this.holes || []).every(hole => !points.some(point => containsPoint(hole, point)));
     }
 
     private flipSingle(centerX: number, poly: Vec2[]): void {

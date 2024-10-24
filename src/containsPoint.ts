@@ -60,3 +60,7 @@ export function containsPoint(polygon: Point2[], point: Point2): boolean {
 
     return (depth & 1) === 1;
 }
+
+export function containsPoints(polygon: Point2[], points: Point2[]): boolean {
+    return points.every(p => containsPoint(polygon, p));
+}
