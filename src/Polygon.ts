@@ -139,7 +139,7 @@ export class Polygon {
         return this;
     }
 
-    public containsPoint(...points: Vec2[]): boolean {
+    public containsPoint(...points: Point2[]): boolean {
         return points.every(point => containsPoint(this.contour, point)) &&
             (this.holes || []).every(hole => !points.some(point => containsPoint(hole, point)));
     }
