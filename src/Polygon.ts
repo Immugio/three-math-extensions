@@ -8,6 +8,7 @@ import { Line2D } from "./Line2D";
 import { isPolygonClockwise } from "./isPolygonClockwise";
 import { ensurePolygonClockwise } from "./ensurePolygonClockwise";
 import { containsPoint } from "./containsPoint";
+import { getPolygonArea } from "./getPolygonArea";
 
 export class Polygon {
 
@@ -90,6 +91,10 @@ export class Polygon {
         }
 
         return this;
+    }
+
+    public get area(): number {
+        return getPolygonArea(this.contour);
     }
 
     public boundingBox(): BoundingBox {
