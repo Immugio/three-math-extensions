@@ -21,5 +21,5 @@ export { extendOrTrimPolylinesAtIntersections } from "./extendOrTrimPolylinesAtI
 export { sortLinesByConnections } from "./sortLinesByConnections";
 export { isPolygonClockwise } from "./isPolygonClockwise";
 export { ensurePolygonClockwise } from "./ensurePolygonClockwise";
-export { containsPoint } from "./containsPoint";
+export { containsPoint, containsPoints } from "./containsPoint";
 export { getPolygonArea } from "./getPolygonArea";
