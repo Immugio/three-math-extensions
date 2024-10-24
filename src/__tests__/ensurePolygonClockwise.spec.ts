@@ -1,4 +1,4 @@
-import { ensurePolygonClockwise } from "./ensurePolygonClockwise";
+import { ensurePolygonClockwise } from "../ensurePolygonClockwise";
 
 describe("ensurePolygonClockwise", () => {
 

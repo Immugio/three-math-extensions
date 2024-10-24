@@ -6,7 +6,8 @@ import { polygonPerimeter } from "./polygonPerimeter";
 import { isPointInPolygon } from "./isPointInPolygon";
 import { Line2D } from "./Line2D";
 import { isPolygonClockwise } from "./isPolygonClockwise";
-import { ensurePolygonClockwise } from "./__tests__/ensurePolygonClockwise";
+import { ensurePolygonClockwise } from "./ensurePolygonClockwise";
+import { containsPoint } from "./containsPoint";
 
 export class Polygon {
 
@@ -119,7 +120,7 @@ export class Polygon {
     }
 
     public containsPoint(point: Vec2): boolean {
-        return isPointInPolygon(this.contour, point) && (this.holes || []).every(hole => !isPointInPolygon(hole, point));
+        return containsPoint(this.contour, point) && (this.holes || []).every(hole => !isPointInPolygon(hole, point));
     }
 
     private flipSingle(centerX: number, poly: Vec2[]): void {
