@@ -5,6 +5,7 @@ import { BoundingBox } from "./BoundingBox";
 import { polygonPerimeter } from "./polygonPerimeter";
 import { isPointInPolygon } from "./isPointInPolygon";
 import { Line2D } from "./Line2D";
+import { isPolygonClockwise } from "./isPolygonClockwise";
 
 export class Polygon {
 
@@ -105,6 +106,10 @@ export class Polygon {
 
     public perimeter(): number {
         return polygonPerimeter(this.contour);
+    }
+
+    public get isClockwise(): boolean {
+        return isPolygonClockwise(this.contour);
     }
 
     public containsPoint(point: Vec2): boolean {

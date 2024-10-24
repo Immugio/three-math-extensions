@@ -19,3 +19,4 @@ export { polygonPerimeter } from "./polygonPerimeter";
 export { offsetPolyline } from "./offsetPolyline";
 export { extendOrTrimPolylinesAtIntersections } from "./extendOrTrimPolylinesAtIntersections";
 export { sortLinesByConnections } from "./sortLinesByConnections";
+export { isPolygonClockwise } from "./isPolygonClockwise";
