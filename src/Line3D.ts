@@ -167,8 +167,8 @@ export class Line3D extends Line3 {
             return lines.map(x => x.clone());
         }
 
-        const toProcess = lines.slice();
-        const result: Line3D[] = [];
+        const toProcess = lines.map((line, index) => ({ line: line.clone(), index }));
+        const result: { line: Line3D, index: number }[] = [];
 
         while (toProcess.length > 0) {
             const current = toProcess.pop();
@@ -176,20 +176,23 @@ export class Line3D extends Line3 {
 
             for (let i = 0; i < result.length; i++) {
                 const other = result[i];
-                joinedLine = current.joinLine(other, distanceTolerance, parallelTolerance);
+                joinedLine = current.line.joinLine(other.line, distanceTolerance, parallelTolerance);
                 if (joinedLine) {
                     result.splice(i, 1);
-                    toProcess.push(joinedLine);
+                    toProcess.push({ line: joinedLine, index: current.index });
                     break;
                 }
             }
 
             if (!joinedLine) {
-                result.push(current.clone());
+                result.push(current);
             }
         }
 
-        return result;
+        // Sort the result based on the original indices
+        result.sort((a, b) => a.index - b.index);
+
+        return result.map(item => item.line);
     }
 
     /**

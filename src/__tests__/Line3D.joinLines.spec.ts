@@ -62,11 +62,60 @@ describe("Line3d.jointLines", () => {
                 new Line3D(new Vec3(100 + -5, 0, 0), new Vec3(100 + 35, 0, 0)),
             ]
         },
+        {
+            message: "When lines are not joined, order should be preserved. Simple case - two lines not joined.",
+            source: [
+                new Line3D(new Vec3(4800, 3000, 700), new Vec3(4800, 3200, 1200)), // Not joined
+                new Line3D(new Vec3(4800, 3200, 1200), new Vec3(4800, 3000, 1700)), // Not joined
+            ],
+            expected: [
+                new Line3D(new Vec3(4800, 3000, 700), new Vec3(4800, 3200, 1200)),
+                new Line3D(new Vec3(4800, 3200, 1200), new Vec3(4800, 3000, 1700)),
+            ]
+        },
+        {
+            message: "Order should be preserved - many joined, many not joined.",
+            source: [
+                new Line3D(new Vec3(0, 0, 0), new Vec3(1000, 0, 0)), // Joined Group 1
+                new Line3D(new Vec3(0, 100, 30), new Vec3(1000, 100, 30)), // Not joined
+                new Line3D(new Vec3(0, 100, 0), new Vec3(1000, 100, 0)), // Joined Group 2
+                new Line3D(new Vec3(4800, 3000, 700), new Vec3(4800, 3200, 1200)), // Not joined
+                new Line3D(new Vec3(4800, 3200, 1200), new Vec3(4800, 3000, 1700)), // Not joined
+                new Line3D(new Vec3(1000, 0, 0), new Vec3(2000, 0, 0)), // Joined Group 1
+                new Line3D(new Vec3(1000, 100, 0), new Vec3(2000, 100, 0)), // Joined Group 2
+            ],
+            expected: [
+                new Line3D(new Vec3(0, 0, 0), new Vec3(2000, 0, 0)), // Joined Group 1
+                new Line3D(new Vec3(0, 100, 30), new Vec3(1000, 100, 30)), // Not joined
+                new Line3D(new Vec3(0, 100, 0), new Vec3(2000, 100, 0)), // Joined Group 2
+                new Line3D(new Vec3(4800, 3000, 700), new Vec3(4800, 3200, 1200)), // Not joined
+                new Line3D(new Vec3(4800, 3200, 1200), new Vec3(4800, 3000, 1700)), // Not joined
+            ]
+        }
     ])("jointLines", ({ message, source, expected }) => {
         const result = Line3D.joinLines(source);
-        result.sort((a, b) => a.start.x - b.start.x); // Order of the result is not guaranteed
         test(`${message} - expected ${JSON.stringify(expected)}, received: ${JSON.stringify(result)}`, () => {
             expect(result).toEqual(expected);
+        });
+    });
+
+    it("should return new instances when jointLines", () => {
+            const source = [
+            new Line3D(new Vec3(0, 0, 0), new Vec3(1000, 0, 0)), // Joined Group 1
+            new Line3D(new Vec3(0, 100, 30), new Vec3(1000, 100, 30)), // Not joined
+            new Line3D(new Vec3(0, 100, 0), new Vec3(1000, 100, 0)), // Joined Group 2
+            new Line3D(new Vec3(4800, 3000, 700), new Vec3(4800, 3200, 1200)), // Not joined
+            new Line3D(new Vec3(4800, 3200, 1200), new Vec3(4800, 3000, 1700)), // Not joined
+            new Line3D(new Vec3(1000, 0, 0), new Vec3(2000, 0, 0)), // Joined Group 1
+            new Line3D(new Vec3(1000, 100, 0), new Vec3(2000, 100, 0)), // Joined Group 2
+        ];
+
+        const result = Line3D.joinLines(source);
+
+        result.forEach((line) => { // Check that all in the result are new instances
+            source.forEach((sourceLine) => {
+                expect(line).not.toBe(sourceLine);
+            });
         });
     });
 });
