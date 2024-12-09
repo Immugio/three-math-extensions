@@ -180,9 +180,21 @@ export class Polygon {
             return this;
         }
 
-        for (let i = 0; i < this.contour.length - 1; i++) {
-            this.translateContourLine(i, offset);
+        const lines = Line2D
+            .fromPolygon(this.contour)
+            .map(line => line.translateLeft(offset));
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+            const next = lines[(i + 1) % lines.length];
+            line.extendToOrTrimAtIntersection(next);
+            next.extendToOrTrimAtIntersection(line);
         }
+
+        for (let i = 0; i < this.contour.length; i++) {
+            this.contour[i].copy(lines[i % lines.length].start);
+        }
+
         return this;
     }
 

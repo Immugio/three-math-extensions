@@ -98,4 +98,33 @@ describe("offsetContour", () => {
         expect(polygon.contour[3].y).toBeCloseTo(5);
     });
 
+    it("should correctly offset the non perpendicular triangle contour by the given offset", () => {
+        // Arrange
+        const contour = [
+            new Vec2(0, 0),
+            new Vec2(600, 0),
+            new Vec2(300, 200),
+            new Vec2(0, 0),
+        ];
+
+        const polygon = new Polygon(contour);
+        const offset = -10;
+
+        // Act
+        polygon.offsetContour(offset);
+
+        // Assert
+        expect(polygon.contour[0].x).toBeCloseTo(33.027);
+        expect(polygon.contour[0].y).toBeCloseTo(10);
+
+        expect(polygon.contour[1].x).toBeCloseTo(566.972);
+        expect(polygon.contour[1].y).toBeCloseTo(10);
+
+        expect(polygon.contour[2].x).toBeCloseTo(300);
+        expect(polygon.contour[2].y).toBeCloseTo(187.981);
+
+        expect(polygon.contour[0].x).toBeCloseTo(33.027);
+        expect(polygon.contour[0].y).toBeCloseTo(10);
+    });
+
 });
