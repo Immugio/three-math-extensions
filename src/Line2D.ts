@@ -107,9 +107,7 @@ export class Line2D {
     * Modifies this line.
     */
     public moveStartPoint(amount: number): this {
-        const p1 = this.movePointOnThisLine(this.start, amount);
-        this.start.copy(p1);
-
+        this.start.add(this.direction.multiplyScalar(-amount));
         return this;
     }
 
@@ -118,18 +116,8 @@ export class Line2D {
      * Modifies this line.
      */
     public moveEndPoint(amount: number): this {
-        const p2 = this.movePointOnThisLine(this.end, amount);
-        this.end.copy(p2);
-
+        this.end.add(this.direction.multiplyScalar(amount));
         return this;
-    }
-
-    private movePointOnThisLine(point: Point2, amount: number): Vec2 {
-        const vec = new Vector2(this.center.x - point.x, this.center.y - point.y);
-        const length = vec.length();
-        vec.normalize().multiplyScalar(length + amount);
-
-        return new Vec2(this.center.x - vec.x,this.center.y - vec.y);
     }
 
     /**
@@ -487,6 +475,18 @@ export class Line2D {
             source.start = chunk.end.clone();
         }
         result.push(source);
+        return result;
+    }
+
+    public split(segmentsCount: number): Line2D[] {
+        const result: Line2D[] = [];
+        const segmentLength = this.length / segmentsCount;
+        for (let i = 0; i < segmentsCount; i++) {
+            const line = this.clone();
+            line.moveStartPoint(-i * segmentLength);
+            line.moveEndPoint(-(segmentsCount - i - 1) * segmentLength);
+            result.push(line);
+        }
         return result;
     }
 
