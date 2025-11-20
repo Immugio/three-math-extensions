@@ -1,13 +1,8 @@
-interface Point {
-    isNear(other: this, tolerance: number): boolean;
-}
+// The point type P must implement an isNear method that accepts the same point type and an optional tolerance.
+type Point<P extends { isNear(other: P, tolerance?: number): boolean }> = { isNear(other: P, tolerance?: number): boolean };
 
-interface Line<P extends Point> {
-    start: P;
-    end: P;
-}
-
-export function isContinuousClosedShape<P extends Point, T extends Line<P>>(lines: T[], tolerance: number = 0): boolean {
+// This matches the signatures on Vec2 and Vec3 (for example, isNear(v: Vector2, maxDistance?: number)).
+export function isContinuousClosedShape<P extends Point<P>>(lines: { start: P; end: P }[], tolerance: number = 0): boolean {
     if (lines.length < 3) {
         return false; // A shape needs at least 3 lines to be closed
     }
