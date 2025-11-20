@@ -1,7 +1,13 @@
-import { Line3D } from "./Line3D";
-import { Line2D } from "./Line2D";
+interface Point {
+    isNear(other: this, tolerance: number): boolean;
+}
 
-export function isContinuousClosedShape<T extends Line2D | Line3D>(lines: T[], tolerance: number = 0): boolean {
+interface Line<P extends Point> {
+    start: P;
+    end: P;
+}
+
+export function isContinuousClosedShape<P extends Point, T extends Line<P>>(lines: T[], tolerance: number = 0): boolean {
     if (lines.length < 3) {
         return false; // A shape needs at least 3 lines to be closed
     }
@@ -11,7 +17,7 @@ export function isContinuousClosedShape<T extends Line2D | Line3D>(lines: T[], t
         const endCurrent = lines[i].end;
         const startNext = lines[i + 1].start;
 
-        if (!endCurrent.isNear(startNext as any, tolerance)) {
+        if (!endCurrent.isNear(startNext, tolerance)) {
             return false; // If the end of the current line and start of the next line are not close, return false
         }
     }
@@ -20,5 +26,5 @@ export function isContinuousClosedShape<T extends Line2D | Line3D>(lines: T[], t
     const endLast = lines[lines.length - 1].end;
     const startFirst = lines[0].start;
 
-    return endLast.isNear(startFirst as any, tolerance);
+    return endLast.isNear(startFirst, tolerance);
 }
