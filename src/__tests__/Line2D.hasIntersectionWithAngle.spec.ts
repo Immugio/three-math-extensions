@@ -1,7 +1,7 @@
 import { Line2D } from "../Line2D";
 import { Point2 } from "../Point2";
 
-describe("Line2D", () => {
+describe("Line2D.hasIntersectionWithAngle", () => {
     test.each([
         [
             Line2D.fromCoordinates(0, 50, 100, 50),

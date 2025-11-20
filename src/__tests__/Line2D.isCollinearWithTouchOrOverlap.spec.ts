@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.isCollinearWithTouchOrOverlap", () => {
     test.each([
         [Line2D.fromCoordinates(10, 5, 15, 5), Line2D.fromCoordinates(15, 5, 20, 5), true], // Other on the right, touching
         [Line2D.fromCoordinates(5, 5, 15, 15), Line2D.fromCoordinates(15, 15, 16, 16), true], // Other on the right, touching, angle

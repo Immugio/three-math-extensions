@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.extendToEnds", () => {
     test("clipOverflow clip the overlapping sections from the other line", () => {
         const line = Line2D.fromCoordinates(0, 0, 15, 0);
         const other = Line2D.fromCoordinates(1, 0, 10, 0);

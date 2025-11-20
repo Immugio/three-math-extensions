@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.getOverlap", () => {
     test.each([
         [Line2D.fromCoordinates(10, 0, 20, 0), Line2D.fromCoordinates(0, 0, 10, 0), "Touch from the left but not overlapping", null],
         [Line2D.fromCoordinates(10, 0, 20, 0), Line2D.fromCoordinates(20, 0, 30, 0), "Touch from the right but not overlapping", null],

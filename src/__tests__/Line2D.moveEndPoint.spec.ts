@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.moveEndPoint", () => {
     test("moveEndPoint should move p1 on the line by the given amount", () => {
         const line = Line2D.fromCoordinates(-2, 1, 2, 1);
         expect(line.length).toEqual(4);

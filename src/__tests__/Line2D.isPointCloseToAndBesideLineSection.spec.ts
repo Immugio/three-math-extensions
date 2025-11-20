@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.isPointCloseToAndBesideLineSection", () => {
     test.each([
         [Line2D.fromCoordinates(5, 5, 15, 5), 10, 6, .9, false],
         [Line2D.fromCoordinates(5, 5, 15, 5), 10, 6, 1, true],

@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.rotate", () => {
     test("rotate should rotate the endpoints around the line center", () => {
         const line = Line2D.fromCoordinates(10, 0, 20, 0);
         line.rotate(Math.PI / 2); // 90 degrees counterclockwise

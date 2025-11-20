@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.joinLines", () => {
     test("joinLines returns correctly joined lines", () => {
         const gr1_Line1 = Line2D.fromCoordinates(15, 0, 20, 0);
         const gr1_Line2 = Line2D.fromCoordinates(20, 0, 55, 0);

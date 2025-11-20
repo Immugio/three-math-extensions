@@ -1,7 +1,7 @@
 import { Line2D } from "../Line2D";
 import { Vec3 } from "../Vec3";
 
-describe("Line2D", () => {
+describe("Line2D.in3DSpace", () => {
     it("Line2D.in3DSpace should project the Line2D to 3D space given the y coordinate", () => {
         const line = Line2D.fromCoordinates(1, 2, 3, 4);
         const result = line.in3DSpace(10);

@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.chunk", () => {
     test("Line.chunk should split lines in to multiple with expected length", () => {
         const size = 10;
         const line = Line2D.fromCoordinates(0, 0, 88, 0);

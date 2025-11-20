@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.resize", () => {
     test("resize should resize the line by the given length", () => {
         const line = Line2D.fromCoordinates(-2, 1, 2, 1);
         const originalCenter = line.center;

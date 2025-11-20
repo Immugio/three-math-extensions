@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.clipLines", () => {
     test.each([
         [
             Line2D.fromCoordinates(3550, 2400, 150, 2400),

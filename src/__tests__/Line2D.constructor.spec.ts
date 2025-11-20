@@ -1,7 +1,7 @@
 import { Line2D } from "../Line2D";
 import { Vec2 } from "../Vec2";
 
-describe("Line2D", () => {
+describe("Line2D.constructor", () => {
     it("should be created", () => {
         const start = new Vec2(1, 2);
         const end = new Vec2(3, 4);

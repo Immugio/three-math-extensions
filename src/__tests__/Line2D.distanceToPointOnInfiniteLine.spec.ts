@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.distanceToPointOnInfiniteLine", () => {
     test.each([
         [Line2D.fromCoordinates(5, 5, 15, 15), 5, 5, 0],
         [Line2D.fromCoordinates(5, 5, 15, 15), 10, 10, 0],

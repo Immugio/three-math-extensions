@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.fromCoordinates", () => {
     it("should be created fromCoordinates", () => {
         const line = Line2D.fromCoordinates(1, 2, 3, 4, 10);
         expect(line.start.x).toEqual(1);

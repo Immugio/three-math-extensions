@@ -2,7 +2,7 @@ import { Line2D } from "../Line2D";
 import { Vector2 } from "three";
 import { Vec2 } from "../Vec2";
 
-describe("Line2D", () => {
+describe("Line2D.closestPointToPoint", () => {
     test("closestPointOnInfiniteLine returns the closes point to the infinite line", () => {
         const line = Line2D.fromCoordinates(0, 0, 10, 0);
         const point = new Vector2(11, 1);

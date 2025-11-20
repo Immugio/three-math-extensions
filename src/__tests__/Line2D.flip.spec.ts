@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.flip", () => {
     test("flip should swap the end points", () => {
         const line = Line2D.fromCoordinates(-2, 1, 2, 1);
         const original = line.clone();

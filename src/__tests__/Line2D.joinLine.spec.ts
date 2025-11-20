@@ -1,6 +1,6 @@
 import { Line2D } from "../Line2D";
 
-describe("Line2D", () => {
+describe("Line2D.joinLine", () => {
     test.each([
         [Line2D.fromCoordinates(10, 5, 15, 5), Line2D.fromCoordinates(15, 5, 20, 5), Line2D.fromCoordinates(10, 5, 20, 5)], // Other on the right, touching
         [Line2D.fromCoordinates(5, 5, 15, 15), Line2D.fromCoordinates(15, 15, 16, 16), Line2D.fromCoordinates(5, 5, 16, 16)], // Other on the right, touching, angle
