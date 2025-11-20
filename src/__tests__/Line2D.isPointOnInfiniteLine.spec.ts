@@ -9,6 +9,6 @@ describe("Line2D.isPointOnInfiniteLine", () => {
         [Line2D.fromCoordinates(5, 5, 15, 15), 4, 4, true],
         [Line2D.fromCoordinates(5, 5, 15, 15), 15, 16, false],
     ])("Line.isPointOnInfiniteLine should return true if the point is on the infinite line", (line: Line2D, x, y, expected: boolean) => {
-        expect(line.isPointOnInfiniteLine({x, y})).toBe(expected);
+        expect(line.isPointOnInfiniteLine({ x, y })).toBe(expected);
     });
 });

@@ -1,5 +1,5 @@
-import {Line2D} from "../Line2D";
-import {Vec2} from "../Vec2";
+import { Line2D } from "../Line2D";
+import { Vec2 } from "../Vec2";
 
 describe("groupConnectedLines", () => {
 

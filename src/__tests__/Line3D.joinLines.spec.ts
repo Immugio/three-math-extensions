@@ -100,7 +100,7 @@ describe("Line3d.jointLines", () => {
     });
 
     it("should return new instances when jointLines", () => {
-            const source = [
+        const source = [
             new Line3D(new Vec3(0, 0, 0), new Vec3(1000, 0, 0)), // Joined Group 1
             new Line3D(new Vec3(0, 100, 30), new Vec3(1000, 100, 30)), // Not joined
             new Line3D(new Vec3(0, 100, 0), new Vec3(1000, 100, 0)), // Joined Group 2
@@ -112,8 +112,8 @@ describe("Line3d.jointLines", () => {
 
         const result = Line3D.joinLines(source);
 
-        result.forEach((line) => { // Check that all in the result are new instances
-            source.forEach((sourceLine) => {
+        result.forEach(line => { // Check that all in the result are new instances
+            source.forEach(sourceLine => {
                 expect(line).not.toBe(sourceLine);
             });
         });

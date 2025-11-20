@@ -11,6 +11,6 @@ describe("Line2D.isPointBesideLineSection", () => {
         [Line2D.fromCoordinates(5, 5, 15, 15), 4, 4, false],
         [Line2D.fromCoordinates(5, 5, 15, 15), 15, 16, false],
     ])("Line.isPointBesideLineSection should return true if the point is beside the line section", (line: Line2D, x, y, expected: boolean) => {
-        expect(line.isPointBesideLineSection({x, y})).toBe(expected);
+        expect(line.isPointBesideLineSection({ x, y })).toBe(expected);
     });
 });

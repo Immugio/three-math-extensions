@@ -15,7 +15,7 @@ export class Polygon {
     }
 
     public static fromPoints(contour: Point2[], holes?: Point2[][]): Polygon {
-        return new Polygon(contour.map(p => Vec2.fromPoint(p)), holes?.map(h => h.map(p => Vec2.fromPoint(p)))        );
+        return new Polygon(contour.map(p => Vec2.fromPoint(p)), holes?.map(h => h.map(p => Vec2.fromPoint(p))));
     }
 
     public static fromSize(width: number, height: number): Polygon {
@@ -285,4 +285,3 @@ export class Polygon {
         return true;
     }
 }
-

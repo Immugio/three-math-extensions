@@ -1,5 +1,5 @@
-import {Line3D} from "../Line3D";
-import {Vec3} from "../Vec3";
+import { Line3D } from "../Line3D";
+import { Vec3 } from "../Vec3";
 
 describe("groupConnectedLines", () => {
 

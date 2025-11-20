@@ -40,7 +40,6 @@ describe("getParallelLineInTheSameDirection", () => {
         expect(result).toBeNull();
     });
 
-
     it("should return a copy of the input line if it is not parallel to the current line but it's with the parallel tolerance", () => {
         // Arrange
         const line1 = new Line2D(new Vec2(0, 0), new Vec2(10, 0));

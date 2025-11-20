@@ -3,4 +3,3 @@ export interface Point3 {
     y: number,
     z: number
 }
-

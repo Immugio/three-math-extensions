@@ -56,7 +56,6 @@ export class Vec3 extends Vector3 {
         return this.moveTowards(target, this.distanceTo(target) / 2);
     }
 
-
     /**
      * Adds y amount to this Vec3 instance and return this
      * @param y

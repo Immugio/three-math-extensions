@@ -11,6 +11,6 @@ describe("Line2D.isPointOnLineSection", () => {
         [Line2D.fromCoordinates(5, 5, 15, 15), 4, 4, false],
         [Line2D.fromCoordinates(5, 5, 15, 15), 15, 16, false],
     ])("Line.isPointOnLineSection should return true if the point is on the line section", (line: Line2D, x, y, expected: boolean) => {
-        expect(line.isPointOnLineSection({x, y})).toBe(expected);
+        expect(line.isPointOnLineSection({ x, y })).toBe(expected);
     });
 });

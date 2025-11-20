@@ -11,6 +11,6 @@ describe("Line2D.distanceToPointOnInfiniteLine", () => {
         [Line2D.fromCoordinates(5, 5, 15, 15), 4, 4, 0],
         [Line2D.fromCoordinates(5, 5, 15, 15), 10, 11, 0.7071067811865476],
     ])("Line.distanceToPointOnInfiniteLine should return true if the point is beside the line section. Line: (%s, x: %s, y: %s) expected: %s", (line: Line2D, x, y, expected: number) => {
-        expect(line.distanceToPointOnInfiniteLine({x, y})).toBe(expected);
+        expect(line.distanceToPointOnInfiniteLine({ x, y })).toBe(expected);
     });
 });

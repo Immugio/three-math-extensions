@@ -285,7 +285,7 @@ export class Line2D {
      */
     public isPointBesideLineSection(point: Point2): boolean {
         const l2 = (((this.end.x - this.start.x) * (this.end.x - this.start.x)) + ((this.end.y - this.start.y) * (this.end.y - this.start.y)));
-        if (l2 == 0) return false;
+        if (l2 === 0) return false;
         const r = (((point.x - this.start.x) * (this.end.x - this.start.x)) + ((point.y - this.start.y) * (this.end.y - this.start.y))) / l2;
 
         return (0 <= r) && (r <= 1);
@@ -527,7 +527,7 @@ export class Line2D {
      */
     public distanceToPointOnInfiniteLine(point: Point2): number {
         const l2 = (((this.end.x - this.start.x) * (this.end.x - this.start.x)) + ((this.end.y - this.start.y) * (this.end.y - this.start.y)));
-        if (l2 == 0) return Infinity;
+        if (l2 === 0) return Infinity;
         const s = (((this.start.y - point.y) * (this.end.x - this.start.x)) - ((this.start.x - point.x) * (this.end.y - this.start.y))) / l2;
         return Math.abs(s) * Math.sqrt(l2);
     }
@@ -789,7 +789,7 @@ export class Line2D {
             visited.add(line);
             group.push(line);
 
-            lines.forEach((neighbor) => {
+            lines.forEach(neighbor => {
                 if (!visited.has(neighbor)) {
                     if (line.connectsTo(neighbor, tolerance, breakpoints)) {
                         dfs(neighbor, group);
@@ -800,7 +800,7 @@ export class Line2D {
 
         const connectedLines: Line2D[][] = [];
 
-        lines.forEach((line) => {
+        lines.forEach(line => {
             if (!visited.has(line)) {
                 const group: Line2D[] = [];
                 dfs(line, group);

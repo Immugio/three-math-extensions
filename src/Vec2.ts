@@ -1,7 +1,7 @@
-import {Vector2} from "three";
-import {Vec3} from "./Vec3";
-import {Point2} from "./Point2";
-import {normalizeAngleRadians} from "./normalizeAngleRadians";
+import { Vector2 } from "three";
+import { Vec3 } from "./Vec3";
+import { Point2 } from "./Point2";
+import { normalizeAngleRadians } from "./normalizeAngleRadians";
 
 /**
  * Vec2 represents a 2D vector. It extends `Vector2` from the `threejs` library.

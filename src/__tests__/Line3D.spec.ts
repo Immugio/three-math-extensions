@@ -216,7 +216,6 @@ describe("Line3D", () => {
         }
     });
 
-
     it("should trim the line and return right side offcuts, clip is completely contained in source", () => {
         // Arrange
         const source = new Line3D(new Vec3(0, 0, 0), new Vec3(10, 0, 0));

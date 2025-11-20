@@ -1,7 +1,7 @@
 import { Line2D } from "../Line2D";
 import { Vec2 } from "../Vec2";
 
-describe('Line2D.intersect', () => {
+describe("Line2D.intersect", () => {
     it("should return the correct intersection point for two intersecting lines", () => {
         const line1 = Line2D.fromCoordinates(0, 0, 5, 5);
         const line2 = Line2D.fromCoordinates(0, 5, 5, 0);

@@ -521,7 +521,7 @@ export class Line3D extends Line3 {
             visited.add(line);
             group.push(line);
 
-            lines.forEach((neighbor) => {
+            lines.forEach(neighbor => {
                 if (!visited.has(neighbor)) {
                     if (
                         line.connectsTo(neighbor, tolerance, breakpoints)
@@ -534,7 +534,7 @@ export class Line3D extends Line3 {
 
         const connectedLines: Line3D[][] = [];
 
-        lines.forEach((line) => {
+        lines.forEach(line => {
             if (!visited.has(line)) {
                 const group: Line3D[] = [];
                 dfs(line, group);

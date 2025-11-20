@@ -60,10 +60,10 @@ describe("isContinuousClosedShape 2D", () => {
     // Lines form a closed shape
     it("should return true when lines form a closed shape", () => {
         const lines = [
-            new Line2D(new Vec2(0  , 0  ), new Vec2(100, 0  )),
-            new Line2D(new Vec2(100, 0  ), new Vec2(100, 100)),
-            new Line2D(new Vec2(100, 100), new Vec2(0  , 100)),
-            new Line2D(new Vec2(0  , 100), new Vec2(0  , 0  ))
+            new Line2D(new Vec2(0, 0), new Vec2(100, 0)),
+            new Line2D(new Vec2(100, 0), new Vec2(100, 100)),
+            new Line2D(new Vec2(100, 100), new Vec2(0, 100)),
+            new Line2D(new Vec2(0, 100), new Vec2(0, 0))
         ];
 
         const result = isContinuousClosedShape(lines);
@@ -73,10 +73,10 @@ describe("isContinuousClosedShape 2D", () => {
     // Lines form a closed shape with tolerance
     it("should return true when lines form a closed shape with tolerance", () => {
         const lines = [
-            new Line2D(new Vec2(0  , 0  ), new Vec2(100, 0  )),
-            new Line2D(new Vec2(100, 0  ), new Vec2(100, 100)),
-            new Line2D(new Vec2(100, 100), new Vec2(0  , 100)),
-            new Line2D(new Vec2(0  , 99.5), new Vec2(0  , 0  ))
+            new Line2D(new Vec2(0, 0), new Vec2(100, 0)),
+            new Line2D(new Vec2(100, 0), new Vec2(100, 100)),
+            new Line2D(new Vec2(100, 100), new Vec2(0, 100)),
+            new Line2D(new Vec2(0, 99.5), new Vec2(0, 0))
         ];
 
         const result = isContinuousClosedShape(lines, 1);

@@ -1,4 +1,4 @@
-import {Line2D} from "../Line2D";
+import { Line2D } from "../Line2D";
 
 describe("isCloserToHorizontal", () => {
     test.each([
