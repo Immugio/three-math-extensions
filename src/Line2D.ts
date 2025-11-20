@@ -409,26 +409,28 @@ export class Line2D {
             return lines.map(x => x.clone());
         }
 
-        const toProcess = lines.slice();
-        const result: Line2D[] = [];
+        // Start with cloned lines as initial result
+        const result: Line2D[] = lines.map(x => x.clone());
 
-        while (toProcess.length > 0) {
+        // Keep trying to join lines until no more joins are possible
+        let joinedInLastPass = true;
+        while (joinedInLastPass) {
+            joinedInLastPass = false;
 
-            const current = toProcess.pop();
-            let joined = false;
-
+            // Try to join each pair of lines
             for (let i = 0; i < result.length; i++) {
-                const other = result[i];
-                const joinedLine = Line2D.joinLine(current, other);
-                if (joinedLine) {
-                    result[i] = joinedLine;
-                    joined = true;
-                    break;
+                for (let j = i + 1; j < result.length; j++) {
+                    const joinedLine = Line2D.joinLine(result[i], result[j]);
+                    if (joinedLine) {
+                        // Replace the first line with the joined line and remove the second
+                        result[i] = joinedLine;
+                        result.splice(j, 1);
+                        joinedInLastPass = true;
+                        // Start over from the beginning since we modified the array
+                        i = -1;
+                        break;
+                    }
                 }
-            }
-
-            if (!joined) {
-                result.push(current.clone());
             }
         }
 
