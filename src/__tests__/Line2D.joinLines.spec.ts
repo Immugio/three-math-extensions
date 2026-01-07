@@ -126,4 +126,108 @@ describe("Line2D.joinLines", () => {
         expect(group3.end.x).toEqual(1100);
         expect(group3.end.y).toEqual(1100);
     });
+
+    describe("with tolerances", () => {
+        it("should join lines with small gaps within distance tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(10, 0, 20, 0),
+                Line2D.fromCoordinates(20.1, 0, 30, 0), // Small gap of 0.1
+                Line2D.fromCoordinates(30.1, 0, 40, 0)  // Another small gap
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0);
+            expect(joined.length).toEqual(1);
+            expect(joined[0].start.x).toEqual(10);
+            expect(joined[0].end.x).toEqual(40);
+        });
+
+        it("should not join lines when gaps exceed distance tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(10, 0, 20, 0),
+                Line2D.fromCoordinates(25, 0, 35, 0) // Gap of 5
+            ];
+            const joined = Line2D.joinLines(lines, 1, 0);
+            expect(joined.length).toEqual(2);
+        });
+
+        it("should join lines with small angle differences within parallel tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(0, 0, 10, 0),
+                Line2D.fromCoordinates(10, 0.01, 20, 0.01) // Slight angle
+            ];
+            const joined = Line2D.joinLines(lines, 0.1, 0.02);
+            expect(joined.length).toEqual(1);
+        });
+
+        it("should not join lines when angle difference exceeds parallel tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(0, 0, 10, 0),
+                Line2D.fromCoordinates(10, 0, 20, 5) // Significant angle
+            ];
+            const joined = Line2D.joinLines(lines, 10, 0.1);
+            expect(joined.length).toEqual(2);
+        });
+
+        it("should join multiple groups with gaps within tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(10, 0, 20, 0),
+                Line2D.fromCoordinates(20.1, 0, 30, 0), // Group 1, gap
+                Line2D.fromCoordinates(100, 0, 110, 0),
+                Line2D.fromCoordinates(110.1, 0, 120, 0) // Group 2, gap
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0);
+            expect(joined.length).toEqual(2);
+        });
+
+        it("should preserve backward compatibility with no tolerances", () => {
+            const lines = [
+                Line2D.fromCoordinates(10, 0, 20, 0),
+                Line2D.fromCoordinates(20, 0, 30, 0)
+            ];
+            const joined1 = Line2D.joinLines(lines);
+            const joined2 = Line2D.joinLines(lines, 0, 0);
+            expect(joined1.length).toEqual(joined2.length);
+            expect(joined1[0].start.x).toEqual(joined2[0].start.x);
+            expect(joined1[0].end.x).toEqual(joined2[0].end.x);
+        });
+
+        it("should handle complex scenario with gaps and angles", () => {
+            const lines = [
+                Line2D.fromCoordinates(0, 0, 10, 0),
+                Line2D.fromCoordinates(10.05, 0.05, 20, 0.05), // Gap and slight angle
+                Line2D.fromCoordinates(20.1, 0.1, 30, 0.1)   // Another gap and angle
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0.02);
+            expect(joined.length).toEqual(1);
+        });
+
+        it("should handle vertical lines with tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(5, 0, 5, 10),
+                Line2D.fromCoordinates(5.1, 10, 5.1, 20) // Small gap
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0);
+            expect(joined.length).toEqual(1);
+        });
+
+        it("should handle diagonal lines with tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(0, 0, 10, 10),
+                Line2D.fromCoordinates(10.05, 10.05, 20, 20) // Small gap
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0.01);
+            expect(joined.length).toEqual(1);
+        });
+
+        it("should join lines out of order with tolerance", () => {
+            const lines = [
+                Line2D.fromCoordinates(20, 0, 30, 0),
+                Line2D.fromCoordinates(0, 0, 10, 0),
+                Line2D.fromCoordinates(10.1, 0, 20.1, 0) // Gap between segments
+            ];
+            const joined = Line2D.joinLines(lines, 0.2, 0);
+            expect(joined.length).toEqual(1);
+            expect(joined[0].start.x).toBeCloseTo(0, 1);
+            expect(joined[0].end.x).toBeCloseTo(30, 1);
+        });
+    });
 });
