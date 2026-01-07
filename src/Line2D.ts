@@ -301,17 +301,11 @@ export class Line2D {
 
     /**
      * Returns true if other line is collinear and overlaps or at least touching this line.
-     * @param other
-     */
-    public isCollinearWithTouchOrOverlap(other: Line2D): boolean;
-    /**
-     * Returns true if other line is collinear and overlaps or at least touching this line.
      * Uses tolerances to allow for small gaps and angle differences.
      * @param other
      * @param distanceTolerance Maximum distance between lines or points to be considered touching/overlapping
      * @param parallelTolerance Maximum angle difference in radians for lines to be considered parallel
      */
-    public isCollinearWithTouchOrOverlap(other: Line2D, distanceTolerance: number, parallelTolerance: number): boolean;
     public isCollinearWithTouchOrOverlap(other: Line2D, distanceTolerance: number = 0, parallelTolerance: number = 0): boolean {
         // If tolerances are provided, use tolerance-aware logic
         if (distanceTolerance > 0 || parallelTolerance > 0) {
@@ -446,15 +440,6 @@ export class Line2D {
 
     /**
      * Joins a copy of @line with the @other line.
-     * Other must be parallel to this line.
-     * Returns null if there is no overlap
-     * Clones the line, does not modify.
-     * @param line
-     * @param other
-     */
-    public static joinLine(line: Line2D, other: Line2D): Line2D;
-    /**
-     * Joins a copy of @line with the @other line.
      * Other must be parallel to this line (within tolerance).
      * Returns null if there is no overlap
      * Clones the line, does not modify.
@@ -463,7 +448,6 @@ export class Line2D {
      * @param distanceTolerance Maximum distance between lines or points to be considered touching/overlapping
      * @param parallelTolerance Maximum angle difference in radians for lines to be considered parallel
      */
-    public static joinLine(line: Line2D, other: Line2D, distanceTolerance: number, parallelTolerance: number): Line2D;
     public static joinLine(line: Line2D, other: Line2D, distanceTolerance: number = 0, parallelTolerance: number = 0): Line2D {
         if (!line.isCollinearWithTouchOrOverlap(other, distanceTolerance, parallelTolerance)) {
             return null;
@@ -508,20 +492,12 @@ export class Line2D {
 
     /**
      * Joins provided lines into several joined lines.
-     * Lines must be parallel for joining.
-     * Clone the lines, does not modify.
-     * @param lines
-     */
-    public static joinLines(lines: Line2D[]): Line2D[];
-    /**
-     * Joins provided lines into several joined lines.
      * Lines must be parallel for joining (within tolerance).
      * Clone the lines, does not modify.
      * @param lines
      * @param distanceTolerance Maximum distance between lines or points to be considered touching/overlapping
      * @param parallelTolerance Maximum angle difference in radians for lines to be considered parallel
      */
-    public static joinLines(lines: Line2D[], distanceTolerance: number, parallelTolerance: number): Line2D[];
     public static joinLines(lines: Line2D[], distanceTolerance: number = 0, parallelTolerance: number = 0): Line2D[] {
         if (lines.length < 2) {
             return lines.map(x => x.clone());
