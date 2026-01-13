@@ -19,4 +19,65 @@ describe("Line2D.joinLine", () => {
             expect(result.end.y).toEqual(expected.end.y);
         }
     });
+
+    describe("with tolerances", () => {
+        it("should join lines with small gap within distance tolerance", () => {
+            const line1 = Line2D.fromCoordinates(10, 5, 15, 5);
+            const line2 = Line2D.fromCoordinates(15.1, 5, 20, 5); // Small gap of 0.1
+            const result = Line2D.joinLine(line1, line2, 0.2, 0);
+            expect(result).not.toBeNull();
+            expect(result.start.x).toBe(10);
+            expect(result.end.x).toBe(20);
+            expect(Line2D.joinLine(line1, line2, 0.05, 0)).toBeNull();
+        });
+
+        it("should return null when gap exceeds distance tolerance", () => {
+            const line1 = Line2D.fromCoordinates(10, 5, 15, 5);
+            const line2 = Line2D.fromCoordinates(20, 5, 25, 5); // Large gap
+            const result = Line2D.joinLine(line1, line2, 1, 0);
+            expect(result).toBeNull();
+        });
+
+        it("should join lines with small angle difference within parallel tolerance", () => {
+            const line1 = Line2D.fromCoordinates(0, 0, 10, 0);
+            const line2 = Line2D.fromCoordinates(10, 0.01, 20, 0.01); // Slight angle
+            const result = Line2D.joinLine(line1, line2, 0.1, 0.02);
+            expect(result).not.toBeNull();
+        });
+
+        it("should return null when angle difference exceeds parallel tolerance", () => {
+            const line1 = Line2D.fromCoordinates(0, 0, 10, 0);
+            const line2 = Line2D.fromCoordinates(10, 0, 20, 5); // Significant angle
+            const result = Line2D.joinLine(line1, line2, 10, 0.1);
+            expect(result).toBeNull();
+        });
+
+        it("should join lines with both gap and angle tolerance", () => {
+            const line1 = Line2D.fromCoordinates(0, 0, 10, 0);
+            const line2 = Line2D.fromCoordinates(10.1, 0.05, 20, 0.05);
+            const result = Line2D.joinLine(line1, line2, 0.2, 0.02);
+            expect(result).not.toBeNull();
+            expect(Line2D.joinLine(line1, line2, 0.05, 0.02)).toBeNull();
+        });
+
+        it("should preserve backward compatibility with no tolerances", () => {
+            const line1 = Line2D.fromCoordinates(10, 5, 15, 5);
+            const line2 = Line2D.fromCoordinates(15, 5, 20, 5);
+            const result1 = Line2D.joinLine(line1, line2);
+            const result2 = Line2D.joinLine(line1, line2, 0, 0);
+            expect(result1).not.toBeNull();
+            expect(result2).not.toBeNull();
+            expect(result1.start.x).toBe(result2.start.x);
+            expect(result1.end.x).toBe(result2.end.x);
+        });
+
+        it("should handle reversed line order with tolerance", () => {
+            const line1 = Line2D.fromCoordinates(10, 5, 15, 5);
+            const line2 = Line2D.fromCoordinates(5, 5, 10.1, 5); // Gap on the left
+            const result = Line2D.joinLine(line1, line2, 0.2, 0);
+            expect(result).not.toBeNull();
+            expect(result.start.x).toBe(5);
+            expect(result.end.x).toBe(15);
+        });
+    });
 });
