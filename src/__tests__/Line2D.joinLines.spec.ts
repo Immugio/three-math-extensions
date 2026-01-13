@@ -51,14 +51,14 @@ describe("Line2D.joinLines", () => {
         // Find horizontal line (y=100, x from 100 to 500)
         const horizontal = joined.find(l => l.start.y === 100 && l.end.y === 100);
         expect(horizontal).toBeDefined();
-        expect(horizontal.start.x).toEqual(100);
-        expect(horizontal.end.x).toEqual(500);
+        expect(horizontal?.start.x).toEqual(100);
+        expect(horizontal?.end.x).toEqual(500);
 
         // Find vertical line (x=500, y from 0 to 400)
         const vertical = joined.find(l => l.start.x === 500 && l.end.x === 500);
         expect(vertical).toBeDefined();
-        expect(vertical.start.y).toEqual(0);
-        expect(vertical.end.y).toEqual(400);
+        expect(vertical?.start.y).toEqual(0);
+        expect(vertical?.end.y).toEqual(400);
     });
 
     it("should join lines with gaps requiring multiple passes", () => {
@@ -108,7 +108,7 @@ describe("Line2D.joinLines", () => {
             l.end.x === 300 && l.end.y === 300
         );
         expect(group1).toBeDefined();
-        expect(group1.length).toBeCloseTo(Math.sqrt(300 * 300 + 300 * 300), 1);
+        expect(group1?.length).toBeCloseTo(Math.sqrt(300 * 300 + 300 * 300), 1);
 
         // Group 2: (500,0) to (800,300)
         const group2 = joined.find(l =>
@@ -116,15 +116,15 @@ describe("Line2D.joinLines", () => {
             l.end.x === 800 && l.end.y === 300
         );
         expect(group2).toBeDefined();
-        expect(group2.length).toBeCloseTo(Math.sqrt(300 * 300 + 300 * 300), 1);
+        expect(group2?.length).toBeCloseTo(Math.sqrt(300 * 300 + 300 * 300), 1);
 
         // Group 3: standalone segment
         const group3 = joined.find(l =>
             l.start.x === 1000 && l.start.y === 1000
         );
         expect(group3).toBeDefined();
-        expect(group3.end.x).toEqual(1100);
-        expect(group3.end.y).toEqual(1100);
+        expect(group3?.end.x).toEqual(1100);
+        expect(group3?.end.y).toEqual(1100);
     });
 
     describe("with tolerances", () => {
@@ -138,6 +138,7 @@ describe("Line2D.joinLines", () => {
             expect(joined.length).toEqual(1);
             expect(joined[0].start.x).toEqual(10);
             expect(joined[0].end.x).toEqual(40);
+            expect(Line2D.joinLines(lines, 0.05, 0).length).toEqual(3);
         });
 
         it("should not join lines when gaps exceed distance tolerance", () => {
@@ -207,6 +208,7 @@ describe("Line2D.joinLines", () => {
             ];
             const joined = Line2D.joinLines(lines, 0.2, 0);
             expect(joined.length).toEqual(1);
+            expect(Line2D.joinLines(lines, 0.05, 0).length).toEqual(2);
         });
 
         it("should handle diagonal lines with tolerance", () => {
@@ -216,6 +218,7 @@ describe("Line2D.joinLines", () => {
             ];
             const joined = Line2D.joinLines(lines, 0.2, 0.01);
             expect(joined.length).toEqual(1);
+            expect(Line2D.joinLines(lines, 0.01, 0.01).length).toEqual(2);
         });
 
         it("should join lines out of order with tolerance", () => {

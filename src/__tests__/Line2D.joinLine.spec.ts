@@ -28,6 +28,7 @@ describe("Line2D.joinLine", () => {
             expect(result).not.toBeNull();
             expect(result.start.x).toBe(10);
             expect(result.end.x).toBe(20);
+            expect(Line2D.joinLine(line1, line2, 0.05, 0)).toBeNull();
         });
 
         it("should return null when gap exceeds distance tolerance", () => {
@@ -56,6 +57,7 @@ describe("Line2D.joinLine", () => {
             const line2 = Line2D.fromCoordinates(10.1, 0.05, 20, 0.05);
             const result = Line2D.joinLine(line1, line2, 0.2, 0.02);
             expect(result).not.toBeNull();
+            expect(Line2D.joinLine(line1, line2, 0.05, 0.02)).toBeNull();
         });
 
         it("should preserve backward compatibility with no tolerances", () => {

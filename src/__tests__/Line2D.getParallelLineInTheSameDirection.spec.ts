@@ -51,5 +51,6 @@ describe("getParallelLineInTheSameDirection", () => {
         // Assert
         expect(result).toEqual(line2);
         expect(result).not.toBe(line2);
+        expect(line1.getParallelLineInTheSameDirection(line2, 0.001)).toBeNull();
     });
 });

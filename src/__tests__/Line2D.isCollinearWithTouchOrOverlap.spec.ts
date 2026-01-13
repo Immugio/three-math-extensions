@@ -33,6 +33,7 @@ describe("Line2D.isCollinearWithTouchOrOverlap", () => {
             const line1 = Line2D.fromCoordinates(0, 0, 10, 0);
             const line2 = Line2D.fromCoordinates(10.1, 0.05, 20, 0.05); // Small gap and slight angle
             expect(line1.isCollinearWithTouchOrOverlap(line2, 0.2, 0.02)).toBe(true);
+            expect(line1.isCollinearWithTouchOrOverlap(line2, 0.05, 0.02)).toBe(false);
         });
 
         it("should not join lines that are too far apart", () => {
@@ -51,12 +52,14 @@ describe("Line2D.isCollinearWithTouchOrOverlap", () => {
             const line1 = Line2D.fromCoordinates(5, 0, 5, 10);
             const line2 = Line2D.fromCoordinates(5.1, 10, 5.1, 20); // Small gap
             expect(line1.isCollinearWithTouchOrOverlap(line2, 0.2, 0)).toBe(true);
+            expect(line1.isCollinearWithTouchOrOverlap(line2, 0.05, 0)).toBe(false);
         });
 
         it("should handle diagonal lines with tolerance", () => {
             const line1 = Line2D.fromCoordinates(0, 0, 10, 10);
             const line2 = Line2D.fromCoordinates(10.05, 10.05, 20, 20); // Small gap
             expect(line1.isCollinearWithTouchOrOverlap(line2, 0.2, 0.01)).toBe(true);
+            expect(line1.isCollinearWithTouchOrOverlap(line2, 0.01, 0.01)).toBe(false);
         });
     });
 });
