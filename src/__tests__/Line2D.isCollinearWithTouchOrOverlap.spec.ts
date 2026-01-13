@@ -12,7 +12,7 @@ describe("Line2D.isCollinearWithTouchOrOverlap", () => {
         expect(line.isCollinearWithTouchOrOverlap(other)).toBe(expected);
     });
 
-    describe("with tolerances", () => {
+    describe("Line2D.isCollinearWithTouchOrOverlap (with tolerances)", () => {
         it("should join lines with small gap within distance tolerance", () => {
             const line1 = Line2D.fromCoordinates(10, 5, 15, 5);
             const line2 = Line2D.fromCoordinates(15.1, 5, 20, 5); // Small gap of 0.1

@@ -1,4 +1,4 @@
-﻿import { Point2 } from "./Point2";
+import { Point2 } from "./Point2";
 import { MathUtils, Vector2 } from "three";
 import { Vec2 } from "./Vec2";
 import { TwoPI } from "./MathConstants";
@@ -307,68 +307,69 @@ export class Line2D {
      * @param parallelTolerance Maximum angle difference in radians for lines to be considered parallel
      */
     public isCollinearWithTouchOrOverlap(other: Line2D, distanceTolerance: number = 0, parallelTolerance: number = 0): boolean {
-        // If tolerances are provided, use tolerance-aware logic
-        if (distanceTolerance > 0 || parallelTolerance > 0) {
-            // Check if lines are parallel
-            if (!this.isParallelTo(other, parallelTolerance)) {
+        // Exact logic (no tolerances)
+
+        if (!distanceTolerance && !parallelTolerance) {
+            if (!this.isPointOnInfiniteLine(other.start) || !this.isPointOnInfiniteLine(other.end)) {
                 return false;
             }
 
-            // Check if points are close enough to the infinite line
-            const otherStartDistance = this.distanceToPointOnInfiniteLine(other.start);
-            const otherEndDistance = this.distanceToPointOnInfiniteLine(other.end);
-            const thisStartDistance = other.distanceToPointOnInfiniteLine(this.start);
-            const thisEndDistance = other.distanceToPointOnInfiniteLine(this.end);
-
-            if (otherStartDistance > distanceTolerance || otherEndDistance > distanceTolerance ||
-                thisStartDistance > distanceTolerance || thisEndDistance > distanceTolerance) {
-                return false;
-            }
-
-            // Check if any endpoint is close to and beside the other line section
-            // OR if the lines are close enough to each other (for gap handling)
-            const hasOverlap = this.isPointCloseToAndBesideLineSection(other.start, distanceTolerance) ||
-                this.isPointCloseToAndBesideLineSection(other.end, distanceTolerance) ||
-                other.isPointCloseToAndBesideLineSection(this.start, distanceTolerance) ||
-                other.isPointCloseToAndBesideLineSection(this.end, distanceTolerance);
-
-            if (hasOverlap) {
-                return true;
-            }
-
-            // Check if lines are close enough to bridge a gap
-            // Project all endpoints onto the line's direction and check if projections are within tolerance
-            const direction = this.direction;
-            const startPoint = this.start;
-
-            // Project all points onto the line's direction vector
-            const projectPoint = (p: Vec2): number => {
-                const toPoint = new Vec2().subVectors(p, startPoint);
-                return toPoint.dot(direction);
-            };
-
-            const thisStartProj = projectPoint(this.start);
-            const thisEndProj = projectPoint(this.end);
-            const otherStartProj = projectPoint(other.start);
-            const otherEndProj = projectPoint(other.end);
-
-            const minThis = Math.min(thisStartProj, thisEndProj);
-            const maxThis = Math.max(thisStartProj, thisEndProj);
-            const minOther = Math.min(otherStartProj, otherEndProj);
-            const maxOther = Math.max(otherStartProj, otherEndProj);
-
-            // Check if projections overlap or are within tolerance
-            const gap = Math.max(minThis, minOther) - Math.min(maxThis, maxOther);
-            return gap <= distanceTolerance;
+            return this.isPointOnLineSection(other.start) || this.isPointOnLineSection(other.end) ||
+                other.isPointOnLineSection(this.start) || other.isPointOnLineSection(this.end);
         }
 
-        // Original exact logic (no tolerances)
-        if (!this.isPointOnInfiniteLine(other.start) || !this.isPointOnInfiniteLine(other.end)) {
+        // If tolerances are provided, use tolerance-aware logic
+        // Check if lines are parallel
+        if (!this.isParallelTo(other, parallelTolerance)) {
             return false;
         }
 
-        return this.isPointOnLineSection(other.start) || this.isPointOnLineSection(other.end) ||
-            other.isPointOnLineSection(this.start) || other.isPointOnLineSection(this.end);
+        // Check if points are close enough to the infinite line
+        const otherStartDistance = this.distanceToPointOnInfiniteLine(other.start);
+        const otherEndDistance = this.distanceToPointOnInfiniteLine(other.end);
+        const thisStartDistance = other.distanceToPointOnInfiniteLine(this.start);
+        const thisEndDistance = other.distanceToPointOnInfiniteLine(this.end);
+
+        if (otherStartDistance > distanceTolerance || otherEndDistance > distanceTolerance ||
+            thisStartDistance > distanceTolerance || thisEndDistance > distanceTolerance) {
+            return false;
+        }
+
+        // Check if any endpoint is close to and beside the other line section
+        // OR if the lines are close enough to each other (for gap handling)
+        const hasOverlap = this.isPointCloseToAndBesideLineSection(other.start, distanceTolerance) ||
+            this.isPointCloseToAndBesideLineSection(other.end, distanceTolerance) ||
+            other.isPointCloseToAndBesideLineSection(this.start, distanceTolerance) ||
+            other.isPointCloseToAndBesideLineSection(this.end, distanceTolerance);
+
+        if (hasOverlap) {
+            return true;
+        }
+
+        // Check if lines are close enough to bridge a gap
+        // Project all endpoints onto the line's direction and check if projections are within tolerance
+        const direction = this.direction;
+        const startPoint = this.start;
+
+        // Project all points onto the line's direction vector
+        const projectPoint = (p: Vec2): number => {
+            const toPoint = new Vec2().subVectors(p, startPoint);
+            return toPoint.dot(direction);
+        };
+
+        const thisStartProj = projectPoint(this.start);
+        const thisEndProj = projectPoint(this.end);
+        const otherStartProj = projectPoint(other.start);
+        const otherEndProj = projectPoint(other.end);
+
+        const minThis = Math.min(thisStartProj, thisEndProj);
+        const maxThis = Math.max(thisStartProj, thisEndProj);
+        const minOther = Math.min(otherStartProj, otherEndProj);
+        const maxOther = Math.max(otherStartProj, otherEndProj);
+
+        // Check if projections overlap or are within tolerance
+        const gap = Math.max(minThis, minOther) - Math.min(maxThis, maxOther);
+        return gap <= distanceTolerance;
     }
 
     /**
@@ -456,36 +457,33 @@ export class Line2D {
         // When using tolerances, we need to check if points are close enough to the line section
         const useTolerance = distanceTolerance > 0 || parallelTolerance > 0;
 
-        let p1: Vec2;
-        let p2: Vec2;
-
-        if (useTolerance) {
-            // Determine the endpoints of the joined line
-            // We want the outermost points that encompass both lines
-            const points = [line.start, line.end, other.start, other.end];
-
-            // Project all points onto the line's direction to find min/max
-            const direction = line.direction;
-            const startPoint = line.start;
-
-            // Project each point onto the line's direction vector
-            const projections = points.map(p => {
-                const toPoint = new Vec2().subVectors(p, startPoint);
-                const t = toPoint.dot(direction);
-                return { point: p, t };
-            });
-
-            // Find the points with min and max projections
-            const minProj = projections.reduce((min, curr) => curr.t < min.t ? curr : min);
-            const maxProj = projections.reduce((max, curr) => curr.t > max.t ? curr : max);
-
-            p1 = minProj.point;
-            p2 = maxProj.point;
-        } else {
-            // Original exact logic
-            p1 = !line.isPointOnLineSection(other.start) ? other.start : line.start;
-            p2 = !line.isPointOnLineSection(other.end) ? other.end : line.end;
+        if (!useTolerance) {
+            const p1 = !line.isPointOnLineSection(other.start) ? other.start : line.start;
+            const p2 = !line.isPointOnLineSection(other.end) ? other.end : line.end;
+            return new Line2D(p1.clone(), p2.clone(), line.index);
         }
+
+        // Determine the endpoints of the joined line
+        // We want the outermost points that encompass both lines
+        const points = [line.start, line.end, other.start, other.end];
+
+        // Project all points onto the line's direction to find min/max
+        const direction = line.direction;
+        const startPoint = line.start;
+
+        // Project each point onto the line's direction vector
+        const projections = points.map(p => {
+            const toPoint = new Vec2().subVectors(p, startPoint);
+            const t = toPoint.dot(direction);
+            return { point: p, t };
+        });
+
+        // Find the points with min and max projections
+        const minProj = projections.reduce((min, curr) => curr.t < min.t ? curr : min);
+        const maxProj = projections.reduce((max, curr) => curr.t > max.t ? curr : max);
+
+        const p1 = minProj.point;
+        const p2 = maxProj.point;
 
         return new Line2D(p1.clone(), p2.clone(), line.index);
     }
@@ -498,7 +496,10 @@ export class Line2D {
      * @param distanceTolerance Maximum distance between lines or points to be considered touching/overlapping
      * @param parallelTolerance Maximum angle difference in radians for lines to be considered parallel
      */
-    public static joinLines(lines: Line2D[], distanceTolerance: number = 0, parallelTolerance: number = 0): Line2D[] {
+    public static joinLines(lines: Line2D[], distanceTolerance?: number, parallelTolerance?: number): Line2D[] {
+        const distTol = distanceTolerance ?? 0;
+        const parTol = parallelTolerance ?? 0;
+
         if (lines.length < 2) {
             return lines.map(x => x.clone());
         }
@@ -514,7 +515,7 @@ export class Line2D {
             // Try to join each pair of lines
             for (let i = 0; i < result.length; i++) {
                 for (let j = i + 1; j < result.length; j++) {
-                    const joinedLine = Line2D.joinLine(result[i], result[j], distanceTolerance, parallelTolerance);
+                    const joinedLine = Line2D.joinLine(result[i], result[j], distTol, parTol);
                     if (joinedLine) {
                         // Replace the first line with the joined line and remove the second
                         result[i] = joinedLine;
