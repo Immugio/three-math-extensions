@@ -308,7 +308,6 @@ export class Line2D {
      */
     public isCollinearWithTouchOrOverlap(other: Line2D, distanceTolerance: number = 0, parallelTolerance: number = 0): boolean {
         // Exact logic (no tolerances)
-
         if (!distanceTolerance && !parallelTolerance) {
             if (!this.isPointOnInfiniteLine(other.start) || !this.isPointOnInfiniteLine(other.end)) {
                 return false;
