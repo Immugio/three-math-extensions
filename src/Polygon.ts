@@ -97,6 +97,10 @@ export class Polygon {
     }
 
     public boundingBox(): BoundingBox {
+        if (!this.contour.length) {
+            return new BoundingBox(0, 0, 0, 0);
+        }
+
         let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
 
         for (const p of this.contour) {
