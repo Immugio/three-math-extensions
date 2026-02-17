@@ -8,6 +8,8 @@ import { isPolygonClockwise } from "./isPolygonClockwise";
 import { ensurePolygonClockwise } from "./ensurePolygonClockwise";
 import { containsPoint } from "./containsPoint";
 import { getPolygonArea } from "./getPolygonArea";
+import { ensurePolygonLastPoint } from "./ensurePolygonLastPoint";
+import { ensurePolygonOpen } from "./ensurePolygonOpen";
 
 export class Polygon {
 
@@ -61,32 +63,20 @@ export class Polygon {
     }
 
     public ensureLastPoint(): this {
-        function ensure(points: Vec2[]): void {
-            if (!points[0].equals(points.at(-1))) {
-                points.push(points[0].clone());
-            }
-        }
-
-        ensure(this.contour);
+        ensurePolygonLastPoint(this.contour);
 
         for (const hole of this.holes || []) {
-            ensure(hole);
+            ensurePolygonLastPoint(hole);
         }
 
         return this;
     }
 
     public ensureOpen(): this {
-        function ensure(points: Vec2[]): void {
-            if (points.length > 2 && points[0].equals(points.at(-1))) {
-                points.pop();
-            }
-        }
-
-        ensure(this.contour);
+        ensurePolygonOpen(this.contour);
 
         for (const hole of this.holes || []) {
-            ensure(hole);
+            ensurePolygonOpen(hole);
         }
 
         return this;

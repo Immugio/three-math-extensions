@@ -23,3 +23,5 @@ export { isPolygonClockwise } from "./isPolygonClockwise";
 export { ensurePolygonClockwise } from "./ensurePolygonClockwise";
 export { containsPoint, containsPoints } from "./containsPoint";
 export { getPolygonArea } from "./getPolygonArea";
+export { ensurePolygonLastPoint } from "./ensurePolygonLastPoint";
+export { ensurePolygonOpen } from "./ensurePolygonOpen";
